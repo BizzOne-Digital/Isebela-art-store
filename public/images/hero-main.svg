@@ -1,0 +1,18 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#0B0F17"/>
+  <g transform="translate(600, 400)">
+    <circle r="200" fill="#6B21A8" opacity="0.1"/>
+    <circle r="150" fill="#F97316" opacity="0.1"/>
+    <circle r="100" fill="#38BDF8" opacity="0.15"/>
+    <g transform="rotate(-45)">
+      <ellipse cx="0" cy="0" rx="80" ry="20" fill="#6B21A8" opacity="0.3"/>
+      <ellipse cx="0" cy="0" rx="60" ry="15" fill="#F97316" opacity="0.3"/>
+    </g>
+    <g transform="rotate(45)">
+      <ellipse cx="0" cy="0" rx="80" ry="20" fill="#38BDF8" opacity="0.3"/>
+      <ellipse cx="0" cy="0" rx="60" ry="15" fill="#10B981" opacity="0.3"/>
+    </g>
+    <text y="10" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="24">Isabel Creando</text>
+    <text y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui" font-size="16" opacity="0.7">Arte y Magia en Goma Eva</text>
+  </g>
+</svg>

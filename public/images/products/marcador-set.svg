@@ -1,0 +1,22 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#111827"/>
+  <g transform="translate(200, 250)">
+    <g transform="rotate(-30)">
+      <rect x="-8" y="-120" width="16" height="200" rx="8" fill="#6B21A8" opacity="0.3"/>
+    </g>
+    <g transform="rotate(0)">
+      <rect x="-8" y="-120" width="16" height="200" rx="8" fill="#F97316" opacity="0.3"/>
+    </g>
+    <g transform="rotate(30)">
+      <rect x="-8" y="-120" width="16" height="200" rx="8" fill="#38BDF8" opacity="0.3"/>
+    </g>
+    <g transform="rotate(60)">
+      <rect x="-8" y="-120" width="16" height="200" rx="8" fill="#EC4899" opacity="0.3"/>
+    </g>
+    <g transform="rotate(90)">
+      <rect x="-8" y="-120" width="16" height="200" rx="8" fill="#10B981" opacity="0.3"/>
+    </g>
+  </g>
+  <text x="200" y="430" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="14">Set Marcadores</text>
+  <text x="200" y="450" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="12">Página Magia</text>
+</svg>

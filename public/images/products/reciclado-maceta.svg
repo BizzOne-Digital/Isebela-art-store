@@ -1,0 +1,8 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#111827"/>
+  <path d="M120 450 Q120 150 200 100 Q280 150 280 450" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="2"/>
+  <ellipse cx="200" cy="120" rx="80" ry="20" fill="#10B981" opacity="0.3"/>
+  <circle cx="200" cy="120" r="50" fill="#6B21A8" opacity="0.3"/>
+  <text x="200" y="380" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="14">Maceta Reciclada</text>
+  <text x="200" y="400" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="12">Decorativa</text>
+</svg>

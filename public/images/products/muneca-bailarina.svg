@@ -1,0 +1,7 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#111827"/>
+  <circle cx="200" cy="160" r="60" fill="#F97316" opacity="0.2"/>
+  <ellipse cx="200" cy="340" rx="90" ry="100" fill="#EC4899" opacity="0.3"/>
+  <text x="200" y="260" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="14">Bailarina</text>
+  <text x="200" y="280" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="12">de Ensueño</text>
+</svg>

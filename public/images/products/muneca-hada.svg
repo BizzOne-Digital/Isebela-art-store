@@ -1,0 +1,7 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#111827"/>
+  <ellipse cx="200" cy="180" rx="70" ry="90" fill="#6B21A8" opacity="0.2"/>
+  <path d="M130 180 Q200 100 270 180" fill="none" stroke="#38BDF8" stroke-width="2" opacity="0.5"/>
+  <text x="200" y="260" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="14">Hada del Bosque</text>
+  <text x="200" y="280" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="12">Encantado</text>
+</svg>

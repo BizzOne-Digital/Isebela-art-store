@@ -1,0 +1,11 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#111827"/>
+  <rect x="60" y="100" width="280" height="300" rx="10" fill="#F97316" opacity="0.1" stroke="#F97316" stroke-width="2"/>
+  <rect x="80" y="120" width="240" height="40" rx="5" fill="#6B21A8" opacity="0.3"/>
+  <rect x="100" y="180" width="80" height="80" rx="5" fill="#38BDF8" opacity="0.2"/>
+  <rect x="220" y="180" width="80" height="80" rx="5" fill="#EC4899" opacity="0.2"/>
+  <rect x="100" y="280" width="80" height="80" rx="5" fill="#10B981" opacity="0.2"/>
+  <rect x="220" y="280" width="80" height="80" rx="5" fill="#F97316" opacity="0.2"/>
+  <text x="200" y="430" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="14">Caja de Tesoros</text>
+  <text x="200" y="450" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="12">Reciclada</text>
+</svg>

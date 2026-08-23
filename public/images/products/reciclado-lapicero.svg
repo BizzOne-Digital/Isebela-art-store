@@ -1,0 +1,8 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#111827"/>
+  <rect x="120" y="100" width="160" height="300" rx="20" fill="#38BDF8" opacity="0.1" stroke="#38BDF8" stroke-width="2"/>
+  <ellipse cx="200" cy="120" rx="80" ry="15" fill="#F97316" opacity="0.3"/>
+  <rect x="140" y="180" width="120" height="80" rx="10" fill="#10B981" opacity="0.2"/>
+  <text x="200" y="380" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="14">Lapicero Botella</text>
+  <text x="200" y="400" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="12">Mágica</text>
+</svg>

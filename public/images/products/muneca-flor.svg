@@ -1,0 +1,7 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#111827"/>
+  <circle cx="200" cy="180" r="80" fill="#F97316" opacity="0.3"/>
+  <ellipse cx="200" cy="350" rx="100" ry="120" fill="#6B21A8" opacity="0.2"/>
+  <text x="200" y="260" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="14">Muñeca Flor</text>
+  <text x="200" y="280" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="12">Primavera</text>
+</svg>

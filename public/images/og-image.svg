@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0B0F17"/>
+  <g transform="translate(600, 315)">
+    <circle r="120" fill="#6B21A8" opacity="0.15"/>
+    <circle r="80" fill="#F97316" opacity="0.15"/>
+    <circle r="40" fill="#38BDF8" opacity="0.2"/>
+    <text y="15" text-anchor="middle" fill="#38BDF8" font-family="system-ui" font-size="32" font-weight="bold">Isabel Creando</text>
+    <text y="55" text-anchor="middle" fill="#F8FAFC" font-family="system-ui" font-size="18" opacity="0.8">Arte y Magia en Goma Eva</text>
+    <text y="100" text-anchor="middle" fill="#F8FAFC" font-family="system-ui" font-size="14" opacity="0.6">Hecho a mano con amor en Argentina</text>
+  </g>
+</svg>
