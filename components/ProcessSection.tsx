@@ -79,13 +79,13 @@ const ProcessSection = () => {
         transition={{ delay: 0.1 }}
         className="relative z-10"
       >
-        <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-primary/30 via-secondary/30 to-accent/30" />
+        <div className="hidden lg:block absolute lg:left-[1rem] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/30 via-secondary/30 to-accent/30" />
 
         <div className="space-y-16 lg:space-y-24">
           {processSteps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.15 + index * 0.12, duration: 0.6 }}
               className={`relative flex flex-col lg:flex-row ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} items-start gap-8 lg:gap-16`}
@@ -123,7 +123,7 @@ const ProcessSection = () => {
         transition={{ delay: 0.7 }}
         className="mt-20 text-center relative z-10"
       >
-        <div className="inline-flex items-center gap-4 px-8 py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
+        <div className="inline-flex items-center gap-4 px-4 md:px-8 py-5 md:py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
           <Heart className="w-6 h-6 text-secondary" />
           <div className="text-left">
             <p className="font-serif text-textBase">Hecho con paciencia y amor</p>

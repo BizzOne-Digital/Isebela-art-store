@@ -18,8 +18,8 @@ const categoryData = [
   {
     id: 'muñecas',
     name: 'Muñecas',
-    icon: Baby,
-    description: 'Muñecas artesanales con alma y personalidad propia',
+    //icon: Baby,
+    //description: 'Muñecas artesanales con alma y personalidad propia',
     count: '12+ diseños',
     image: categoryImages[0],
     color: 'primary',
@@ -27,8 +27,8 @@ const categoryData = [
   {
     id: 'tarjetas',
     name: 'Tarjetas',
-    icon: FileText,
-    description: 'Tarjetas pop-up y 3D para ocasiones especiales',
+    //icon: FileText,
+   // description: 'Tarjetas pop-up y 3D para ocasiones especiales',
     count: '8+ diseños',
     image: categoryImages[1],
     color: 'secondary',
@@ -36,8 +36,8 @@ const categoryData = [
   {
     id: 'papelería',
     name: 'Papelería',
-    icon: BookOpen,
-    description: 'Libretas, agendas y marcadores hechos a mano',
+   // icon: BookOpen,
+    //description: 'Libretas, agendas y marcadores hechos a mano',
     count: '6+ diseños',
     image: categoryImages[2],
     color: 'accent',
@@ -45,8 +45,8 @@ const categoryData = [
   {
     id: 'manualidades-recicladas',
     name: 'Manualidades Recicladas',
-    icon: Recycle,
-    description: 'Arte sostenible con materiales reciclados',
+    //icon: Recycle,
+    //description: 'Arte sostenible con materiales reciclados',
     count: '5+ diseños',
     image: categoryImages[3],
     color: 'primary',
@@ -54,8 +54,8 @@ const categoryData = [
   {
     id: 'personalizados',
     name: 'Personalizados',
-    icon: Sparkles,
-    description: 'Creaciones únicas diseñadas exclusivamente para ti',
+    //icon: Sparkles,
+    //description: 'Creaciones únicas diseñadas exclusivamente para ti',
     count: 'A medida',
     image: categoryImages[4],
     color: 'secondary',
@@ -111,18 +111,19 @@ const CategoryExplorer = () => {
               </div>
               <div className="absolute inset-0 p-6 flex flex-col justify-end relative z-10">
                 <div className="mb-4">
-                  <category.icon className={`w-10 h-10 text-${category.color}`} />
+                  {/* <category.icon className={`w-10 h-10 text-${category.color}`} /> */}
                 </div>
-                <h3 className="text-xl font-serif text-textBase mb-1 group-hover:text-primary transition-colors">
+                {/* <h3 className="text-xl font-serif text-textBase mb-1 group-hover:text-primary transition-colors">
                   {category.name}
-                </h3>
-                <p className="text-textBase/60 text-sm mb-4 line-clamp-2">{category.description}</p>
+                </h3> */}
+                {/* <p className="text-textBase/60 text-sm mb-4 line-clamp-2">{category.description}</p> */}
                 <div className="flex items-center justify-between">
-                  <span className="text-textBase/50 text-xs font-sans">{category.count}</span>
-                  <span className="inline-flex items-center gap-1 text-accent text-sm font-sans group-hover:gap-2 transition-all">
+                  <span className="text-orange-500 text-md
+                   font-sans">{category.count}</span>
+                  {/* <span className="inline-flex items-center gap-1 text-accent text-sm font-sans group-hover:gap-2 transition-all">
                     Explorar
                     <ChevronRight className="w-4 h-4" />
-                  </span>
+                  </span> */}
                 </div>
               </div>
             </Link>
@@ -137,7 +138,7 @@ const CategoryExplorer = () => {
         className="mt-12 text-center relative z-10"
       >
         <Link
-          href="#collection"
+          href="#featured"
           className="inline-flex items-center gap-2 px-8 py-3 border border-accent/30 text-accent rounded-sm hover:bg-accent/10 transition-colors font-sans"
         >
           Ver todas las categorías

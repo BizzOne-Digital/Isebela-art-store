@@ -20,7 +20,7 @@ const CustomOrderSection = () => {
         <p className="text-textBase/60 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
           Cuéntame qué imaginas y juntas le daremos forma. Desde un personaje único hasta una colección completa para tu evento.
         </p>
-        <div className="inline-flex items-center gap-4 px-8 py-4 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
+        <div className="inline-flex items-center gap-4 px-4 md:px-8 py-4 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
           <Sparkles className="w-6 h-6 text-accent" />
           <div className="text-left">
             <p className="font-serif text-textBase">Personalización total</p>
@@ -37,7 +37,7 @@ const CustomOrderSection = () => {
       >
         <div className="space-y-8">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             className="p-8 bg-surfaceAlt/50 border border-accent/20 relative overflow-hidden"
           >
@@ -67,7 +67,7 @@ const CustomOrderSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
             className="p-8 bg-surfaceAlt/50 border border-accent/20 relative overflow-hidden"
@@ -97,9 +97,9 @@ const CustomOrderSection = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
           className="relative"
         >
           <div className="aspect-square rounded-2xl overflow-hidden border border-accent/20 bg-surfaceAlt relative">
@@ -123,11 +123,11 @@ const CustomOrderSection = () => {
             </div>
           </div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="absolute -bottom-8 -right-8 md:-right-12 w-72 md:w-80 p-6 bg-primary border border-primary/50"
+            className="absolute -bottom-35 -right-1 md:-right-6 w-60 sm:w-72 md:w-80 p-6 bg-primary border border-primary/50 max-w-[calc(100vw-2rem)] md:max-w-[calc(100vw-40px)]"
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-sm bg-white/10 flex items-center justify-center">
@@ -148,7 +148,7 @@ const CustomOrderSection = () => {
                 <p className="text-white/70 text-xs">Pieza Única</p>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </motion.div>
 
@@ -189,7 +189,7 @@ const CustomOrderSection = () => {
         transition={{ delay: 0.5 }}
         className="mt-16 text-center relative z-10"
       >
-        <div className="inline-flex items-center gap-4 px-8 py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
+        <div className="inline-flex items-center gap-4 px-4 md:px-8 py-5 md:py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg " >
           <Shield className="w-6 h-6 text-accent" />
           <div className="text-left">
             <p className="font-serif text-textBase">Garantía de satisfacción</p>

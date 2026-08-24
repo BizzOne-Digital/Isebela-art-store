@@ -17,9 +17,9 @@ export default function HeroSection() {
     <section id="inicio" className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
-      
+
       {/* AsciiArt Background - subtle animated ASCII art */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
+      <div className="absolute inset-0 opacity-35 pointer-events-none">
         <AsciiArt className="h-full w-full" />
       </div>
 
@@ -31,13 +31,13 @@ export default function HeroSection() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-center lg:text-left"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-xs font-sans uppercase tracking-widest rounded-full mb-6">
-              <Sparkles className="w-4 h-4" />
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/35 text-primary text-xs font-sans uppercase tracking-widest rounded-full mb-6">
+              <Sparkles className="w-4 h-4 " />
               Hecho a mano en Argentina
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-textBase leading-tight mb-6">
@@ -60,14 +60,14 @@ export default function HeroSection() {
               </button>
               <button
                 onClick={() => { const el = document.querySelector('#contacto'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
-                className="inline-flex items-center gap-2 px-8 py-4 border border-accent/30 text-accent rounded-sm hover:bg-accent/10 transition-colors font-sans text-base"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-black/70 border border-black/70 text-white rounded-sm hover:bg-black/80 transition-colors font-sans text-base"
               >
                 Encargo Personalizado
                 <Heart className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="mt-16 flex flex-wrap gap-6 justify-center lg:justify-start">
+            <div className="mt-16 w-full flex flex-wrap gap-6 justify-center lg:justify-start">
               {[
                 { icon: Heart, label: 'Hecho con Amor', desc: 'Cada pieza lleva horas de dedicación' },
                 { icon: Sparkles, label: 'Diseño Único', desc: 'No hay dos piezas iguales' },
@@ -113,7 +113,7 @@ export default function HeroSection() {
                 <p className="text-textBase/80 text-sm leading-relaxed italic text-center">
                   &ldquo;Mis manos saben lo que mi corazón imagina. Cada pieza es un fragmento de mi mundo interior hecho visible.&rdquo;
                 </p>
-                <p className="text-accent text-sm mt-3 font-sans text-center">&mdash; Isabel</p>
+                <p className="text-accent text-sm mt-3 font-sans text-end">&mdash; Isabel</p>
               </div>
             </div>
 
@@ -121,18 +121,18 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="absolute -bottom-8 -right-8 md:-right-12 w-64 md:w-72 p-6 bg-primary border border-primary/50"
+              className="absolute -bottom-40 -right-1 md:-right-4 w-64 md:w-72 p-6 bg-primary border border-primary/50  max-w-[calc(100vw-2rem)] md:max-w-none"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-sm bg-white/10 flex items-center justify-center">
                   <Heart className="w-6 h-6 text-white" />
                 </div>
-                <div>
+                <div className=''>
                   <p className="text-white text-sm font-sans uppercase tracking-wider">Hecho a Mano</p>
                   <p className="text-white/70 text-xs">En Argentina</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4 text-center">
+             <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
                   <p className="text-2xl font-serif text-white">50+</p>
                   <p className="text-white/70 text-xs">Diseños Únicos</p>
@@ -142,7 +142,7 @@ export default function HeroSection() {
                   <p className="text-white/70 text-xs">Años de Experiencia</p>
                 </div>
               </div>
-            </motion.div>
+             </motion.div>
 
             <motion.button
               onClick={scrollToProducts}

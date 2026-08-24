@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles, MessageCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const InstagramIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -51,7 +52,7 @@ const Navbar = () => {
     <header
       className={`sticky top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-surface/90 backdrop-blur-md border-b border-neutral-200/50 shadow-sm'
+          ? 'bg-surface/50 backdrop-blur-md border-b border-neutral-200/50 shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -64,14 +65,14 @@ const Navbar = () => {
           >
             <Link href="#inicio" className="flex items-center gap-3 group" onClick={(e) => { e.preventDefault(); scrollToSection('#inicio'); }}>
             <div className="w-10 h-10 rounded-sm relative overflow-hidden transition-transform group-hover:scale-105">
-              {/* <Image src="/images/logo/logo.jpeg" alt="Isabel Creando Logo" width={40} height={40} className="object-cover" /> */}
+              <Image src="/images/logo/logo.jpeg" alt="Isabel Creando Logo" width={40} height={40} className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
               <div className="flex flex-col">
                 <span className="text-lg md:text-xl font-serif text-textBase leading-none">
                   Isabel <span className="text-primary">Creando</span>
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-sans mt-1">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-black-400 font-sans mt-1">
                   Arte y Magia
                 </span>
               </div>

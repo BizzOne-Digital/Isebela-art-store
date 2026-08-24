@@ -1,24 +1,112 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, MessageSquare, Sparkles,Send } from 'lucide-react';
-import { FaWhatsapp,FaInstagram } from 'react-icons/fa';
+import { Mail, MapPin, Phone, MessageSquare, Sparkles, Send, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
+
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
+}
+
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
+  const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [touched, setTouched] = useState<Record<keyof FormData, boolean>>({ name: false, email: false, subject: false, message: false });
+
+  const validateField = (name: keyof FormData, value: string): string | undefined => {
+    const trimmed = value.trim();
+    switch (name) {
+      case 'name':
+        if (!trimmed) return 'El nombre es obligatorio';
+        if (trimmed.length < 2) return 'El nombre debe tener al menos 2 caracteres';
+        break;
+      case 'email':
+        if (!trimmed) return 'El email es obligatorio';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return 'Ingresa un email válido';
+        break;
+      case 'subject':
+        if (!trimmed) return 'Selecciona un asunto';
+        break;
+      case 'message':
+        if (!trimmed) return 'El mensaje es obligatorio';
+        if (trimmed.length < 10) return 'El mensaje debe tener al menos 10 caracteres';
+        break;
+    }
+    return undefined;
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    const fieldName = name as keyof FormData;
+    setTouched(prev => ({ ...prev, [fieldName]: true }));
+    const error = validateField(fieldName, value);
+    setErrors(prev => ({ ...prev, [fieldName]: error }));
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    const fieldName = name as keyof FormData;
+    const trimmed = value.trim();
+    setFormData(prev => ({ ...prev, [fieldName]: trimmed }));
+    if (touched[fieldName]) {
+      const error = validateField(fieldName, trimmed);
+      setErrors(prev => ({ ...prev, [fieldName]: error }));
+    }
+  };
+
+  const validateAll = (): boolean => {
+    const newErrors: FormErrors = {};
+    let isValid = true;
+    const fields: (keyof FormData)[] = ['name', 'email', 'subject', 'message'];
+    fields.forEach((field) => {
+      const error = validateField(field, formData[field]);
+      if (error) {
+        newErrors[field] = error;
+        isValid = false;
+      }
+    });
+    setErrors(newErrors);
+    setTouched({ name: true, email: true, subject: true, message: true });
+    return isValid;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateAll()) return;
+
     setStatus('submitting');
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setStatus('success');
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setErrors({});
+      setTouched({ name: false, email: false, subject: false, message: false });
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  const resetForm = () => {
+    setStatus('idle');
     setFormData({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setStatus('idle'), 3000);
+    setErrors({});
+    setTouched({ name: false, email: false, subject: false, message: false });
   };
 
   const contactInfo = [
@@ -51,6 +139,33 @@ const ContactSection = () => {
       desc: 'Proceso y novedades',
     },
   ];
+
+  const renderFieldError = (fieldName: keyof FormData) => {
+    const error = errors[fieldName];
+    const isTouched = touched[fieldName];
+    if (error && isTouched && status !== 'success') {
+      return (
+        <motion.p
+          initial={{ opacity: 0, y: -4 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex items-center gap-1.5 text-secondary text-xs font-sans mt-1.5"
+        >
+          <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+          {error}
+        </motion.p>
+      );
+    }
+    return null;
+  };
+
+  const getInputClassName = (fieldName: keyof FormData) => {
+    const hasError = errors[fieldName] && touched[fieldName] && status !== 'success';
+    return `w-full bg-surface p-3 transition-colors text-textBase placeholder:text-textBase/40 ${
+      hasError
+        ? 'border-secondary focus:border-secondary focus:ring-1 focus:ring-secondary'
+        : 'border-accent/20 focus:border-primary focus:ring-1 focus:ring-primary'
+    }`;
+  };
 
   return (
     <section id="contacto" className="px-6 max-w-7xl mx-auto py-24 relative">
@@ -120,10 +235,35 @@ const ContactSection = () => {
                 className="text-center py-12 relative z-10"
               >
                 <div className="w-16 h-16 mx-auto mb-4 bg-green-500/20 rounded-full flex items-center justify-center">
-                  <Sparkles className="w-8 h-8 text-green-500" />
+                  <CheckCircle2 className="w-8 h-8 text-green-500" />
                 </div>
                 <h4 className="text-xl font-serif text-textBase mb-2">¡Mensaje Enviado!</h4>
-                <p className="text-textBase/60">Te responderé lo antes posible. Gracias por confiar en mi arte.</p>
+                <p className="text-textBase/60 mb-6">Te responderé lo antes posible. Gracias por confiar en mi arte.</p>
+                <button
+                  onClick={resetForm}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 border border-accent/30 text-accent rounded-sm hover:bg-accent/10 transition-colors font-sans text-sm"
+                >
+                  Enviar otra consulta
+                  <Sparkles className="w-4 h-4" />
+                </button>
+              </motion.div>
+            ) : status === 'error' ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-12 relative z-10"
+              >
+                <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center">
+                  <AlertCircle className="w-8 h-8 text-secondary" />
+                </div>
+                <h4 className="text-xl font-serif text-textBase mb-2">Error al enviar</h4>
+                <p className="text-textBase/60 mb-6">Ocurrió un problema. Por favor, intenta de nuevo o escríbeme directamente por WhatsApp.</p>
+                <button
+                  onClick={resetForm}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-sm hover:bg-primary/90 transition-colors font-sans text-sm"
+                >
+                  Reintentar
+                </button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="relative z-10 space-y-4" noValidate>
@@ -138,11 +278,14 @@ const ContactSection = () => {
                       name="name"
                       required
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-surface p-3 border border-accent/20 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-textBase placeholder:text-textBase/40"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={getInputClassName('name')}
                       placeholder="Tu nombre"
                       disabled={status === 'submitting'}
+                      autoComplete="name"
                     />
+                    {renderFieldError('name')}
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-sans text-textBase/70 mb-1.5">
@@ -154,11 +297,14 @@ const ContactSection = () => {
                       name="email"
                       required
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-surface p-3 border border-accent/20 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-textBase placeholder:text-textBase/40"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={getInputClassName('email')}
                       placeholder="tu@email.com"
                       disabled={status === 'submitting'}
+                      autoComplete="email"
                     />
+                    {renderFieldError('email')}
                   </div>
                 </div>
                 <div>
@@ -170,8 +316,9 @@ const ContactSection = () => {
                     name="subject"
                     required
                     value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full bg-surface p-3 border border-accent/20 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-textBase"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={getInputClassName('subject')}
                     disabled={status === 'submitting'}
                   >
                     <option value="">Selecciona un tema</option>
@@ -181,6 +328,7 @@ const ContactSection = () => {
                     <option value="collaboration">Colaboración</option>
                     <option value="other">Otro</option>
                   </select>
+                  {renderFieldError('subject')}
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-sans text-textBase/70 mb-1.5">
@@ -192,11 +340,13 @@ const ContactSection = () => {
                     required
                     rows={5}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-surface p-3 border border-accent/20 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-textBase placeholder:text-textBase/40 resize-none"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`${getInputClassName('message')} resize-none`}
                     placeholder="Cuéntame tu idea, colores, tamaños, cantidad, fecha de entrega..."
                     disabled={status === 'submitting'}
                   />
+                  {renderFieldError('message')}
                 </div>
                 <button
                   type="submit"

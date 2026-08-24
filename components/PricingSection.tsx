@@ -188,7 +188,7 @@ const PricingSection = () => {
         transition={{ delay: 0.5 }}
         className="mt-20 text-center relative z-10"
       >
-        <div className="inline-flex items-center gap-4 px-8 py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg mb-8">
+        <div className="inline-flex items-center gap-4 px-4 md:px-8 py-5 md:py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg mb-8">
           <Shield className="w-6 h-6 text-accent" />
           <div className="text-left">
             <p className="font-serif text-textBase">Garantía de Satisfacción</p>

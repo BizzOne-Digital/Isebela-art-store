@@ -61,13 +61,13 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
         animate={{ opacity: 1, y: 0 }}
         className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-24"
       >
-        {/* <Link
-          href="#productos"
+        <Link
+          href="/#productos"
           className="inline-flex items-center gap-2 text-textBase/60 hover:text-primary transition-colors text-sm font-sans mb-8"
         >
           <ChevronLeft className="w-4 h-4" />
           Volver a la colección
-        </Link> */}
+        </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           <div className="relative">
@@ -281,7 +281,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
           transition={{ delay: 0.5 }}
           className="mt-20 text-center relative z-10"
         >
-          <div className="inline-flex items-center gap-4 px-8 py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
+          <div className="inline-flex items-center gap-4 px-4 md:px-8 py-5 md:py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
             <Sparkles className="w-6 h-6 text-accent" />
             <div className="text-left">
               <p className="font-serif text-textBase">¿Quieres personalizar esta pieza?</p>

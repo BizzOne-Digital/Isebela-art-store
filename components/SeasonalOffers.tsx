@@ -113,7 +113,7 @@ const SeasonalOffers = () => {
         className="mt-12 text-center relative z-10"
       >
         <Link
-          href="#collection"
+          href="/#productos"
           className="inline-flex items-center gap-2 px-8 py-3 bg-secondary text-white rounded-sm hover:bg-secondary/90 transition-colors font-sans"
         >
           Descubrir colección completa

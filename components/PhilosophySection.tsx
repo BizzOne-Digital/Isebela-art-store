@@ -102,11 +102,11 @@ const PhilosophySection = () => {
             </div>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="absolute -bottom-6 -left-6 md:-left-10 w-72 md:w-80 p-6 bg-primary border border-primary/50"
+            className="absolute -bottom-45 -left-6 md:-left-10 w-72 md:w-80 p-6 bg-primary border border-primary/50"
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-sm bg-white/10 flex items-center justify-center">
@@ -127,7 +127,7 @@ const PhilosophySection = () => {
                 <p className="text-white/70 text-xs">Años de Experiencia</p>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </motion.div>
 
@@ -163,7 +163,7 @@ const PhilosophySection = () => {
         transition={{ delay: 0.7 }}
         className="mt-20 text-center relative z-10"
       >
-        <div className="inline-flex items-center gap-4 px-8 py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
+        <div className="inline-flex items-center gap-4 px-4 md:px-8 py-5 md:py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
           <Sparkles className="w-6 h-6 text-accent" />
           <div className="text-left">
             <p className="font-serif text-textBase">¿Tienes una idea en mente?</p>
