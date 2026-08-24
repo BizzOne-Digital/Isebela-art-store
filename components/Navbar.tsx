@@ -23,12 +23,26 @@ const FacebookIcon = () => (
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('#inicio');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      const sections = ['#inicio', '#productos', '#precios', '#testimonios', '#contacto'];
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.querySelector(sections[i]) as HTMLElement | null;
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -91,7 +105,10 @@ const Navbar = () => {
                 className="text-xs uppercase tracking-widest font-sans font-medium text-textBase/70 hover:text-primary transition-colors relative group bg-transparent p-0"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all group-hover:w-full" />
+                <span
+                  className="absolute -bottom-1 left-0 h-[1px] bg-primary transition-all duration-300"
+                  style={{ width: activeSection === link.href ? '100%' : '0' }}
+                />
               </motion.button>
             ))}
           </div>
@@ -162,9 +179,13 @@ const Navbar = () => {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="text-sm uppercase tracking-widest font-sans font-medium text-textBase/70 hover:text-primary text-left p-2"
+                    className="text-sm uppercase tracking-widest font-sans font-medium text-left p-2 transition-colors relative"
+                    style={{ color: activeSection === link.href ? 'var(--color-primary)' : 'var(--color-neutral-700)' }}
                   >
                     {link.label}
+                    {activeSection === link.href && (
+                      <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r" />
+                    )}
                   </motion.button>
                 ))}
                 <motion.button
