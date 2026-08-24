@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Lightbulb, 
-  PenTool, 
-  Scissors, 
-  Sparkles, 
+import {
+  Lightbulb,
+  PenTool,
+  Scissors,
+  Sparkles,
   Package,
   Heart,
   Leaf
@@ -79,7 +79,7 @@ const ProcessSection = () => {
         transition={{ delay: 0.1 }}
         className="relative z-10"
       >
-        <div className="hidden lg:block absolute lg:left-[1rem] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/30 via-secondary/30 to-accent/30" />
+        <div className="hidden lg:block " />
 
         <div className="space-y-16 lg:space-y-24">
           {processSteps.map((step, index) => (
