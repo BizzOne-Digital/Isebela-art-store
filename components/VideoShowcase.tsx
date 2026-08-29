@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Pause, Volume2, VolumeX, Sparkles, Video, MessageCircle, Heart, ChevronRight } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -58,9 +58,35 @@ const videos: VideoItem[] = [
 
 const VideoShowcase: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem>(videos[0]);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+            setIsPlaying(false);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const handleSelectVideo = (video: VideoItem) => {
     setSelectedVideo(video);
@@ -79,8 +105,11 @@ const VideoShowcase: React.FC = () => {
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
-      videoRef.current.play();
-      setIsPlaying(true);
+      videoRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {
+        setIsPlaying(false);
+      });
     }
   };
 
@@ -91,7 +120,7 @@ const VideoShowcase: React.FC = () => {
   };
 
   return (
-    <section id="videos" className="px-6 max-w-7xl mx-auto py-24 relative overflow-hidden">
+    <section ref={sectionRef} id="videos" className="px-6 max-w-7xl mx-auto py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-secondary/5" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
 
