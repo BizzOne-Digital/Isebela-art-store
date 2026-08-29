@@ -24,8 +24,8 @@ const BentoHero = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
           <Image
-            src="/images/hero-main.svg"
-            alt="Isabel creando arte con goma eva"
+            src="/images/img/is2.jpg"
+            alt="Isabel creando arte y magia con goma eva"
             fill
             className="object-cover opacity-90"
             priority
@@ -132,7 +132,7 @@ const BentoHero = () => {
           className="md:col-span-2 relative overflow-hidden border border-accent/20 bg-surfaceAlt/30"
         >
           <Image
-            src="/images/hero-secondary.svg"
+            src="/images/img/is7.jpg"
             alt="Detalle de creaciones en goma eva"
             fill
             className="object-cover opacity-60"

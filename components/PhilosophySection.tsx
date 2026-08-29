@@ -87,8 +87,8 @@ const PhilosophySection = () => {
             className="aspect-[4/5] rounded-lg overflow-hidden border border-accent/20 bg-surfaceAlt relative"
           >
             <Image
-              src="/images/about-workshop.svg"
-              alt="Taller de Isabel creando arte con goma eva"
+              src="/images/img/is4.jpg"
+              alt="Taller de Isabel creando arte y magia con goma eva"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

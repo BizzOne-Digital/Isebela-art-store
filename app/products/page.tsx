@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { categories, getProductsByCategory, products } from '@/lib/products';
-import { Search, ChevronRight, X, Tag, Sparkles } from 'lucide-react';
+import { Search, ChevronRight, X, Tag, Sparkles, Filter, Eye } from 'lucide-react';
 
 export default function ProductsPage() {
   const [activeTab, setActiveTab] = useState('Todos');
@@ -14,13 +14,16 @@ export default function ProductsPage() {
     let result = getProductsByCategory(activeTab);
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim();
-      result = result.filter(product =>
-        product.name.toLowerCase().includes(query) ||
-        product.category.toLowerCase().includes(query) ||
-        product.description.toLowerCase().includes(query) ||
-        product.shortDescription.toLowerCase().includes(query) ||
-        product.tags.some(tag => tag.toLowerCase().includes(query))
-      );
+      result = result.filter(product => {
+        const nameMatch = product.name ? product.name.toLowerCase().includes(query) : false;
+        const catMatch = product.category ? product.category.toLowerCase().includes(query) : false;
+        const descMatch = product.description ? product.description.toLowerCase().includes(query) : false;
+        const shortDescMatch = product.shortDescription ? product.shortDescription.toLowerCase().includes(query) : false;
+        const tagMatch = product.tags && Array.isArray(product.tags)
+          ? product.tags.some(tag => typeof tag === 'string' && tag.toLowerCase().includes(query))
+          : false;
+        return nameMatch || catMatch || descMatch || shortDescMatch || tagMatch;
+      });
     }
     return result;
   }, [activeTab, searchQuery]);
@@ -37,15 +40,16 @@ export default function ProductsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           className="mb-12 text-center relative z-10"
         >
-          <span className="text-accent text-sm font-sans tracking-widest uppercase mb-2 block">Nuestra Tienda</span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-textBase mb-4">
-            Colección de
-            <br />
-            <span className="text-primary">Piezas Únicas</span>
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary/10 text-primary text-xs font-sans uppercase tracking-widest rounded-full mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            Catálogo Completo • 46 Piezas
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-textBase mb-4 font-normal">
+            Colección de <span className="text-primary">Piezas Únicas</span>
           </h1>
-          <p className="text-textBase/60 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-textBase/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Cada creación nace de la imaginación y se materializa con dedicación artesanal.
-            Descubre muñecas, tarjetas, papelería y piezas recicladas que cuentan historias.
+            Descubre 46 modelos en muñecas, tarjetas, papelería y piezas recicladas.
           </p>
         </motion.div>
 
@@ -58,11 +62,11 @@ export default function ProductsPage() {
           <div className="relative max-w-xl mx-auto mb-6">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-textBase/40" />
             <input
-              type="search"
+              type="text"
               placeholder="Buscar por nombre, categoría, descripción..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-surface border border-accent/20 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-textBase placeholder:text-textBase/40 rounded-sm"
+              className="w-full pl-12 pr-10 py-3.5 bg-surface border border-accent/25 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-textBase placeholder:text-textBase/40 rounded-xl shadow-sm [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
               aria-label="Buscar productos"
             />
             {searchQuery && (
@@ -76,24 +80,30 @@ export default function ProductsPage() {
             )}
           </div>
 
-          <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => {
-                  setActiveTab(cat);
-                  setSearchQuery('');
-                }}
-                className={`px-5 py-2.5 border rounded-sm text-sm font-sans transition-all flex items-center gap-2 ${
-                  activeTab === cat
-                    ? 'border-primary bg-primary text-white shadow-[0_0_20px_rgba(107,33,168,0.3)]'
-                    : 'border-accent/20 text-textBase/70 hover:border-accent/50 hover:text-textBase'
-                }`}
-              >
-                {cat !== 'Todos' && <Tag className="w-3.5 h-3.5" />}
-                {cat}
-              </button>
-            ))}
+          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
+            {categories.map(cat => {
+              const count = cat === 'Todos' ? products.length : getProductsByCategory(cat).length;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setActiveTab(cat);
+                    setSearchQuery('');
+                  }}
+                  className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-sans transition-all flex items-center gap-2 ${
+                    activeTab === cat
+                      ? 'border-primary bg-primary text-white shadow-md shadow-primary/20 font-medium'
+                      : 'border border-accent/20 bg-surfaceAlt/60 text-textBase/70 hover:border-accent/40 hover:text-textBase'
+                  }`}
+                >
+                  {cat !== 'Todos' && <Filter className="w-3.5 h-3.5" />}
+                  {cat}
+                  <span className={`text-[11px] px-1.5 py-0.5 rounded-full ${activeTab === cat ? 'bg-white/20 text-white' : 'bg-accent/15 text-textBase/60'}`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           {hasActiveFilters && (
@@ -117,87 +127,74 @@ export default function ProductsPage() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab + searchQuery}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10"
+            exit={{ opacity: 0, y: -15 }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 relative z-10"
           >
             {filteredProducts.map((product, index) => (
               <motion.article
                 key={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.06 }}
-                className="group border border-accent/10 bg-surfaceAlt/50 hover:border-primary/50 transition-all duration-300 overflow-hidden"
+                transition={{ delay: (index % 12) * 0.04 }}
+                className="group border border-accent/15 bg-surfaceAlt/60 hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
               >
-                <Link href={`/products/${product.slug}`} className="block">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-surface">
+                <div>
+                  <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden">
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
-                    {(product.isNew || product.isFeatured) && (
-                      <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+                    {(product.isNew || product.isFeatured || product.isSeasonal) && (
+                      <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
                         {product.isNew && (
-                          <span className="bg-secondary text-white text-xs font-sans px-2 py-1 rounded-sm flex items-center gap-1">
-                            <Sparkles className="w-3 h-3" />
+                          <span className="bg-secondary text-white text-[11px] font-sans px-2.5 py-0.5 rounded-full shadow-sm">
                             Nuevo
                           </span>
                         )}
                         {product.isFeatured && (
-                          <span className="bg-primary text-white text-xs font-sans px-2 py-1 rounded-sm">
+                          <span className="bg-primary text-white text-[11px] font-sans px-2.5 py-0.5 rounded-full shadow-sm flex items-center gap-1">
+                            <Sparkles className="w-3 h-3 text-yellow-300" />
                             Destacado
+                          </span>
+                        )}
+                        {product.isSeasonal && (
+                          <span className="bg-amber-600 text-white text-[11px] font-sans px-2.5 py-0.5 rounded-full shadow-sm">
+                            Navideño
                           </span>
                         )}
                       </div>
                     )}
-                    {product.availability === 'limited' && (
-                      <span className="absolute top-3 right-3 bg-accent text-white text-xs font-sans px-2 py-1 rounded-sm">
-                        Últimas unidades
-                      </span>
-                    )}
-                    {product.availability === 'sold-out' && (
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <span className="bg-white/90 text-textBase text-sm font-sans px-4 py-2 rounded-sm">
-                          Agotado
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </Link>
-                <div className="p-5 space-y-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-accent text-xs font-sans uppercase tracking-wider">
+                  </Link>
+
+                  <div className="p-4 sm:p-5 space-y-2.5">
+                    <span className="text-accent text-[11px] font-sans uppercase tracking-wider font-semibold">
                       {product.category}
                     </span>
+                    <Link href={`/products/${product.slug}`} className="block">
+                      <h3 className="text-base font-serif text-textBase group-hover:text-primary transition-colors line-clamp-1 font-medium">
+                        {product.name}
+                      </h3>
+                    </Link>
+                    <p className="text-textBase/60 text-xs line-clamp-2 leading-relaxed">
+                      {product.shortDescription}
+                    </p>
                   </div>
-                  <Link href={`/products/${product.slug}`} className="block">
-                    <h3 className="text-lg font-serif text-textBase group-hover:text-primary transition-colors line-clamp-1">
-                      {product.name}
-                    </h3>
-                  </Link>
-                  <p className="text-textBase/60 text-sm line-clamp-2">{product.shortDescription}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {product.features.slice(0, 3).map((feature, i) => (
-                      <span
-                        key={i}
-                        className="text-xs text-textBase/50 bg-surface px-2 py-0.5 rounded-sm border border-accent/10"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
+                </div>
+
+                <div className="p-4 sm:p-5 pt-0">
                   <div className="flex items-center justify-between pt-3 border-t border-accent/10">
-                    <span className="text-primary font-serif text-lg">{product.price}</span>
+                    <span className="text-primary font-serif text-base font-bold">{product.price}</span>
                     <Link
                       href={`/products/${product.slug}`}
-                      className="px-4 py-2 bg-accent/10 text-accent text-sm font-sans rounded-sm hover:bg-accent hover:text-white transition-colors group-hover:bg-primary/20 group-hover:text-primary"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary text-xs font-sans font-medium rounded-lg hover:bg-primary hover:text-white transition-colors"
                     >
-                      Ver detalles
-                      <ChevronRight className="w-3.5 h-3.5" />
+                      <Eye className="w-3 h-3" />
+                      Detalles
                     </Link>
                   </div>
                 </div>
@@ -214,15 +211,15 @@ export default function ProductsPage() {
           >
             <Search className="w-12 h-12 mx-auto mb-4 text-textBase/30" />
             <h2 className="text-xl font-serif text-textBase mb-2">No se encontraron productos</h2>
-            <p className="text-textBase/60 mb-6">Intenta con otros términos de búsqueda o selecciona otra categoría.</p>
+            <p className="text-textBase/60 mb-6 text-sm">Intenta con otros términos de búsqueda o selecciona otra categoría.</p>
             <button
               onClick={() => {
                 setSearchQuery('');
                 setActiveTab('Todos');
               }}
-              className="px-6 py-2.5 border border-accent/30 text-accent rounded-sm hover:bg-accent/10 transition-colors font-sans text-sm"
+              className="px-6 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-sans text-sm"
             >
-              Limpiar filtros
+              Ver todos los 48 productos
             </button>
           </motion.div>
         )}
@@ -240,9 +237,9 @@ export default function ProductsPage() {
             href="https://wa.me/5491186371242?text=Hola%20Isabel%2C%20quiero%20un%20encargo%20personalizado"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-sm hover:bg-primary/90 transition-colors font-sans"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all font-sans shadow-md"
           >
-            Encargo Personalizado
+            Encargo Personalizado por WhatsApp
             <ChevronRight className="w-5 h-5" />
           </a>
         </motion.div>

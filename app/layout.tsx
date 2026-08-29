@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: "Creaciones artesanales únicas en goma eva: muñecas, tarjetas pop-up, papelería y arte reciclado. Hecho a mano con amor en Argentina.",
     images: [
       {
-        url: "/images/og-image.svg",
+        url: "/images/img/is2.jpg",
         width: 1200,
         height: 630,
         alt: "Isabel Creando Arte y Magia - Artesanías en Goma Eva",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Isabel Creando Arte y Magia",
     description: "Creaciones artesanales únicas en goma eva hechas a mano con amor.",
-    images: ["/images/og-image.svg"],
+    images: ["/images/img/is2.jpg"],
   },
   verification: {
     google: "google-site-verification-code",
@@ -69,12 +69,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="es" suppressHydrationWarning className={`${playfair.variable} ${inter.variable}`}>
       <head>
+        <meta name="google" content="notranslate" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased" suppressHydrationWarning>{children}</body>
     </html>
   );
 }

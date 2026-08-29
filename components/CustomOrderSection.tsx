@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { MessageCircle, Sparkles, Heart, PenTool, Truck, Shield } from 'lucide-react';
 
 const CustomOrderSection = () => {
@@ -97,59 +98,33 @@ const CustomOrderSection = () => {
         </div>
 
         <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
           className="relative"
         >
-          <div className="aspect-square rounded-2xl overflow-hidden border border-accent/20 bg-surfaceAlt relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center p-8">
-                <Sparkles className="w-24 h-24 mx-auto mb-6 text-primary/30" />
-                <h3 className="text-2xl md:text-3xl font-serif text-textBase mb-4">
-                  Tu imaginación,<br />mis manos
-                </h3>
-                <p className="text-textBase/60 text-lg max-w-xs mx-auto leading-relaxed">
-                  No hay ideas demasiado locas ni detalles demasiado pequeños. Solo hay ganas de crear.
-                </p>
-              </div>
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-accent/20 bg-surfaceAlt relative shadow-xl">
+            <Image
+              src="/images/img/is18.jpg"
+              alt="Encargo personalizado - Fofucho motociclista con moto y mascota"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface/90 via-transparent to-transparent" />
+            <div className="absolute top-4 right-4 px-3 py-1.5 bg-primary/90 backdrop-blur-md text-white text-xs font-sans rounded-full flex items-center gap-1.5 shadow-md">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
+              Pieza 100% Personalizada
             </div>
-            <div className="absolute bottom-6 left-6 right-6 p-6 bg-surface/90 backdrop-blur-sm border border-accent/20">
-              <p className="text-textBase/80 text-sm leading-relaxed italic text-center">
+            <div className="absolute bottom-6 left-6 right-6 p-6 bg-surface/95 backdrop-blur-md border border-accent/20 rounded-lg">
+              <p className="text-textBase/85 text-sm leading-relaxed italic text-center">
                 &ldquo;Nunca pensé que pudiera existir exactamente lo que tenía en mente. Isabel lo hizo realidad superando mis expectativas.&rdquo;
               </p>
-              <p className="text-secondary text-sm mt-3 font-sans text-center">&mdash; María, cliente</p>
+              <p className="text-primary font-medium text-sm mt-3 font-sans text-center">&mdash; Cliente de Encargo Especial</p>
             </div>
           </div>
-
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="absolute -bottom-35 -right-1 md:-right-6 w-60 sm:w-72 md:w-80 p-6 bg-primary border border-primary/50 max-w-[calc(100vw-2rem)] md:max-w-[calc(100vw-40px)]"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-sm bg-white/10 flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <p className="text-white text-sm font-sans uppercase tracking-wider">Hecho a Mano</p>
-                <p className="text-white/70 text-xs">En Argentina</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4 text-center">
-              <div>
-                <p className="text-2xl font-serif text-white">∞</p>
-                <p className="text-white/70 text-xs">Posibilidades</p>
-              </div>
-              <div>
-                <p className="text-2xl font-serif text-white">1</p>
-                <p className="text-white/70 text-xs">Pieza Única</p>
-              </div>
-            </div>
-          </motion.div> */}
         </motion.div>
+
       </motion.div>
 
       <motion.div

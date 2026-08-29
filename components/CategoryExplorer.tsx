@@ -3,61 +3,47 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-
-import { ChevronRight, Baby, FileText, BookOpen, Recycle, Sparkles } from 'lucide-react';
-
-const categoryImages = [
-  'https://4.bp.blogspot.com/_BAVVNvuf7o8/TUzgXk1vK0I/AAAAAAAACdA/xdZ-R-xZpSw/s1600/01.JPG',
-  'https://i.pinimg.com/564x/49/5d/18/495d1862e773f21362a01b7efba6ef66.jpg',
-  'https://i.pinimg.com/736x/17/fa/d9/17fad9e6ed0459fe4305476fd6973a96.jpg',
-  'https://i.pinimg.com/736x/b0/19/80/b01980ea44ded92407fe814c1e9d072f.jpg',
-  'https://i.pinimg.com/736x/17/fa/d9/17fad9e6ed0459fe4305476fd6973a96.jpg',
-];
+import { ChevronRight, Sparkles } from 'lucide-react';
 
 const categoryData = [
   {
-    id: 'muñecas',
+    id: 'munecas',
     name: 'Muñecas',
-    //icon: Baby,
-    //description: 'Muñecas artesanales con alma y personalidad propia',
-    count: '12+ diseños',
-    image: categoryImages[0],
+    description: 'Fofuchas y figuras únicas modeladas en goma eva con alma propia',
+    count: '15+ diseños',
+    image: '/images/img/is1.jpg',
     color: 'primary',
   },
   {
     id: 'tarjetas',
     name: 'Tarjetas',
-    //icon: FileText,
-   // description: 'Tarjetas pop-up y 3D para ocasiones especiales',
-    count: '8+ diseños',
-    image: categoryImages[1],
+    description: 'Tarjetas 3D, acordeón y bolsas artesanales para momentos especiales',
+    count: '10+ diseños',
+    image: '/images/img/is22.jpg',
     color: 'secondary',
   },
   {
-    id: 'papelería',
+    id: 'papeleria',
     name: 'Papelería',
-   // icon: BookOpen,
-    //description: 'Libretas, agendas y marcadores hechos a mano',
-    count: '6+ diseños',
-    image: categoryImages[2],
+    description: 'Libretas con portada 3D, agendas, punteras y llaveros hechos a mano',
+    count: '12+ diseños',
+    image: '/images/img/is9.jpg',
     color: 'accent',
   },
   {
     id: 'manualidades-recicladas',
     name: 'Manualidades Recicladas',
-    //icon: Recycle,
-    //description: 'Arte sostenible con materiales reciclados',
-    count: '5+ diseños',
-    image: categoryImages[3],
+    description: 'Arte sostenible y cestas organizadoras que dan nueva vida a materiales',
+    count: '8+ diseños',
+    image: '/images/img/is16.jpg',
     color: 'primary',
   },
   {
     id: 'personalizados',
     name: 'Personalizados',
-    //icon: Sparkles,
-    //description: 'Creaciones únicas diseñadas exclusivamente para ti',
+    description: 'Creaciones exclusivas diseñadas con tus ideas, temáticas y mascotas',
     count: 'A medida',
-    image: categoryImages[4],
+    image: '/images/img/is18.jpg',
     color: 'secondary',
   },
 ];
@@ -93,11 +79,18 @@ const CategoryExplorer = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 + index * 0.08 }}
-            className="group relative overflow-hidden"
+            className="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow"
           >
             <Link
-              href={`#collection?category=${encodeURIComponent(category.name)}`}
-              className="block relative aspect-[4/5] overflow-hidden bg-surfaceAlt/50 border border-accent/10 hover:border-primary/30 transition-all duration-300"
+              href="/#productos"
+              onClick={(e) => {
+                const el = document.getElementById('productos');
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="block relative aspect-[4/5] overflow-hidden bg-surfaceAlt/50 border border-accent/15 hover:border-primary/50 transition-all duration-300 rounded-lg"
             >
               <div className="absolute inset-0">
                 <Image
@@ -107,23 +100,23 @@ const CategoryExplorer = () => {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
               </div>
-              <div className="absolute inset-0 p-6 flex flex-col justify-end relative z-10">
-                <div className="mb-4">
-                  {/* <category.icon className={`w-10 h-10 text-${category.color}`} /> */}
-                </div>
-                {/* <h3 className="text-xl font-serif text-textBase mb-1 group-hover:text-primary transition-colors">
+              <div className="absolute inset-0 p-5 flex flex-col justify-end relative z-10">
+                <span className="text-white/80 text-xs font-sans uppercase tracking-wider mb-1">
+                  {category.count}
+                </span>
+                <h3 className="text-xl font-serif text-white mb-1 group-hover:text-amber-200 transition-colors">
                   {category.name}
-                </h3> */}
-                {/* <p className="text-textBase/60 text-sm mb-4 line-clamp-2">{category.description}</p> */}
-                <div className="flex items-center justify-between">
-                  <span className="text-orange-500 text-md
-                   font-sans">{category.count}</span>
-                  {/* <span className="inline-flex items-center gap-1 text-accent text-sm font-sans group-hover:gap-2 transition-all">
-                    Explorar
-                    <ChevronRight className="w-4 h-4" />
-                  </span> */}
+                </h3>
+                <p className="text-white/70 text-xs line-clamp-2 mb-3 leading-relaxed">
+                  {category.description}
+                </p>
+                <div className="flex items-center justify-between pt-2 border-t border-white/20">
+                  <span className="inline-flex items-center gap-1 text-white text-xs font-sans font-medium group-hover:gap-2 transition-all">
+                    Ver piezas
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </span>
                 </div>
               </div>
             </Link>
@@ -138,11 +131,19 @@ const CategoryExplorer = () => {
         className="mt-12 text-center relative z-10"
       >
         <Link
-          href="#featured"
-          className="inline-flex items-center gap-2 px-8 py-3 border border-accent/30 text-accent rounded-sm hover:bg-accent/10 transition-colors font-sans"
+          href="/#productos"
+          onClick={(e) => {
+            const el = document.getElementById('productos');
+            if (el) {
+              e.preventDefault();
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+          className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-sm hover:bg-primary/90 transition-colors font-sans"
         >
-          Ver todas las categorías
-          <ChevronRight className="w-5 h-5" />
+          <Sparkles className="w-4 h-4" />
+          Ver todas las creaciones
+          <ChevronRight className="w-4 h-4" />
         </Link>
       </motion.div>
     </section>

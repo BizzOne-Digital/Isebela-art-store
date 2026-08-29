@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getFeaturedProducts } from '@/lib/products';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Sparkles } from 'lucide-react';
 
 const FeaturedCreations = () => {
-  const featuredProducts = getFeaturedProducts().slice(0, 3);
+  const featuredProducts = getFeaturedProducts().slice(0, 4);
 
   return (
-    <section id="featured" className="px-6 max-w-7xl mx-auto py-20 relative">
+    <section id="featured" suppressHydrationWarning className="px-6 max-w-7xl mx-auto py-20 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
       <motion.div
@@ -23,7 +23,7 @@ const FeaturedCreations = () => {
           Nuestras <span className="text-primary">Creaciones</span> Estrella
         </h2>
         <p className="text-textBase/60 text-lg max-w-2xl mx-auto leading-relaxed">
-          Una selección curada de las piezas más queridas y representativas del taller.
+          Una selección curada de las piezas más representativas y queridas de nuestro taller.
         </p>
       </motion.div>
 
@@ -31,70 +31,74 @@ const FeaturedCreations = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
       >
         {featuredProducts.map((product, index) => (
           <motion.article
             key={product.id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 + index * 0.1 }}
-            className={`relative group border border-accent/10 bg-surfaceAlt/50 hover:border-primary/50 transition-all duration-300 overflow-hidden ${index === 0 ? 'lg:col-span-2 lg:row-span-1' : ''}`}
+            transition={{ delay: 0.15 + index * 0.08 }}
+            className="relative group border border-accent/15 bg-surfaceAlt/60 hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
           >
-            <div className="relative aspect-[4/5] lg:aspect-[16/10] overflow-hidden bg-surface">
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 1024px) 100vw, 66vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {(product.isNew || product.isFeatured) && (
-                <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+            <div>
+              <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
                   {product.isNew && (
-                    <span className="bg-secondary text-white text-xs font-sans px-2 py-1 rounded-sm">
+                    <span className="bg-secondary text-white text-xs font-sans px-2.5 py-1 rounded-full shadow-sm">
                       Nuevo
                     </span>
                   )}
                   {product.isFeatured && (
-                    <span className="bg-primary text-white text-xs font-sans px-2 py-1 rounded-sm">
+                    <span className="bg-primary text-white text-xs font-sans px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 text-yellow-300" />
                       Destacado
                     </span>
                   )}
                 </div>
-              )}
-            </div>
-            <div className="p-6 md:p-8 space-y-4">
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-accent text-xs font-sans uppercase tracking-wider">
+              </Link>
+
+              <div className="p-5 space-y-3">
+                <span className="text-accent text-xs font-sans uppercase tracking-wider font-medium">
                   {product.category}
                 </span>
+                <Link href={`/products/${product.slug}`} className="block">
+                  <h3 className="text-lg font-serif text-textBase group-hover:text-primary transition-colors line-clamp-1">
+                    {product.name}
+                  </h3>
+                </Link>
+                <p className="text-textBase/60 text-xs line-clamp-2 leading-relaxed">
+                  {product.shortDescription}
+                </p>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {product.features.slice(0, 2).map((feature, i) => (
+                    <span
+                      key={i}
+                      className="text-[11px] text-textBase/70 bg-surface px-2.5 py-1 rounded-md border border-accent/10"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <h3 className="text-xl md:text-2xl font-serif text-textBase group-hover:text-primary transition-colors">
-                {product.name}
-              </h3>
-              <p className="text-textBase/60 text-base md:text-lg line-clamp-3 leading-relaxed">
-                {product.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {product.features.slice(0, 4).map((feature, i) => (
-                  <span
-                    key={i}
-                    className="text-xs text-textBase/60 bg-surface px-3 py-1 rounded-sm border border-accent/10"
-                  >
-                    {feature}
-                  </span>
-                ))}
-              </div>
-              <div className="flex items-center justify-between pt-4 border-t border-accent/10">
-                <span className="text-primary font-serif text-xl">{product.price}</span>
+            </div>
+
+            <div className="p-5 pt-0">
+              <div className="flex items-center justify-between pt-3 border-t border-accent/10">
+                <span className="text-primary font-serif text-lg font-semibold">{product.price}</span>
                 <Link
                   href={`/products/${product.slug}`}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent/10 text-accent text-sm font-sans rounded-sm hover:bg-accent hover:text-white transition-colors group-hover:bg-primary/20 group-hover:text-primary"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary/10 text-primary text-xs font-sans font-medium rounded-lg hover:bg-primary hover:text-white transition-colors"
                 >
                   Ver detalles
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
@@ -109,13 +113,20 @@ const FeaturedCreations = () => {
         className="mt-12 text-center relative z-10"
       >
         <p className="text-textBase/60 mb-4">
-          ¿Quieres ver más creaciones únicas?
+          Descubre los 46 modelos hechos a mano en nuestro catálogo.
         </p>
         <Link
-          href="#collection"
-          className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-sm hover:bg-primary/90 transition-colors font-sans"
+          href="/#productos"
+          onClick={(e) => {
+            const el = document.getElementById('productos');
+            if (el) {
+              e.preventDefault();
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+          className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all font-sans shadow-md"
         >
-          Ver toda la colección
+          Ver todo el catálogo (46 piezas)
           <ChevronRight className="w-5 h-5" />
         </Link>
       </motion.div>

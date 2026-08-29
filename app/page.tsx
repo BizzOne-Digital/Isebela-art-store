@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FeaturedCreations from '@/components/FeaturedCreations';
 import CategoryExplorer from '@/components/CategoryExplorer';
+import VideoShowcase from '@/components/VideoShowcase';
 import ProductShowcase from '@/components/ProductShowcase';
 import ArtDecoDivider from '@/components/ArtDecoDivider';
 import PhilosophySection from '@/components/PhilosophySection';
@@ -26,6 +27,8 @@ export default function HomePage() {
         <FeaturedCreations />
         <ArtDecoDivider />
         <CategoryExplorer />
+        <ArtDecoDivider />
+        <VideoShowcase />
         <ArtDecoDivider />
         <PhilosophySection />
         <ArtDecoDivider />
