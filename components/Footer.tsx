@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 
 const InstagramIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -20,6 +21,8 @@ const FacebookIcon = () => (
 );
 
 const Footer = () => {
+  const t = useTranslations('footer');
+
   return (
     <footer className="bg-neutral-900 text-neutral-400 pt-20 pb-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -31,12 +34,11 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="text-xl font-serif text-white">Isabel Creando Arte y Magia</h3>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-sans">Hecho a mano con amor</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-sans">{t('tagline')}</p>
               </div>
             </div>
             <p className="text-neutral-400 text-sm max-w-md leading-relaxed mb-8">
-              Creaciones artesanales únicas en goma eva: muñecas con alma, tarjetas pop-up que guardan secretos,
-              papelería que inspira y arte reciclado que honra el planeta. Cada pieza cuenta una historia.
+              {t('description')}
             </p>
             <div className="flex gap-4">
               <a href="https://instagram.com" target="_blank" rel="noopener" className="w-10 h-10 rounded-full border border-neutral-800 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all" aria-label="Instagram">
@@ -52,18 +54,18 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-serif text-white text-lg mb-8">Explorar</h4>
+            <h4 className="font-serif text-white text-lg mb-8">{t('exploreTitle')}</h4>
             <nav className="flex flex-col gap-4">
-              <Link href="/#philosophy" className="text-sm hover:text-primary transition-colors">Nuestra Filosofía</Link>
-              <Link href="/#collection" className="text-sm hover:text-primary transition-colors">Colección Completa</Link>
-              <Link href="/#process" className="text-sm hover:text-primary transition-colors">Proceso Creativo</Link>
-              <Link href="/#offers" className="text-sm hover:text-primary transition-colors">Ofertas Especiales</Link>
-              <Link href="/#contact" className="text-sm hover:text-primary transition-colors">Pedidos Personalizados</Link>
+              <Link href="/#philosophy" className="text-sm hover:text-primary transition-colors">{t('philosophyLink')}</Link>
+              <Link href="/#collection" className="text-sm hover:text-primary transition-colors">{t('collectionLink')}</Link>
+              <Link href="/#process" className="text-sm hover:text-primary transition-colors">{t('processLink')}</Link>
+              <Link href="/#offers" className="text-sm hover:text-primary transition-colors">{t('offersLink')}</Link>
+              <Link href="/#contact" className="text-sm hover:text-primary transition-colors">{t('customOrdersLink')}</Link>
             </nav>
           </div>
 
           <div>
-            <h4 className="font-serif text-white text-lg mb-8">Contacto</h4>
+            <h4 className="font-serif text-white text-lg mb-8">{t('contactTitle')}</h4>
             <address className="not-italic flex flex-col gap-4">
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
@@ -75,11 +77,11 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                <span className="text-sm">Buenos Aires, Argentina</span>
+                <span className="text-sm">{t('location')}</span>
               </div>
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                <span className="text-sm">Lun-Sáb: 10:00 - 19:00</span>
+                <span className="text-sm">{t('hours')}</span>
               </div>
             </address>
           </div>
@@ -87,14 +89,14 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-neutral-800 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-neutral-500">
-            &copy; {new Date().getFullYear()} Isabel Creando Arte y Magia. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} Isabel Creando Arte y Magia. {t('rights')}
           </p>
           <div className="flex gap-8 text-xs text-neutral-500">
-            <a href="#" className="hover:text-neutral-300 transition-colors">Privacidad</a>
-            <a href="#" className="hover:text-neutral-300 transition-colors">Términos</a>
+            <a href="#" className="hover:text-neutral-300 transition-colors">{t('privacy')}</a>
+            <a href="#" className="hover:text-neutral-300 transition-colors">{t('terms')}</a>
           </div>
           <p className="text-xs text-neutral-600 italic">
-            Artesanía con alma desde Argentina
+            {t('craftedFrom')}
           </p>
         </div>
       </div>

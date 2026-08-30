@@ -1,0 +1,816 @@
+{
+  "common": {
+    "viewDetails": "Details",
+    "viewAll": "View all",
+    "back": "Back to previous page",
+    "loading": "Loading...",
+    "retry": "Retry",
+    "madeInArgentina": "Handmade in Argentina",
+    "shipping48h": "Ships in 48h",
+    "process7to15": "Made in 7-15 days",
+    "newLabel": "New",
+    "featuredLabel": "Featured",
+    "seasonalLabel": "Seasonal"
+  },
+  "navigation": {
+    "home": "Home",
+    "videos": "Videos",
+    "products": "Products",
+    "pricing": "Pricing",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "consult": "Consult",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "languageToggle": "Switch language",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "badge": "Handmade EVA Foam Crafts",
+    "titlePart1": "Where imagination",
+    "titlePart2": "comes to life",
+    "description": "Unique handmade EVA foam creations: soulful fofucha dolls, pop-up cards that hold secrets, decorated stationery, and sustainable recycled art. Every piece is 100% handmade in Argentina.",
+    "viewCreations": "View Creations",
+    "customOrder": "Custom Order",
+    "madeByHand": "Handmade",
+    "madeByHandDesc": "With love and patience",
+    "uniqueDesign": "Unique Design",
+    "uniqueDesignDesc": "Exclusive pieces",
+    "ecoFriendly": "Eco Friendly",
+    "ecoFriendlyDesc": "Noble materials",
+    "totalModels": "Models",
+    "totalModelsDesc": "Full collection",
+    "viewDetails": "View details"
+  },
+  "featured": {
+    "eyebrow": "Featured",
+    "titleStart": "Our",
+    "titleAccent": "Star",
+    "titleSuffix": "Creations",
+    "description": "A curated selection of the most representative and beloved pieces from our workshop.",
+    "catalogDescription": "Explore our complete collection of unique pieces in EVA foam, cards, and recycled art. Click on any piece to see it in detail.",
+    "viewAllCatalog": "View the full catalog"
+  },
+  "categories": {
+    "eyebrow": "Explore by Category",
+    "titleStart": "Discover",
+    "titleAccent": "Our Universe",
+    "intro": "Each category tells a different story. Find the one that speaks to you.",
+    "seePieces": "See pieces",
+    "seeAllCreations": "See all creations",
+    "piecesCount": "{count, plural, =0 {pieces} one {piece} other {pieces}}",
+    "all": "All"
+  },
+  "products": {
+    "catalogTitle": "Full Catalog",
+    "catalogSubTitle": "Handmade Creations",
+    "catalogDescription": "Explore our complete collection of unique pieces in EVA foam, cards, and recycled art. Click on any piece to see it in detail.",
+    "piecesCount": "{count} Pieces",
+    "searchPlaceholder": "Search by name, doll, card, dragon, Christmas...",
+    "searchAriaLabel": "Search products",
+    "clearSearch": "Clear search",
+    "showing": "Showing",
+    "of": "of",
+    "pieces": "pieces",
+    "forSearch": "for",
+    "loadMore": "Load more creations",
+    "remaining": "remaining",
+    "details": "Details",
+    "emptyCatalogTitle": "Catalog in progress",
+    "emptyCatalogText": "We're loading our handmade pieces. Check back soon.",
+    "noResultsTitle": "No products found",
+    "noResultsHint": "Try different search terms or choose another category.",
+    "viewAllProducts": "View all {count} products",
+    "pageTitle": "Full Catalog",
+    "pageHeading": "Collection of",
+    "pageHeadingAccent": "Unique Pieces",
+    "pageDescription": "Every creation is born from imagination and shaped with handcrafted dedication. Discover {count} models in dolls, cards, stationery, and recycled pieces.",
+    "customIdeaText": "Looking for something unique and fully personalized?",
+    "customOrderWhatsapp": "Custom Order via WhatsApp"
+  },
+  "productDetail": {
+    "photoOf": "Photo",
+    "ofText": "of",
+    "enlargeImage": "Enlarge image",
+    "viewGallery": "View gallery",
+    "closeGallery": "Close full view",
+    "customQuote": "Ask on WhatsApp",
+    "emailAction": "Email",
+    "detailsAndFeatures": "Details and Features",
+    "nobleMaterials": "Noble Materials Used",
+    "craftProcess": "The Craft Process",
+    "otherCreations": "Other Creations from the Studio",
+    "viewAll": "View all",
+    "availableForDelivery": "Available for Delivery",
+    "madeToOrderCustom": "Made to Order (Customizable)",
+    "lastUnits": "Last Units",
+    "soldOut": "Sold Out",
+    "inspiration": "Inspiration",
+    "inspirationDesc": "Sketches and character design",
+    "cutAndThermoform": "Cut and Thermoforming",
+    "cutAndThermoformDesc": "Layer-by-layer heat shaping",
+    "assembly": "Assembly",
+    "assemblyDesc": "Internal structure and handcrafted gluing",
+    "paintAndDetails": "Paint and Details",
+    "paintAndDetailsDesc": "Faces and accessories hand-finished",
+    "securePackaging": "Secure Packaging",
+    "securePackagingDesc": "Protected packaging with a special note",
+    "viewMoreDetails": "View details"
+  },
+  "video": {
+    "eyebrow": "The Live Workshop",
+    "titleStart": "Magic in",
+    "titleAccent": "Motion",
+    "description": "Get an up-close look at the handcrafted process, the 360° finishes, and the dedication behind every detail.",
+    "watchNote": "Like what you see? We send progress videos of your order via WhatsApp.",
+    "consultPiece": "Ask about this piece",
+    "selectVideo": "Choose a video ({count})",
+    "playing": "Playing",
+    "pauseVideo": "Pause video",
+    "playVideo": "Play video",
+    "muteVideo": "Mute sound",
+    "unmuteVideo": "Unmute sound",
+    "whatsappMessage": "Hi Isabel, I saw the video \"{title}\" and loved your work. I'd like to ask about a similar piece.",
+    "items": {
+      "vid1": {
+        "title": "Creating and Detailing in the Workshop",
+        "subtitle": "The intimate process of handwork",
+        "description": "Watch how each sheet of EVA foam becomes a piece with personality and care.",
+        "tag": "In the Workshop"
+      },
+      "vid2": {
+        "title": "Handcrafted Molding and Assembly",
+        "subtitle": "Precision techniques and thermoforming",
+        "description": "The millimeter-precise assembly of pieces, minding proportions, folds, and textures.",
+        "tag": "Technique"
+      },
+      "vid3": {
+        "title": "360° View of Our Fofuchas",
+        "subtitle": "Appreciate every angle and finish",
+        "description": "Meticulous details: footwear, clothing, accessories, and hand-painted faces.",
+        "tag": "Showcase"
+      },
+      "vid4": {
+        "title": "Painting and Finishing Touches",
+        "subtitle": "Bringing looks and smiles to life",
+        "description": "The magic of eyes, highlights, shadows, and blush that give every creation soul.",
+        "tag": "Painting"
+      },
+      "vid5": {
+        "title": "Collection in Motion and Presentation",
+        "subtitle": "Ready to gift or collect",
+        "description": "The final result, packed with love and ready to delight whoever receives it.",
+        "tag": "Creations"
+      }
+    }
+  },
+  "philosophy": {
+    "eyebrow": "Philosophy",
+    "titleStart": "The Art of Creating",
+    "titleAccent": "With Hands and Soul",
+    "description": "I do more than crafts. I shape emotions, materialize dreams, and build bridges between imagination and tangible reality.",
+    "quote": "My hands know what my heart imagines. Every piece is a fragment of my inner world made visible.",
+    "quoteAttribution": "— Isabel",
+    "valuesTitle": "Values Behind Every Creation",
+    "askIdea": "Do you have an idea in mind?",
+    "letSCreate": "Let's talk and bring your unique vision to life.",
+    "customOrderButton": "Custom Order",
+    "imageAlt": "Isabel's workshop creating art and magic with EVA foam",
+    "story": {
+      "beginning": {
+        "title": "The Beginning",
+        "text": "It all started in 2015, at a small table in my home, with a pack of EVA foam and the curiosity of a mother who wanted to create unique toys for her daughter. What began as a hobby became my purest form of expression."
+      },
+      "evolution": {
+        "title": "The Evolution",
+        "text": "Over the years, the technique was refined. Cuts became more precise, assemblies more complex, designs bolder. Every piece taught me something new about patience, the geometry of color, and the magic of handmade work."
+      },
+      "today": {
+        "title": "Today",
+        "text": "Isabel Creando Arte y Magia is a workshop where dolls with soul, cards that hold secrets, notebooks waiting for stories, and recycled objects that honor their past are born every day. My mission: for whoever receives a piece to feel the intention it was made with."
+      }
+    },
+    "values": {
+      "detail": {
+        "title": "Love for Detail",
+        "desc": "Every fold, every cut, every color is chosen with intention. Love lives in the details only a craftsman's eye can see."
+      },
+      "imagination": {
+        "title": "Boundless Imagination",
+        "desc": "There are no impossible designs, only ideas waiting to be brought to life. I turn dreams into tangible objects."
+      },
+      "nature": {
+        "title": "Respect for Nature",
+        "desc": "I use premium-quality EVA foam and recycled materials. Creating beauty shouldn't cost the planet its future."
+      },
+      "quality": {
+        "title": "Heirloom Quality",
+        "desc": "Pieces made to last generations. Durability and flawless finish are my promise in every creation."
+      },
+      "color": {
+        "title": "Color as Language",
+        "desc": "Every piece's palette tells a story. Colors don't just decorate — they communicate emotions and moods."
+      },
+      "recycle": {
+        "title": "Second Life",
+        "desc": "The recycled line turns waste into art. Bottles, cardboard, and glass gain new life with purpose."
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "Process",
+    "titleStart": "The Journey",
+    "titleAccent": "From Idea",
+    "titleEnd": "to Your Hands",
+    "description": "Every piece goes through five stages of handcrafted care. No shortcuts, only dedication.",
+    "footerTitle": "Made with patience and love",
+    "footerText": "Every piece takes 8-40 hours of handcrafted work",
+    "steps": {
+      "inspiration": {
+        "title": "Inspiration",
+        "description": "It all starts by observing the world: a wildflower, a children's tale, a texture in nature. Inspiration arrives in the most unexpected moments and is kept in sketches and notes.",
+        "details": [
+          "Observing nature",
+          "Freehand sketches",
+          "Color palette selection",
+          "Shape research"
+        ]
+      },
+      "design": {
+        "title": "Design",
+        "description": "Sketches take technical shape. Measurements, patterns, layers, and assemblies are defined. Every piece is planned millimeter by millimeter so the magic works once assembled.",
+        "details": [
+          "Vector patterns",
+          "Scale testing",
+          "Layer definition",
+          "Assembly planning"
+        ]
+      },
+      "craft": {
+        "title": "Handcrafting",
+        "description": "The precise cutting of every piece of EVA foam, heat molding, patient layer-by-layer gluing. This is where hands know more than the mind.",
+        "details": [
+          "Manual and plotter cutting",
+          "Heat molding",
+          "Layer-by-layer assembly",
+          "Hand-painted details"
+        ]
+      },
+      "finish": {
+        "title": "Finishing",
+        "description": "The final touches that elevate the piece: protective varnishes, metallic details, movement adjustments, checking every angle. Quality lives in what isn't visible at first glance.",
+        "details": [
+          "Eco-friendly protective varnish",
+          "Foil/embossed details",
+          "Joint inspection",
+          "Thorough quality control"
+        ]
+      },
+      "ready": {
+        "title": "Ready for You",
+        "description": "Packaged with care in recycled materials, with a handwritten note, ready to travel to its new home. The journey ends when you open it and smile.",
+        "details": [
+          "Sustainable packaging",
+          "Personal handwritten note",
+          "Certificate of authenticity",
+          "Tracked shipping"
+        ]
+      }
+    }
+  },
+  "seasonal": {
+    "eyebrow": "Seasonal Offer",
+    "titleStart": "Special",
+    "titleAccent": "Collection & New Arrivals",
+    "description": "Thematic pieces, seasonal keepsakes, and the newest creations coming out of the studio.",
+    "specialEdition": "Special Edition",
+    "limitedArt": "Limited handcrafted pieces",
+    "discoverFullCollection": "Discover the full collection"
+  },
+  "customOrder": {
+    "eyebrow": "Custom Orders",
+    "titleStart": "Do you have a",
+    "titleAccent": "Special Idea",
+    "description": "Tell me what you imagine and we'll shape it together. From a unique character to a complete collection for your event.",
+    "fullCustomization": "Full personalization",
+    "colorSizesThemes": "Colors, sizes, themes, and details tailored to you",
+    "whatsappTitle": "Let's talk on WhatsApp",
+    "whatsappText": "The most direct and personal way. I'll reply personally, look at reference photos together, choose colors, and give you a no-commitment quote.",
+    "whatsappButton": "Write on WhatsApp",
+    "whatsappPrefill": "Hi Isabel, I have an idea for a custom order...",
+    "emailTitle": "Or send your inquiry by email",
+    "emailText": "Ideal for more complex projects, wholesale orders, or collaborations. Attach inspiration, measurements, quantity, and estimated date.",
+    "emailButton": "Send email",
+    "emailSubject": "Custom Order",
+    "emailBody": "Hi Isabel,\n\nI have an idea for a custom order:\n\n- Type of piece:\n- Theme/colors:\n- Approximate size:\n- Quantity:\n- Desired delivery date:\n\nI've attached reference images.\n\nThank you!",
+    "imageAlt": "Custom order - Biker fofucho with motorcycle and pet",
+    "imageBadge": "100% Custom Piece",
+    "quote": "I never thought exactly what I had in mind could exist. Isabel made it real, exceeding my expectations.",
+    "quoteAttribution": "— Custom Order Client",
+    "howItWorksTitle": "How a Custom Order Works",
+    "satisfactionTitle": "Satisfaction guarantee",
+    "satisfactionText": "We review every detail together before shipping. If it's not what you dreamed of, we adjust it.",
+    "steps": {
+      "idea": {
+        "title": "Idea",
+        "desc": "You tell me your vision, share references, we define the concept"
+      },
+      "design": {
+        "title": "Design",
+        "desc": "I present sketches and a color palette for your approval"
+      },
+      "creation": {
+        "title": "Creation",
+        "desc": "I craft the piece, sharing progress via WhatsApp"
+      },
+      "delivery": {
+        "title": "Delivery",
+        "desc": "Careful packaging and tracked shipping nationwide"
+      }
+    }
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "titleStart": "Investment in",
+    "titleAccent": "Handcrafted Art",
+    "description": "Each price reflects hours of dedication, quality materials, and the handcrafted care that makes every piece unique. No hidden costs, only transparency.",
+    "mostPopular": "Most Popular",
+    "howItWorksTitle": "How the Process Works",
+    "satisfactionTitle": "Satisfaction Guarantee",
+    "satisfactionText": "If it's not what you dreamed of, we adjust it. We review every detail before shipping.",
+    "closingQuestion": "Not sure which option fits you best?",
+    "freeAdvice": "Free Advice",
+    "freeAdviceWhatsapp": "Free Advice via WhatsApp",
+    "tiers": {
+      "catalog": {
+        "name": "Catalog Pieces",
+        "description": "Ready-to-ship designs from my current collection",
+        "price": "From $8,000",
+        "period": "per unit",
+        "cta": "View Catalog",
+        "features": [
+          "Immediate availability",
+          "Proven, beloved designs",
+          "2-5 business day shipping",
+          "Sustainable packaging included",
+          "Handwritten thank-you note"
+        ]
+      },
+      "custom": {
+        "name": "Custom Order",
+        "description": "Your idea made real, designed exclusively for you",
+        "price": "From $25,000",
+        "period": "per piece",
+        "cta": "Request a Quote",
+        "features": [
+          "100% original, exclusive design",
+          "Sketches and revisions included",
+          "Choice of colors and materials",
+          "Process updates via WhatsApp",
+          "Certificate of authenticity",
+          "Secure tracked shipping"
+        ]
+      },
+      "wholesale": {
+        "name": "Wholesale Orders",
+        "description": "For events, corporate gifts, or resellers",
+        "price": "Inquire",
+        "period": "10+ units",
+        "cta": "Ask About Wholesale",
+        "features": [
+          "Volume discount (15-30%)",
+          "Coordinated designs for your event",
+          "Agreed delivery timelines",
+          "Invoice available",
+          "Optional custom packaging",
+          "Guidance choosing pieces"
+        ]
+      }
+    },
+    "process": {
+      "conversation": {
+        "title": "Conversation",
+        "desc": "We discuss your idea, budget, and timeline"
+      },
+      "proposal": {
+        "title": "Proposal",
+        "desc": "I send sketches, a color palette, and final price"
+      },
+      "approval": {
+        "title": "Approval",
+        "desc": "You give the go-ahead and I start creating"
+      },
+      "creation": {
+        "title": "Creation",
+        "desc": "I craft your piece, sharing progress"
+      },
+      "delivery": {
+        "title": "Delivery",
+        "desc": "I pack it with love and ship it with tracking"
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "titleStart": "What People Say Who",
+    "titleAccent": "Already Trusted",
+    "description": "More than 500 people have brought home a piece from my studio. Here are some of their stories.",
+    "pieceLabel": "Piece:",
+    "satisfactionTitle": "Satisfaction Guarantee",
+    "satisfactionText": "If it's not what you dreamed of, we adjust it. We review every detail before shipping.",
+    "nextStory": "Want to be the next story?",
+    "writeWhatsApp": "Write on WhatsApp",
+    "viewCatalog": "View Catalog",
+    "stats": {
+      "happyClients": "Happy Clients",
+      "recommend": "Recommend",
+      "yearsExperience": "Years of Experience",
+      "possibilities": "Possibilities"
+    },
+    "items": {
+      "t1": {
+        "name": "María González",
+        "location": "Buenos Aires",
+        "role": "Mother of Sofía (5 years old)",
+        "text": "The fairy doll I ordered for my daughter's birthday exceeded all my expectations. Isabel captured exactly the essence I imagined and the details are incredible. My daughter won't put her down. The process was beautiful: she sent me progress photos and I could give feedback at every stage. 100% recommended.",
+        "product": "Enchanted Forest Fairy (Custom)",
+        "tags": [
+          "Custom order",
+          "Kids' gift",
+          "Doll"
+        ]
+      },
+      "t2": {
+        "name": "Carlos Rodríguez",
+        "location": "Córdoba",
+        "role": "Ana's boyfriend",
+        "text": "I was looking for something unique for our anniversary and the custom pop-up card was a total hit. When Ana opened it and saw our photo in 3D with the message I wrote, she got so emotional. Isabel was super attentive, guided me through the whole process, and delivery to Córdoba was super fast. I'll definitely order again.",
+        "product": "Anniversary Pop-Up Card (Custom)",
+        "tags": [
+          "Custom order",
+          "Anniversary",
+          "3D card"
+        ]
+      },
+      "t3": {
+        "name": "Laura Martínez",
+        "location": "Rosario",
+        "role": "Event organizer",
+        "text": "I ordered 50 custom notebooks for a corporate event and was thrilled. The paper quality, the binding, the cover details... all flawless. Isabel kept to the tight deadline and communication was smooth the whole time. Event attendees were amazed by the detail. Real handcrafted professionalism.",
+        "product": "Corporate Notebooks x50 (Wholesale)",
+        "tags": [
+          "Wholesale order",
+          "Corporate event",
+          "Stationery"
+        ]
+      },
+      "t4": {
+        "name": "Sofía Herrera",
+        "location": "Mendoza",
+        "role": "Collector",
+        "text": "I have several of Isabel's pieces and each one is a treasure. The articulated ballerina is my favorite: the quality of the materials, the precision of the joints, the hand-painted details... you can tell there's love in every cut. Plus, the packaging is so beautiful it's a shame to open it. It's art for a lifetime.",
+        "product": "Dream Ballerina + Flower Doll",
+        "tags": [
+          "Collector",
+          "Articulated dolls",
+          "Premium quality"
+        ]
+      },
+      "t5": {
+        "name": "Javier and Paula",
+        "location": "La Plata",
+        "role": "Newlyweds",
+        "text": "For our wedding we wanted special thank-you cards for each guest (120 people). Isabel designed a base model and personalized each one with the guest's name. The result was magical: guests took home a unique keepsake and we felt at ease knowing every detail was cared for. Thank you for making our day even more special.",
+        "product": "Custom Wedding Cards x120",
+        "tags": [
+          "Wedding",
+          "Wholesale order",
+          "Custom cards"
+        ]
+      },
+      "t6": {
+        "name": "Valentina Ruiz",
+        "location": "Neuquén",
+        "role": "Teacher",
+        "text": "I bought the recycled planter and the bottle pencil holder for my classroom. The kids were amazed to learn they were made from materials we were going to throw away. Isabel explained the process and even sent me educational worksheets to teach recycling in class. Now we want to order more for Earth Day. Art with a conscience.",
+        "product": "Recycled Planter + Magic Bottle Pencil Holder",
+        "tags": [
+          "Recycled line",
+          "Education",
+          "Sustainability"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "titleStart": "Let's Create",
+    "titleAccent": "Something Magical Together",
+    "description": "Do you have a special idea? Want a one-of-a-kind gift? Need a quantity for an event? Tell me about your project and let's design a piece that tells your story.",
+    "formTitle": "Send Your Inquiry",
+    "nameLabel": "Name *",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email *",
+    "emailPlaceholder": "you@email.com",
+    "subjectLabel": "Subject *",
+    "subjectPlaceholder": "Choose a topic",
+    "subjectOptions": {
+      "customOrder": "Custom Order",
+      "wholesale": "Wholesale Orders",
+      "event": "Event / Celebration",
+      "collaboration": "Collaboration",
+      "other": "Other"
+    },
+    "messageLabel": "Message *",
+    "messagePlaceholder": "Tell me your idea, colors, sizes, quantity, delivery date...",
+    "submit": "Send Inquiry",
+    "submitting": "Sending...",
+    "privacyNote": "By submitting, you accept our privacy policy. Your data is never shared with third parties.",
+    "successTitle": "Message Sent!",
+    "successText": "I will answer as soon as possible. Thank you for trusting my art.",
+    "sendAnother": "Send another inquiry",
+    "errorTitle": "Send error",
+    "errorText": "Something went wrong. Please try again or write to me directly on WhatsApp.",
+    "retry": "Retry",
+    "info": {
+      "email": {
+        "title": "Email",
+        "desc": "I reply in 24-48h"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "desc": "Messages and calls"
+      },
+      "location": {
+        "title": "Location",
+        "value": "Buenos Aires, Argentina",
+        "desc": "Shipping across the country"
+      },
+      "instagram": {
+        "title": "Instagram",
+        "desc": "Process and news"
+      }
+    },
+    "features": {
+      "customization": {
+        "title": "Full Personalization",
+        "desc": "Colors, sizes, themes, and details tailored to you"
+      },
+      "directComm": {
+        "title": "Direct Communication",
+        "desc": "We talk via WhatsApp or email throughout the process"
+      },
+      "safeShipping": {
+        "title": "Secure Shipping",
+        "desc": "Careful packaging and tracking across Argentina"
+      }
+    }
+  },
+  "validation": {
+    "requiredName": "Name is required",
+    "minLengthName": "Name must be at least 2 characters long",
+    "requiredEmail": "Email is required",
+    "validEmail": "Enter a valid email",
+    "requiredSubject": "Select a subject",
+    "requiredMessage": "Message is required",
+    "minLengthMessage": "Message must be at least 10 characters long"
+  },
+  "footer": {
+    "tagline": "Handmade with love",
+    "description": "Unique handmade EVA foam creations: soulful dolls, pop-up cards that hold secrets, stationery that inspires, and recycled art that honors the planet. Every piece tells a story.",
+    "exploreTitle": "Explore",
+    "philosophyLink": "Our Philosophy",
+    "collectionLink": "Full Collection",
+    "processLink": "Creative Process",
+    "offersLink": "Special Offers",
+    "customOrdersLink": "Custom Orders",
+    "contactTitle": "Contact",
+    "hours": "Mon-Sat: 10:00 - 19:00",
+    "location": "Buenos Aires, Argentina",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "craftedFrom": "Handcrafted art from Argentina"
+  },
+  "whatsapp": {
+    "ariaLabel": "Contact via WhatsApp",
+    "tooltip": "How can I help you?"
+  },
+  "metadata": {
+    "home": {
+      "title": "Isabel Creando Arte y Magia | Handmade EVA Foam Crafts",
+      "description": "Unique handmade EVA foam creations: soulful dolls, pop-up cards, artistic stationery, and recycled art. Handmade with love in Argentina. Custom orders welcome."
+    },
+    "products": {
+      "title": "Full Catalog",
+      "description": "Explore our complete collection of unique pieces in EVA foam, cards, and recycled art, handmade in Argentina."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Have a special idea? Get in touch for custom orders, wholesale requests, or any question."
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "See our pricing for catalog pieces, custom orders, and wholesale requests."
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "description": "What people who already trusted our handmade creations have to say."
+    }
+  },
+  "admin": {
+    "common": {
+      "save": "Save",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "deleting": "Deleting...",
+      "edit": "Edit",
+      "create": "Create",
+      "search": "Search",
+      "retry": "Retry",
+      "loading": "Loading...",
+      "confirm": "Confirm",
+      "close": "Close",
+      "yes": "Yes",
+      "no": "No",
+      "active": "Active",
+      "inactive": "Inactive",
+      "published": "Published",
+      "draft": "Draft",
+      "featured": "Featured",
+      "notFeatured": "Not featured",
+      "all": "All",
+      "errorGeneric": "Something went wrong. Please try again.",
+      "successSaved": "Changes saved successfully.",
+      "successCreated": "Created successfully.",
+      "successDeleted": "Deleted successfully.",
+      "back": "Back"
+    },
+    "sidebar": {
+      "brand": "Isabel Creando",
+      "brandSub": "Private Dashboard",
+      "dashboard": "Dashboard",
+      "products": "Products",
+      "categories": "Categories",
+      "settings": "Settings",
+      "logout": "Log out",
+      "language": "Language"
+    },
+    "login": {
+      "eyebrow": "Admin Access",
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Enter dashboard",
+      "submitting": "Signing in...",
+      "error": "Unable to sign in"
+    },
+    "dashboard": {
+      "eyebrow": "Admin Dashboard",
+      "title": "Admin dashboard",
+      "totalProducts": "Total Products",
+      "publishedProducts": "Published",
+      "draftProducts": "Drafts",
+      "totalCategories": "Categories",
+      "featuredProducts": "Featured",
+      "recentChanges": "Recent changes",
+      "viewAll": "View all",
+      "quickActions": "Quick actions",
+      "manageProducts": "Manage products",
+      "manageCategories": "Manage categories",
+      "mongoNotConfiguredTitle": "MongoDB is not configured",
+      "mongoNotConfiguredText": "Add your MONGODB_URI to the environment and run the seed command before using the dashboard."
+    },
+    "products": {
+      "eyebrow": "Products",
+      "title": "Product management",
+      "newProduct": "New product",
+      "searchPlaceholder": "Search by name or category",
+      "allCategories": "All categories",
+      "allStatuses": "All statuses",
+      "anyFeatured": "Any featured status",
+      "columnImage": "Image",
+      "columnName": "Name",
+      "columnCategory": "Category",
+      "columnStatus": "Status",
+      "columnFeatured": "Featured",
+      "columnUpdated": "Updated",
+      "columnActions": "Actions",
+      "emptyTitle": "No products found",
+      "emptyText": "You haven't added any pieces to your catalog yet.",
+      "emptyAction": "Add your first product",
+      "errorTitle": "Couldn't load products",
+      "deleteConfirmTitle": "Delete this product?",
+      "deleteConfirmText": "This action cannot be undone. The piece will be permanently removed from the catalog.",
+      "deleteError": "Couldn't delete the product."
+    },
+    "categories": {
+      "eyebrow": "Categories",
+      "title": "Category management",
+      "newCategory": "New category",
+      "columnImage": "Image",
+      "columnName": "Name",
+      "columnSlug": "Slug",
+      "columnStatus": "Status",
+      "columnOrder": "Order",
+      "columnProducts": "Products",
+      "columnActions": "Actions",
+      "emptyTitle": "No categories yet",
+      "emptyAction": "Add your first category",
+      "deleteConfirmTitle": "Delete this category?",
+      "deleteConfirmText": "This action cannot be undone.",
+      "deleteBlockedError": "You can't delete a category that has products assigned.",
+      "deleteError": "Couldn't delete the category."
+    },
+    "productForm": {
+      "titleNew": "New product",
+      "titleEdit": "Edit product",
+      "sectionInfo": "Product Information",
+      "sectionMedia": "Product Media",
+      "sectionOrganization": "Organization",
+      "sectionEnglish": "English Content (optional)",
+      "sectionEnglishHint": "Optional — if left blank, the English site will show the Spanish content instead.",
+      "name": "Name",
+      "nameEn": "Name (English)",
+      "slug": "Slug",
+      "shortDescription": "Short description",
+      "shortDescriptionEn": "Short description (English)",
+      "description": "Description",
+      "descriptionEn": "Description (English)",
+      "category": "Category",
+      "categoryPlaceholder": "Select a category",
+      "availability": "Availability",
+      "availabilityOptions": {
+        "available": "Available for Delivery",
+        "madeToOrder": "Made to Order (Customizable)",
+        "limited": "Last Units",
+        "soldOut": "Sold Out"
+      },
+      "price": "Price",
+      "priceLabel": "Price label",
+      "materials": "Materials",
+      "materialsPlaceholder": "Add a material...",
+      "colors": "Colors",
+      "colorsPlaceholder": "Add a color...",
+      "features": "Features",
+      "featuresPlaceholder": "Add a feature...",
+      "tags": "Tags",
+      "tagsPlaceholder": "Add a tag...",
+      "images": "Images",
+      "uploadImage": "Upload image",
+      "uploading": "Uploading {current} of {total}...",
+      "status": "Status",
+      "displayOrder": "Display order",
+      "markFeatured": "Mark as featured",
+      "featuredOn": "Featured ✓",
+      "markNew": "Mark as New Arrival",
+      "newOn": "New Arrival ✓",
+      "markSeasonal": "Mark as Special Collection",
+      "seasonalOn": "Special Collection ✓",
+      "submitCreate": "Create product",
+      "submitEdit": "Save changes",
+      "errorNameLength": "Name must be at least 2 characters.",
+      "errorSlugFormat": "Slug can only contain lowercase letters, numbers, and hyphens.",
+      "errorDescriptionLength": "Description must be at least 10 characters.",
+      "errorCategoryRequired": "Select a category.",
+      "errorImagesRequired": "Upload at least one image.",
+      "errorSlugTaken": "A product with this slug already exists.",
+      "errorGeneric": "Couldn't save the product."
+    },
+    "categoryForm": {
+      "sectionInfo": "Category Information",
+      "sectionEnglish": "English Content (optional)",
+      "sectionEnglishHint": "Optional — if left blank, the English site will show the Spanish content instead.",
+      "titleNew": "New category",
+      "titleEdit": "Edit category",
+      "name": "Name",
+      "nameEn": "Name (English)",
+      "slug": "Slug",
+      "description": "Description",
+      "descriptionEn": "Description (English)",
+      "image": "Image",
+      "displayOrder": "Display order",
+      "markActive": "Active ✓",
+      "markInactive": "Inactive",
+      "submitCreate": "Create category",
+      "submitEdit": "Save changes",
+      "errorNameLength": "Name must be at least 2 characters.",
+      "errorSlugFormat": "Slug can only contain lowercase letters, numbers, and hyphens.",
+      "errorSlugTaken": "A category with this slug already exists.",
+      "errorGeneric": "Couldn't save the category."
+    },
+    "imageUploader": {
+      "uploadImage": "Upload image",
+      "uploading": "Uploading {current} of {total}...",
+      "onlyImages": "Only image files are allowed.",
+      "maxSize": "Each image must be under 8MB.",
+      "moveLeft": "Move left",
+      "moveRight": "Move right",
+      "remove": "Remove image",
+      "errorGeneric": "Error uploading the image"
+    }
+  }
+}

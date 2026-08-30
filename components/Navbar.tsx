@@ -1,10 +1,12 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
+import LocaleSwitcher from '@/components/LocaleSwitcher';
 
 const InstagramIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -21,6 +23,7 @@ const FacebookIcon = () => (
 );
 
 const Navbar = () => {
+  const t = useTranslations('navigation');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('#inicio');
@@ -42,17 +45,17 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { href: '#inicio', label: 'Inicio' },
-    { href: '#videos', label: 'Videos' },
-    { href: '#productos', label: 'Productos' },
-    { href: '#precios', label: 'Precios' },
-    { href: '#testimonios', label: 'Testimonios' },
-    { href: '#contacto', label: 'Contacto' },
+    { href: '#inicio', label: t('home') },
+    { href: '#videos', label: t('videos') },
+    { href: '#productos', label: t('products') },
+    { href: '#precios', label: t('pricing') },
+    { href: '#testimonios', label: t('testimonials') },
+    { href: '#contacto', label: t('contact') },
   ];
 
   const scrollToSection = (href: string) => {
@@ -79,10 +82,10 @@ const Navbar = () => {
             className="flex items-center gap-3"
           >
             <Link href="#inicio" className="flex items-center gap-3 group" onClick={(e) => { e.preventDefault(); scrollToSection('#inicio'); }}>
-            <div className="w-10 h-10 rounded-sm relative overflow-hidden transition-transform group-hover:scale-105">
-              <Image src="/images/logo/logo.jpeg" alt="Isabel Creando Logo" width={40} height={40} className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+              <div className="w-10 h-10 rounded-sm relative overflow-hidden transition-transform group-hover:scale-105">
+                <Image src="/images/logo/logo.jpeg" alt="Isabel Creando Logo" width={40} height={40} className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
               <div className="flex flex-col">
                 <span className="text-lg md:text-xl font-serif text-textBase leading-none">
                   Isabel <span className="text-primary">Creando</span>
@@ -94,7 +97,6 @@ const Navbar = () => {
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 md:gap-8">
             {navLinks.map((link, index) => (
               <motion.button
@@ -115,6 +117,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
+            <LocaleSwitcher />
             <motion.button
               onClick={() => scrollToSection('#contacto')}
               initial={{ opacity: 0, x: 20 }}
@@ -122,14 +125,14 @@ const Navbar = () => {
               transition={{ delay: 0.3 }}
               className="px-6 py-2.5 bg-primary text-white text-[10px] uppercase tracking-widest font-sans font-semibold rounded-sm hover:bg-primary-dark transition-colors"
             >
-              Consultar
+              {t('consult')}
             </motion.button>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-textBase/60 hover:text-accent transition-colors"
-              aria-label="Instagram"
+              aria-label={t('instagram')}
             >
               <InstagramIcon />
             </a>
@@ -138,7 +141,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-textBase/60 hover:text-accent transition-colors"
-              aria-label="Facebook"
+              aria-label={t('facebook')}
             >
               <FacebookIcon />
             </a>
@@ -147,23 +150,24 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-textBase/60 hover:text-green-500 transition-colors"
-              aria-label="WhatsApp"
+              aria-label={t('whatsapp')}
             >
               <FaWhatsapp className="w-5 h-5" />
             </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 text-textBase hover:text-primary transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <LocaleSwitcher className="inline-flex items-center justify-center min-w-[44px] px-2.5 py-1.5 border border-accent/30 bg-surfaceAlt/80 text-textBase text-[10px] uppercase tracking-widest font-sans font-semibold rounded-full transition-all hover:border-primary/50 hover:text-primary" />
+            <button
+              className="p-2 text-textBase hover:text-primary transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? t('closeMenu') : t('openMenu')}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -196,18 +200,18 @@ const Navbar = () => {
                   transition={{ delay: 0.3 }}
                   className="w-full py-4 bg-primary text-white text-center text-xs uppercase tracking-widest font-sans font-semibold rounded-sm"
                 >
-                  Hacer una consulta
+                  {t('consult')}
                 </motion.button>
                 <div className="flex items-center justify-center gap-4 pt-4 border-t border-neutral-200">
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 text-textBase/60 hover:text-accent transition-colors" aria-label="Instagram">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 text-textBase/60 hover:text-accent transition-colors" aria-label={t('instagram')}>
                     <InstagramIcon />
                   </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 text-textBase/60 hover:text-accent transition-colors" aria-label="Facebook">
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 text-textBase/60 hover:text-accent transition-colors" aria-label={t('facebook')}>
                     <FacebookIcon />
                   </a>
-<a href="https://wa.me/5491186371242" target="_blank" rel="noopener noreferrer" className="p-2 text-textBase/60 hover:text-green-500 transition-colors" aria-label="WhatsApp">
-                      <FaWhatsapp className="w-5 h-5" />
-                    </a>
+                  <a href="https://wa.me/5491186371242" target="_blank" rel="noopener noreferrer" className="p-2 text-textBase/60 hover:text-green-500 transition-colors" aria-label={t('whatsapp')}>
+                    <FaWhatsapp className="w-5 h-5" />
+                  </a>
                 </div>
               </div>
             </motion.div>

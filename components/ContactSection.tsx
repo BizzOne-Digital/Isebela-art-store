@@ -1,8 +1,9 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, MessageSquare, Sparkles, Send, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, MessageSquare, Sparkles, Send, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 
 interface FormData {
   name: string;
@@ -19,6 +20,8 @@ interface FormErrors {
 }
 
 const ContactSection = () => {
+  const t = useTranslations('contact');
+  const tValidation = useTranslations('validation');
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -33,19 +36,19 @@ const ContactSection = () => {
     const trimmed = value.trim();
     switch (name) {
       case 'name':
-        if (!trimmed) return 'El nombre es obligatorio';
-        if (trimmed.length < 2) return 'El nombre debe tener al menos 2 caracteres';
+        if (!trimmed) return tValidation('requiredName');
+        if (trimmed.length < 2) return tValidation('minLengthName');
         break;
       case 'email':
-        if (!trimmed) return 'El email es obligatorio';
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return 'Ingresa un email válido';
+        if (!trimmed) return tValidation('requiredEmail');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return tValidation('validEmail');
         break;
       case 'subject':
-        if (!trimmed) return 'Selecciona un asunto';
+        if (!trimmed) return tValidation('requiredSubject');
         break;
       case 'message':
-        if (!trimmed) return 'El mensaje es obligatorio';
-        if (trimmed.length < 10) return 'El mensaje debe tener al menos 10 caracteres';
+        if (!trimmed) return tValidation('requiredMessage');
+        if (trimmed.length < 10) return tValidation('minLengthMessage');
         break;
     }
     return undefined;
@@ -112,31 +115,31 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email',
+      title: t('info.email.title'),
       value: 'isadoug01@gmail.com',
       href: 'mailto:isadoug01@gmail.com',
-      desc: 'Respondo en 24-48hs',
+      desc: t('info.email.desc'),
     },
     {
       icon: FaWhatsapp,
-      title: 'WhatsApp',
+      title: t('info.whatsapp.title'),
       value: '+54 9 11 8637-1242',
       href: 'https://wa.me/5491186371242',
-      desc: 'Mensajes y llamadas',
+      desc: t('info.whatsapp.desc'),
     },
     {
       icon: MapPin,
-      title: 'Ubicación',
-      value: 'Buenos Aires, Argentina',
+      title: t('info.location.title'),
+      value: t('info.location.value'),
       href: '#',
-      desc: 'Envíos a todo el país',
+      desc: t('info.location.desc'),
     },
     {
       icon: FaInstagram,
-      title: 'Instagram',
+      title: t('info.instagram.title'),
       value: '@isabel.creando.arte',
       href: 'https://instagram.com',
-      desc: 'Proceso y novedades',
+      desc: t('info.instagram.desc'),
     },
   ];
 
@@ -178,15 +181,14 @@ const ContactSection = () => {
       >
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
-            <span className="text-accent text-sm font-sans tracking-widest uppercase mb-4 block">Contacto</span>
+            <span className="text-accent text-sm font-sans tracking-widest uppercase mb-4 block">{t('eyebrow')}</span>
             <h2 className="text-4xl md:text-5xl font-serif text-textBase mb-6">
-              Creemos Algo
+              {t('titleStart')}
               <br />
-              <span className="text-secondary">Mágico Juntos</span>
+              <span className="text-secondary">{t('titleAccent')}</span>
             </h2>
             <p className="text-textBase/60 text-lg mb-8 leading-relaxed">
-              ¿Tienes una idea especial? ¿Quieres un regalo único? ¿Necesitas una cantidad para un evento?
-              Cuéntame tu proyecto y diseñemos juntos una pieza que cuente tu historia.
+              {t('description')}
             </p>
 
             <div className="space-y-6">
@@ -226,7 +228,7 @@ const ContactSection = () => {
           >
             <span className="absolute top-4 left-4 text-accent text-2xl">┌</span>
             <span className="absolute bottom-4 right-4 text-accent text-2xl">┘</span>
-            <h3 className="text-2xl font-serif text-textBase mb-6 relative z-10">Envía tu Consulta</h3>
+            <h3 className="text-2xl font-serif text-textBase mb-6 relative z-10">{t('formTitle')}</h3>
 
             {status === 'success' ? (
               <motion.div
@@ -237,13 +239,13 @@ const ContactSection = () => {
                 <div className="w-16 h-16 mx-auto mb-4 bg-green-500/20 rounded-full flex items-center justify-center">
                   <CheckCircle2 className="w-8 h-8 text-green-500" />
                 </div>
-                <h4 className="text-xl font-serif text-textBase mb-2">¡Mensaje Enviado!</h4>
-                <p className="text-textBase/60 mb-6">Te responderé lo antes posible. Gracias por confiar en mi arte.</p>
+                <h4 className="text-xl font-serif text-textBase mb-2">{t('successTitle')}</h4>
+                <p className="text-textBase/60 mb-6">{t('successText')}</p>
                 <button
                   onClick={resetForm}
                   className="inline-flex items-center gap-2 px-6 py-2.5 border border-accent/30 text-accent rounded-sm hover:bg-accent/10 transition-colors font-sans text-sm"
                 >
-                  Enviar otra consulta
+                  {t('sendAnother')}
                   <Sparkles className="w-4 h-4" />
                 </button>
               </motion.div>
@@ -256,13 +258,13 @@ const ContactSection = () => {
                 <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center">
                   <AlertCircle className="w-8 h-8 text-secondary" />
                 </div>
-                <h4 className="text-xl font-serif text-textBase mb-2">Error al enviar</h4>
-                <p className="text-textBase/60 mb-6">Ocurrió un problema. Por favor, intenta de nuevo o escríbeme directamente por WhatsApp.</p>
+                <h4 className="text-xl font-serif text-textBase mb-2">{t('errorTitle')}</h4>
+                <p className="text-textBase/60 mb-6">{t('errorText')}</p>
                 <button
                   onClick={resetForm}
                   className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-sm hover:bg-primary/90 transition-colors font-sans text-sm"
                 >
-                  Reintentar
+                  {t('retry')}
                 </button>
               </motion.div>
             ) : (
@@ -270,7 +272,7 @@ const ContactSection = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-sans text-textBase/70 mb-1.5">
-                      Nombre *
+                      {t('nameLabel')}
                     </label>
                     <input
                       type="text"
@@ -281,7 +283,7 @@ const ContactSection = () => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       className={getInputClassName('name')}
-                      placeholder="Tu nombre"
+                      placeholder={t('namePlaceholder')}
                       disabled={status === 'submitting'}
                       autoComplete="name"
                     />
@@ -289,7 +291,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-sans text-textBase/70 mb-1.5">
-                      Email *
+                      {t('emailLabel')}
                     </label>
                     <input
                       type="email"
@@ -300,7 +302,7 @@ const ContactSection = () => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       className={getInputClassName('email')}
-                      placeholder="tu@email.com"
+                      placeholder={t('emailPlaceholder')}
                       disabled={status === 'submitting'}
                       autoComplete="email"
                     />
@@ -309,7 +311,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <label htmlFor="subject" className="block text-sm font-sans text-textBase/70 mb-1.5">
-                    Asunto *
+                    {t('subjectLabel')}
                   </label>
                   <select
                     id="subject"
@@ -321,18 +323,18 @@ const ContactSection = () => {
                     className={getInputClassName('subject')}
                     disabled={status === 'submitting'}
                   >
-                    <option value="">Selecciona un tema</option>
-                    <option value="custom-order">Encargo Personalizado</option>
-                    <option value="wholesale">Pedidos al Por Mayor</option>
-                    <option value="event">Evento / Celebración</option>
-                    <option value="collaboration">Colaboración</option>
-                    <option value="other">Otro</option>
+                    <option value="">{t('subjectPlaceholder')}</option>
+                    <option value="custom-order">{t('subjectOptions.customOrder')}</option>
+                    <option value="wholesale">{t('subjectOptions.wholesale')}</option>
+                    <option value="event">{t('subjectOptions.event')}</option>
+                    <option value="collaboration">{t('subjectOptions.collaboration')}</option>
+                    <option value="other">{t('subjectOptions.other')}</option>
                   </select>
                   {renderFieldError('subject')}
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-sans text-textBase/70 mb-1.5">
-                    Mensaje *
+                    {t('messageLabel')}
                   </label>
                   <textarea
                     id="message"
@@ -343,7 +345,7 @@ const ContactSection = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     className={`${getInputClassName('message')} resize-none`}
-                    placeholder="Cuéntame tu idea, colores, tamaños, cantidad, fecha de entrega..."
+                    placeholder={t('messagePlaceholder')}
                     disabled={status === 'submitting'}
                   />
                   {renderFieldError('message')}
@@ -359,17 +361,17 @@ const ContactSection = () => {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                       </svg>
-                      Enviando...
+                      {t('submitting')}
                     </>
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      Enviar Consulta
+                      {t('submit')}
                     </>
                   )}
                 </button>
                 <p className="text-center text-xs text-textBase/40">
-                  Al enviar, aceptas nuestra política de privacidad. Tus datos no se comparten con terceros.
+                  {t('privacyNote')}
                 </p>
               </form>
             )}
@@ -385,9 +387,9 @@ const ContactSection = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {[
-            { icon: Sparkles, title: 'Personalización Total', desc: 'Colores, tamaños, temáticas y detalles a tu medida' },
-            { icon: Mail, title: 'Comunicación Directa', desc: 'Hablamos por WhatsApp o email durante todo el proceso' },
-            { icon: Send, title: 'Envíos Seguros', desc: 'Embalaje cuidadoso y seguimiento a todo Argentina' },
+            { icon: Sparkles, title: t('features.customization.title'), desc: t('features.customization.desc') },
+            { icon: Mail, title: t('features.directComm.title'), desc: t('features.directComm.desc') },
+            { icon: Send, title: t('features.safeShipping.title'), desc: t('features.safeShipping.desc') },
           ].map((item, index) => (
             <motion.div
               key={item.title}

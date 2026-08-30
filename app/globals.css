@@ -26,6 +26,31 @@
   
   --font-serif: var(--font-playfair), serif;
   --font-sans: var(--font-inter), sans-serif;
+
+  /* Admin dashboard — a separate, restrained luxury token set (deep burgundy,
+     warm ivory/beige surfaces, charcoal ink, muted gold used only as a small
+     accent). Kept independent of the public-site tokens above so nothing
+     there is affected. */
+  --color-admin-ink: #211b18;
+  --color-admin-body: #55483e;
+  --color-admin-muted: #8a7a6b;
+  --color-admin-bg: #f7f2ea;
+  --color-admin-surface: #fffdfa;
+  --color-admin-surface-alt: #faf5ec;
+  --color-admin-border: #e6d9c4;
+  --color-admin-border-strong: #d8c5a4;
+  --color-admin-primary: #6b1f2b;
+  --color-admin-primary-hover: #551621;
+  --color-admin-primary-soft: #f1e2e2;
+  --color-admin-gold: #a9803f;
+  --color-admin-gold-soft: #f1e6cd;
+  --color-admin-success: #33623f;
+  --color-admin-success-soft: #e7efe6;
+  --color-admin-danger: #8a2c2c;
+  --color-admin-danger-soft: #f6e6e3;
+
+  --shadow-admin-card: 0 1px 2px rgba(33, 27, 24, 0.05), 0 8px 24px -12px rgba(33, 27, 24, 0.12);
+  --shadow-admin-pop: 0 12px 40px -8px rgba(33, 27, 24, 0.22);
 }
 
 @layer base {

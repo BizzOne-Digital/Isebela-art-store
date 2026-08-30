@@ -2,48 +2,34 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronRight, Sparkles, Heart, Leaf, Award, ArrowDown, Eye } from 'lucide-react';
-import Link from 'next/link';
+import { ChevronRight, Sparkles, Heart, Leaf, Award, Eye } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { AsciiArt } from '@/components/ui/ink-garden';
+import type { Product } from '@/lib/products';
 
-const heroCrafts = [
-  {
-    id: 'fofucha-boho',
-    title: 'Fofucha Boho Chic',
-    desc: 'Modelada en goma eva con trenzas y apliques florales 3D',
-    image: '/images/img/is8.jpg',
-    badge: 'Nueva Creación',
-    slug: 'fofucha-boho-chic-trenzas-8',
-  },
-  {
-    id: 'fofucho-motociclista',
-    title: 'Fofucho Motociclista Harley',
-    desc: 'Con moto custom a escala y mascota acompañante',
-    image: '/images/img/is18.jpg',
-    badge: 'Personalizado',
-    slug: 'fofucho-motociclista-harley-custom-18',
-  },
-  {
-    id: 'fofucha-ciclista',
-    title: 'Fofucha Ciclista de Aventura',
-    desc: 'Casco aerodinámico y bicicleta artesanal',
-    image: '/images/img/is1.jpg',
-    badge: 'Popular',
-    slug: 'fofucha-ciclista-aventura-1',
-  },
-  {
-    id: 'osita-bebe-craft',
-    title: 'Osita Bebé en Goma Eva',
-    desc: 'Figura tierna de osita con chupete y mantita artesanal',
-    image: '/images/img/is13.jpg',
-    badge: 'Edición Exclusiva',
-    slug: 'osita-bebe-tierna-goma-eva-13',
-  },
-];
+interface HeroSectionProps {
+  artworks: Product[];
+}
 
-export default function HeroSection() {
+export default function HeroSection({ artworks }: HeroSectionProps) {
+  const t = useTranslations('hero');
+  const tCommon = useTranslations('common');
   const [selectedCraftIndex, setSelectedCraftIndex] = useState(0);
-  const activeCraft = heroCrafts[selectedCraftIndex];
+
+  const heroCrafts = artworks
+    .filter((product) => product.isFeatured)
+    .slice(0, 4)
+    .map((product) => ({
+      id: product.id,
+      title: product.name,
+      desc: product.shortDescription,
+      image: product.image,
+      badge: product.isNew ? tCommon('newLabel') : tCommon('featuredLabel'),
+      slug: product.slug,
+    }));
+
+  const activeCraft = heroCrafts[Math.min(selectedCraftIndex, heroCrafts.length - 1)];
 
   const scrollToProducts = () => {
     const element = document.querySelector('#productos');
@@ -77,16 +63,15 @@ export default function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary text-xs font-sans uppercase tracking-widest rounded-full mb-6 border border-primary/20">
               <Sparkles className="w-4 h-4" />
-              Artesanías en Goma Eva Hechas a Mano
+              {t('badge')}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-textBase leading-tight mb-6">
-              Donde la imaginación
+              {t('titlePart1')}
               <br />
-              <span className="text-primary">cobra vida</span>
+              <span className="text-primary">{t('titlePart2')}</span>
             </h1>
             <p className="text-textBase/70 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-              Creaciones artesanales únicas en goma eva: muñecas fofuchas con alma, tarjetas pop-up que guardan secretos,
-              papelería decorada y arte reciclado sostenible. Cada pieza está hecha 100% a mano en Argentina.
+              {t('description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button
@@ -94,7 +79,7 @@ export default function HeroSection() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all font-sans text-base shadow-lg shadow-primary/20"
               >
                 <Sparkles className="w-5 h-5" />
-                Ver 48 Creaciones
+                {t('viewCreations')}
                 <ChevronRight className="w-5 h-5" />
               </button>
               <button
@@ -102,16 +87,16 @@ export default function HeroSection() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surfaceAlt border border-accent/30 text-textBase rounded-lg hover:border-primary/50 transition-colors font-sans text-base"
               >
                 <Heart className="w-5 h-5 text-primary" />
-                Encargo Personalizado
+                {t('customOrder')}
               </button>
             </div>
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
-                { icon: Heart, label: 'Hecho a Mano', desc: 'Con amor y paciencia' },
-                { icon: Sparkles, label: 'Diseño Único', desc: 'Piezas exclusivas' },
-                { icon: Leaf, label: 'Eco Amigable', desc: 'Materiales nobles' },
-                { icon: Award, label: '48 Modelos', desc: 'Colección completa' },
+                { icon: Heart, label: t('madeByHand'), desc: t('madeByHandDesc') },
+                { icon: Sparkles, label: t('uniqueDesign'), desc: t('uniqueDesignDesc') },
+                { icon: Leaf, label: t('ecoFriendly'), desc: t('ecoFriendlyDesc') },
+                { icon: Award, label: t('totalModels'), desc: t('totalModelsDesc') },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -131,6 +116,7 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Hero Right Showcase with Real Handcrafted Products */}
+          {activeCraft && (
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -182,7 +168,7 @@ export default function HeroSection() {
                     className="px-3.5 py-2 bg-primary text-white text-xs font-sans rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-1 flex-shrink-0 shadow-md"
                   >
                     <Eye className="w-3.5 h-3.5" />
-                    Detalles
+                    {t('viewDetails')}
                   </Link>
                 </div>
               </div>
@@ -199,7 +185,7 @@ export default function HeroSection() {
                       ? 'border-primary ring-2 ring-primary/30 scale-105 shadow-md'
                       : 'border-accent/20 opacity-70 hover:opacity-100'
                   }`}
-                  aria-label={`Ver ${craft.title}`}
+                  aria-label={craft.title}
                 >
                   <Image
                     src={craft.image}
@@ -212,6 +198,7 @@ export default function HeroSection() {
               ))}
             </div>
           </motion.div>
+          )}
         </div>
       </motion.div>
     </section>

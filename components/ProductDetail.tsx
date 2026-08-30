@@ -1,9 +1,9 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { Link, useRouter } from '@/i18n/navigation';
 import { Product } from '@/lib/products';
 import { FaWhatsapp } from 'react-icons/fa';
 import {
@@ -12,11 +12,9 @@ import {
   Heart,
   Sparkles,
   Leaf,
-  Truck,
-  Shield,
+  Tag,
   MapPin,
   Clock,
-  Tag,
   Layers,
   Brush,
   Package,
@@ -32,13 +30,10 @@ interface ProductDetailProps {
 
 const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
   const router = useRouter();
+  const t = useTranslations('productDetail');
+  const tCommon = useTranslations('common');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-
-  useEffect(() => {
-    setCurrentImageIndex(0);
-    setIsLightboxOpen(false);
-  }, [product.id]);
 
   const images = [product.image, ...(product.secondaryImages || [])];
 
@@ -51,20 +46,20 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
   };
 
   const availabilityLabels = {
-    available: { label: 'Disponible para Entrega', color: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800' },
-    'made-to-order': { label: 'Hecho a Pedido (Personalizable)', color: 'text-purple-700 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/40 border-purple-200 dark:border-purple-800' },
-    limited: { label: 'Últimas Unidades', color: 'text-amber-700 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800' },
-    'sold-out': { label: 'Agotado', color: 'text-neutral-600 dark:text-neutral-400', bg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700' },
+    available: { label: t('availableForDelivery'), color: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800' },
+    'made-to-order': { label: t('madeToOrderCustom'), color: 'text-purple-700 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/40 border-purple-200 dark:border-purple-800' },
+    limited: { label: t('lastUnits'), color: 'text-amber-700 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800' },
+    'sold-out': { label: t('soldOut'), color: 'text-neutral-600 dark:text-neutral-400', bg: 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700' },
   };
 
   const availability = availabilityLabels[product.availability];
 
   const processSteps = [
-    { icon: Sparkles, title: 'Inspiración', desc: 'Bocetos y diseño del personaje' },
-    { icon: Brush, title: 'Corte y Termoformado', desc: 'Moldeado con calor capa por capa' },
-    { icon: Layers, title: 'Ensamblado', desc: 'Estructura interna y pegado artesanal' },
-    { icon: Heart, title: 'Pintura y Detalles', desc: 'Rostros y accesorios hechos a mano' },
-    { icon: Package, title: 'Embalaje Seguro', desc: 'Empaque protegido con nota especial' },
+    { icon: Sparkles, title: t('inspiration'), desc: t('inspirationDesc') },
+    { icon: Brush, title: t('cutAndThermoform'), desc: t('cutAndThermoformDesc') },
+    { icon: Layers, title: t('assembly'), desc: t('assemblyDesc') },
+    { icon: Heart, title: t('paintAndDetails'), desc: t('paintAndDetailsDesc') },
+    { icon: Package, title: t('securePackaging'), desc: t('securePackagingDesc') },
   ];
 
   const whatsappMessage = `Hola Isabel! Me interesa "${product.name}" (${product.price}). Quisiera consultar disponibilidad y detalles de entrega.`;
@@ -85,7 +80,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
           className="inline-flex items-center gap-2 text-textBase/70 hover:text-primary transition-colors text-sm font-sans mb-8 px-4 py-2 bg-surfaceAlt/60 rounded-lg border border-accent/15 hover:border-primary/40 shadow-sm"
         >
           <ChevronLeft className="w-4 h-4" />
-          Volver a la página anterior
+          {tCommon('back')}
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
@@ -94,7 +89,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
             <div className="relative aspect-[4/5] sm:aspect-square rounded-3xl overflow-hidden border border-accent/20 bg-surfaceAlt/90 shadow-xl flex items-center justify-center p-4">
               <Image
                 src={images[currentImageIndex]}
-                alt={`${product.name} - Vista ${currentImageIndex + 1}`}
+                alt={`${product.name} - ${currentImageIndex + 1}`}
                 fill
                 className="object-contain p-4 transition-all duration-300"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -104,14 +99,14 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
               <button
                 onClick={() => setIsLightboxOpen(true)}
                 className="absolute top-4 right-4 p-3 rounded-full bg-surface/90 backdrop-blur-md border border-accent/20 text-textBase hover:text-primary hover:bg-surface transition-all shadow-md"
-                aria-label="Ampliar imagen"
+                aria-label={t('enlargeImage')}
               >
                 <ZoomIn className="w-5 h-5" />
               </button>
 
               <div className="absolute bottom-4 left-4">
                 <span className="px-3 py-1 bg-surface/90 backdrop-blur-md text-textBase/80 text-xs font-sans rounded-full border border-accent/20">
-                  Foto {currentImageIndex + 1} de {images.length}
+                  {t('photoOf')} {currentImageIndex + 1} {t('ofText')} {images.length}
                 </span>
               </div>
             </div>
@@ -128,11 +123,11 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                         ? 'border-primary ring-2 ring-primary/30 scale-105 shadow-md'
                         : 'border-accent/20 opacity-70 hover:opacity-100'
                     }`}
-                    aria-label={`Ver vista ${index + 1}`}
+                    aria-label={`${t('viewGallery')} ${index + 1}`}
                   >
                     <Image
                       src={img}
-                      alt={`${product.name} miniatura ${index + 1}`}
+                      alt={`${product.name} ${index + 1}`}
                       fill
                       className="object-contain p-1"
                       sizes="80px"
@@ -149,11 +144,11 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
               </span>
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surfaceAlt border border-accent/15 text-textBase/80 text-xs font-sans">
                 <MapPin className="w-3.5 h-3.5 text-primary" />
-                Hecho a mano en Argentina
+                {tCommon('madeInArgentina')}
               </span>
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surfaceAlt border border-accent/15 text-textBase/80 text-xs font-sans">
                 <Clock className="w-3.5 h-3.5 text-secondary" />
-                {product.availability === 'made-to-order' ? 'Elaboración 7-15 días' : 'Despacho en 48hs'}
+                {product.availability === 'made-to-order' ? tCommon('process7to15') : tCommon('shipping48h')}
               </span>
             </div>
           </div>
@@ -188,35 +183,37 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                   className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all font-sans text-sm font-medium shadow-md shadow-primary/20"
                 >
                   <FaWhatsapp className="w-5 h-5" />
-                  Consultar por WhatsApp
+                  {t('customQuote')}
                 </a>
                 <a
                   href={`mailto:isadoug01@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-surface border border-accent/30 text-textBase rounded-xl hover:border-primary/50 transition-colors font-sans text-sm"
                 >
                   <Mail className="w-5 h-5 text-secondary" />
-                  Email
+                  {t('emailAction')}
                 </a>
               </div>
             </div>
 
             {/* Features */}
-            <div className="space-y-3 pt-2">
-              <h3 className="text-lg font-serif text-textBase font-semibold">Detalles y Características</h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2.5 p-3 bg-surfaceAlt/40 border border-accent/10 rounded-xl">
-                    <Sparkles className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-textBase/80 text-xs sm:text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {product.features && product.features.length > 0 && (
+              <div className="space-y-3 pt-2">
+                <h3 className="text-lg font-serif text-textBase font-semibold">{t('detailsAndFeatures')}</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {product.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2.5 p-3 bg-surfaceAlt/40 border border-accent/10 rounded-xl">
+                      <Sparkles className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-textBase/80 text-xs sm:text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Materials */}
             {product.materials && product.materials.length > 0 && (
               <div className="space-y-3">
-                <h3 className="text-lg font-serif text-textBase font-semibold">Materiales Nobles Utilizados</h3>
+                <h3 className="text-lg font-serif text-textBase font-semibold">{t('nobleMaterials')}</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {product.materials.map((material, index) => (
                     <li key={index} className="flex items-center gap-2.5 p-3 bg-surfaceAlt/40 border border-accent/10 rounded-xl">
@@ -230,7 +227,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
 
             {/* Process */}
             <div className="space-y-3 pt-2">
-              <h3 className="text-lg font-serif text-textBase font-semibold">El Proceso Artesanal</h3>
+              <h3 className="text-lg font-serif text-textBase font-semibold">{t('craftProcess')}</h3>
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
                 {processSteps.map((step, index) => (
                   <div key={index} className="p-3 bg-surfaceAlt/40 border border-accent/10 rounded-xl text-center">
@@ -255,9 +252,9 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
             className="mt-24 relative z-10"
           >
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl md:text-3xl font-serif text-textBase font-bold">Otras Creaciones del Taller</h2>
+              <h2 className="text-2xl md:text-3xl font-serif text-textBase font-bold">{t('otherCreations')}</h2>
               <Link href="/#productos" className="text-primary text-sm font-sans flex items-center gap-1 hover:underline">
-                Ver todo
+                {t('viewAll')}
                 <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
@@ -295,7 +292,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                         href={`/products/${relatedProduct.slug}`}
                         className="text-accent text-xs font-sans hover:underline font-medium"
                       >
-                        Ver detalles &rarr;
+                        {t('viewMoreDetails')} &rarr;
                       </Link>
                     </div>
                   </div>
@@ -319,7 +316,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
             <button
               onClick={() => setIsLightboxOpen(false)}
               className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-              aria-label="Cerrar vista completa"
+              aria-label={t('closeGallery')}
             >
               <X className="w-6 h-6" />
             </button>

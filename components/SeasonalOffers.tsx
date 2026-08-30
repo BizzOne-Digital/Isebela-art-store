@@ -2,14 +2,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import { getSeasonalProducts, getNewProducts } from '@/lib/products';
-import { ChevronRight, Sparkles, Leaf, Sun, Flower2, Eye } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import type { Product } from '@/lib/products';
+import { ChevronRight, Sun, Flower2, Eye } from 'lucide-react';
 
-const SeasonalOffers = () => {
+interface SeasonalOffersProps {
+  artworks: Product[];
+}
+
+const SeasonalOffers = ({ artworks }: SeasonalOffersProps) => {
+  const t = useTranslations('seasonal');
+  const tCommon = useTranslations('common');
+  const tProducts = useTranslations('products');
   const seasonalProducts = [
-    ...getNewProducts(),
-    ...getSeasonalProducts(),
+    ...artworks.filter((product) => product.isNew),
+    ...artworks.filter((product) => product.isSeasonal),
   ].slice(0, 4);
 
   return (
@@ -24,12 +32,12 @@ const SeasonalOffers = () => {
       >
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <span className="text-secondary text-xs font-sans tracking-widest uppercase mb-2 block font-semibold">Oferta de Temporada</span>
+            <span className="text-secondary text-xs font-sans tracking-widest uppercase mb-2 block font-semibold">{t('eyebrow')}</span>
             <h2 className="text-4xl md:text-5xl font-serif text-textBase mb-4">
-              Colección <span className="text-secondary">Especial & Novedades</span>
+              {t('titleStart')} <span className="text-secondary">{t('titleAccent')}</span>
             </h2>
             <p className="text-textBase/60 text-lg max-w-xl leading-relaxed">
-              Piezas temáticas, recuerdos de temporada y las creaciones más recientes que salen del taller.
+              {t('description')}
             </p>
           </div>
           <div className="flex items-center gap-4 md:ml-auto">
@@ -38,8 +46,8 @@ const SeasonalOffers = () => {
                 <Sun className="w-6 h-6 text-secondary" />
               </div>
               <div>
-                <p className="text-secondary font-serif text-sm font-semibold">Edición Especial</p>
-                <p className="text-textBase/60 text-xs">Artesanías limitadas</p>
+                <p className="text-secondary font-serif text-sm font-semibold">{t('specialEdition')}</p>
+                <p className="text-textBase/60 text-xs">{t('limitedArt')}</p>
               </div>
             </div>
           </div>
@@ -72,11 +80,11 @@ const SeasonalOffers = () => {
                 <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
                   <span className="bg-secondary text-white text-[11px] font-sans px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
                     <Flower2 className="w-3 h-3" />
-                    Destacado
+                    {tCommon('featuredLabel')}
                   </span>
                   {product.isNew && (
                     <span className="bg-primary text-white text-[11px] font-sans px-2.5 py-0.5 rounded-full shadow-sm">
-                      Nuevo
+                      {tCommon('newLabel')}
                     </span>
                   )}
                 </div>
@@ -102,7 +110,7 @@ const SeasonalOffers = () => {
                   className="inline-flex items-center gap-1 px-3 py-1.5 bg-secondary/15 text-secondary text-xs font-sans font-medium rounded-lg hover:bg-secondary hover:text-white transition-colors"
                 >
                   <Eye className="w-3 h-3" />
-                  Ver detalles
+                  {tProducts('details')}
                 </Link>
               </div>
             </div>
@@ -120,7 +128,7 @@ const SeasonalOffers = () => {
           href="/#productos"
           className="inline-flex items-center gap-2 px-8 py-3.5 bg-secondary text-white rounded-xl hover:bg-secondary/90 transition-all font-sans shadow-md"
         >
-          Descubrir colección completa (48 modelos)
+          {t('discoverFullCollection')}
           <ChevronRight className="w-5 h-5" />
         </Link>
       </motion.div>

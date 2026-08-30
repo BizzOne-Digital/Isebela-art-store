@@ -1,0 +1,816 @@
+{
+  "common": {
+    "viewDetails": "Detalles",
+    "viewAll": "Ver todo",
+    "back": "Volver a la página anterior",
+    "loading": "Cargando...",
+    "retry": "Reintentar",
+    "madeInArgentina": "Hecho a mano en Argentina",
+    "shipping48h": "Despacho en 48hs",
+    "process7to15": "Elaboración 7-15 días",
+    "newLabel": "Nuevo",
+    "featuredLabel": "Destacado",
+    "seasonalLabel": "Navideño"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "videos": "Videos",
+    "products": "Productos",
+    "pricing": "Precios",
+    "testimonials": "Testimonios",
+    "contact": "Contacto",
+    "consult": "Consultar",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "languageToggle": "Cambiar idioma",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "badge": "Artesanías en Goma Eva Hechas a Mano",
+    "titlePart1": "Donde la imaginación",
+    "titlePart2": "cobra vida",
+    "description": "Creaciones artesanales únicas en goma eva: muñecas fofuchas con alma, tarjetas pop-up que guardan secretos, papelería decorada y arte reciclado sostenible. Cada pieza está hecha 100% a mano en Argentina.",
+    "viewCreations": "Ver Creaciones",
+    "customOrder": "Encargo Personalizado",
+    "madeByHand": "Hecho a Mano",
+    "madeByHandDesc": "Con amor y paciencia",
+    "uniqueDesign": "Diseño Único",
+    "uniqueDesignDesc": "Piezas exclusivas",
+    "ecoFriendly": "Eco Amigable",
+    "ecoFriendlyDesc": "Materiales nobles",
+    "totalModels": "Modelos",
+    "totalModelsDesc": "Colección completa",
+    "viewDetails": "Ver detalles"
+  },
+  "featured": {
+    "eyebrow": "Destacados",
+    "titleStart": "Nuestras",
+    "titleAccent": "Creaciones",
+    "titleSuffix": "Estrella",
+    "description": "Una selección curada de las piezas más representativas y queridas de nuestro taller.",
+    "catalogDescription": "Explora nuestra colección completa de piezas únicas en goma eva, tarjetas y arte reciclado. Haz clic en cualquier pieza para verla en detalle.",
+    "viewAllCatalog": "Ver todo el catálogo"
+  },
+  "categories": {
+    "eyebrow": "Explorar por Categoría",
+    "titleStart": "Descubre",
+    "titleAccent": "Nuestro Universo",
+    "intro": "Cada categoría cuenta una historia diferente. Encuentra la que resuena contigo.",
+    "seePieces": "Ver piezas",
+    "seeAllCreations": "Ver todas las creaciones",
+    "piecesCount": "{count, plural, =0 {piezas} one {pieza} other {piezas}}",
+    "all": "Todos"
+  },
+  "products": {
+    "catalogTitle": "Catálogo Completo",
+    "catalogSubTitle": "Creaciones Hechas a Mano",
+    "catalogDescription": "Explora nuestra colección completa de piezas únicas en goma eva, tarjetas y arte reciclado. Haz clic en cualquier pieza para verla en detalle.",
+    "piecesCount": "{count} Piezas",
+    "searchPlaceholder": "Buscar por nombre, muñeca, tarjeta, dragón, navidad...",
+    "searchAriaLabel": "Buscar productos",
+    "clearSearch": "Limpiar búsqueda",
+    "showing": "Mostrando",
+    "of": "de",
+    "pieces": "piezas",
+    "forSearch": "para",
+    "loadMore": "Cargar más creaciones",
+    "remaining": "restantes",
+    "details": "Detalles",
+    "emptyCatalogTitle": "Catálogo en preparación",
+    "emptyCatalogText": "Estamos cargando nuestras piezas artesanales. Vuelve pronto.",
+    "noResultsTitle": "No se encontraron productos",
+    "noResultsHint": "Intenta con otros términos de búsqueda o selecciona otra categoría.",
+    "viewAllProducts": "Ver todos los {count} productos",
+    "pageTitle": "Catálogo Completo",
+    "pageHeading": "Colección de",
+    "pageHeadingAccent": "Piezas Únicas",
+    "pageDescription": "Cada creación nace de la imaginación y se materializa con dedicación artesanal. Descubre {count} modelos en muñecas, tarjetas, papelería y piezas recicladas.",
+    "customIdeaText": "¿Buscas algo único y totalmente personalizado?",
+    "customOrderWhatsapp": "Encargo Personalizado por WhatsApp"
+  },
+  "productDetail": {
+    "photoOf": "Foto",
+    "ofText": "de",
+    "enlargeImage": "Ampliar imagen",
+    "viewGallery": "Ver vista",
+    "closeGallery": "Cerrar vista completa",
+    "customQuote": "Consulta por WhatsApp",
+    "emailAction": "Email",
+    "detailsAndFeatures": "Detalles y Características",
+    "nobleMaterials": "Materiales Nobles Utilizados",
+    "craftProcess": "El Proceso Artesanal",
+    "otherCreations": "Otras Creaciones del Taller",
+    "viewAll": "Ver todo",
+    "availableForDelivery": "Disponible para Entrega",
+    "madeToOrderCustom": "Hecho a Pedido (Personalizable)",
+    "lastUnits": "Últimas Unidades",
+    "soldOut": "Agotado",
+    "inspiration": "Inspiración",
+    "inspirationDesc": "Bocetos y diseño del personaje",
+    "cutAndThermoform": "Corte y Termoformado",
+    "cutAndThermoformDesc": "Moldeado con calor capa por capa",
+    "assembly": "Ensamblado",
+    "assemblyDesc": "Estructura interna y pegado artesanal",
+    "paintAndDetails": "Pintura y Detalles",
+    "paintAndDetailsDesc": "Rostros y accesorios hechos a mano",
+    "securePackaging": "Embalaje Seguro",
+    "securePackagingDesc": "Empaque protegido con nota especial",
+    "viewMoreDetails": "Ver detalles"
+  },
+  "video": {
+    "eyebrow": "El Taller en Vivo",
+    "titleStart": "Magia en",
+    "titleAccent": "Movimiento",
+    "description": "Conoce de cerca el proceso artesanal, los acabados en 360° y la dedicación que ponemos en cada detalle.",
+    "watchNote": "¿Te gusta lo que ves? Enviamos videos del avance de tu encargo por WhatsApp.",
+    "consultPiece": "Consultar por esta pieza",
+    "selectVideo": "Selecciona un video ({count})",
+    "playing": "Reproduciendo",
+    "pauseVideo": "Pausar video",
+    "playVideo": "Reproducir video",
+    "muteVideo": "Silenciar sonido",
+    "unmuteVideo": "Activar sonido",
+    "whatsappMessage": "Hola Isabel, vi el video \"{title}\" y me encantó su trabajo. Quisiera consultar por una pieza similar.",
+    "items": {
+      "vid1": {
+        "title": "Creación y Detalles en el Taller",
+        "subtitle": "El proceso íntimo del trabajo manual",
+        "description": "Mira cómo cada lámina de goma eva se transforma en una obra con personalidad y cariño.",
+        "tag": "En el Taller"
+      },
+      "vid2": {
+        "title": "Modelado y Ensamblado Artesanal",
+        "subtitle": "Técnicas de precisión y termoformado",
+        "description": "El armado milimétrico de las piezas, cuidando proporciones, pliegues y texturas.",
+        "tag": "Técnica"
+      },
+      "vid3": {
+        "title": "Vista 360° de Nuestras Fofuchas",
+        "subtitle": "Aprecia cada ángulo y acabado",
+        "description": "Detalles minuciosos: calzado, vestimenta, accesorios y rostros pintados a mano.",
+        "tag": "Exhibición"
+      },
+      "vid4": {
+        "title": "Pintura y Toques de Expresión",
+        "subtitle": "Dando vida a las miradas y sonrisas",
+        "description": "La magia de los ojos, luces, sombras y rubor que otorgan alma a cada creación.",
+        "tag": "Pintura"
+      },
+      "vid5": {
+        "title": "Colección en Movimiento y Presentación",
+        "subtitle": "Lista para regalar o coleccionar",
+        "description": "El resultado final empacado con amor y listo para emocionar a quien lo reciba.",
+        "tag": "Creaciones"
+      }
+    }
+  },
+  "philosophy": {
+    "eyebrow": "Filosofía",
+    "titleStart": "El Arte de Crear",
+    "titleAccent": "Con las Manos y el Alma",
+    "description": "No solo hago manualidades. Doy forma a emociones, materializo sueños y creo puentes entre la imaginación y la realidad tangible.",
+    "quote": "Mis manos saben lo que mi corazón imagina. Cada pieza es un fragmento de mi mundo interior hecho visible.",
+    "quoteAttribution": "— Isabel",
+    "valuesTitle": "Valores que Guían Cada Creación",
+    "askIdea": "¿Tienes una idea en mente?",
+    "letSCreate": "Hablemos y demos vida a tu visión única.",
+    "customOrderButton": "Encargo Personalizado",
+    "imageAlt": "Taller de Isabel creando arte y magia con goma eva",
+    "story": {
+      "beginning": {
+        "title": "El Inicio",
+        "text": "Todo comenzó en 2015, en una pequeña mesa de mi casa, con un paquete de goma eva y la curiosidad de una madre que quería crear juguetes únicos para su hija. Lo que empezó como un pasatiempo se convirtió en mi forma de expresión más pura."
+      },
+      "evolution": {
+        "title": "La Evolución",
+        "text": "Con los años, la técnica se refinó. Los cortes se volvieron más precisos, los ensambles más complejos, los diseños más atrevidos. Cada pieza me enseñó algo nuevo sobre la paciencia, la geometría del color y la magia de lo hecho a mano."
+      },
+      "today": {
+        "title": "Hoy",
+        "text": "Isabel Creando Arte y Magia es un taller donde cada día nacen muñecas con alma, tarjetas que guardan secretos, libretas que esperan historias y objetos reciclados que honran su pasado. Mi misión: que quien reciba una pieza sienta la intención con la que fue hecha."
+      }
+    },
+    "values": {
+      "detail": {
+        "title": "Amor por el Detalle",
+        "desc": "Cada pliegue, cada corte, cada color se elige con intención. El amor está en los detalles que solo el ojo artesanal puede ver."
+      },
+      "imagination": {
+        "title": "Imaginación Sin Límites",
+        "desc": "No hay diseños imposibles, solo ideas que esperan ser materializadas. Transformo sueños en objetos tangibles."
+      },
+      "nature": {
+        "title": "Respeto Natural",
+        "desc": "Uso goma eva de calidad premium y materiales reciclados. Crear belleza no debe costar el futuro del planeta."
+      },
+      "quality": {
+        "title": "Calidad Heirloom",
+        "desc": "Piezas hechas para durar generaciones. La durabilidad y el acabado impecable son mi promesa en cada creación."
+      },
+      "color": {
+        "title": "Color como Lenguaje",
+        "desc": "La paleta de cada pieza cuenta una historia. Los colores no decoran, comunican emociones y atmósferas."
+      },
+      "recycle": {
+        "title": "Segunda Vida",
+        "desc": "La línea reciclada transforma residuos en arte. Botellas, cartón y vidrio cobran nueva vida con propósito."
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "Proceso",
+    "titleStart": "El Camino",
+    "titleAccent": "De la Idea",
+    "titleEnd": "a Tus Manos",
+    "description": "Cada pieza recorre cinco etapas de cuidado artesanal. No hay atajos, solo dedicación.",
+    "footerTitle": "Hecho con paciencia y amor",
+    "footerText": "Cada pieza lleva 8-40 horas de trabajo artesanal",
+    "steps": {
+      "inspiration": {
+        "title": "Inspiración",
+        "description": "Todo comienza observando el mundo: una flor silvestre, un cuento infantil, una textura en la naturaleza. La inspiración llega en los momentos más inesperados y se guarda en bocetos y notas.",
+        "details": [
+          "Observación de la naturaleza",
+          "Bocetos a mano alzada",
+          "Selección de paleta de colores",
+          "Investigación de formas"
+        ]
+      },
+      "design": {
+        "title": "Diseño",
+        "description": "Los bocetos cobran forma técnica. Se definen medidas, patrones, capas y ensambles. Cada pieza se planifica milimétricamente para que la magia funcione al montarse.",
+        "details": [
+          "Patrones vectoriales",
+          "Pruebas de escala",
+          "Definición de capas",
+          "Planificación de ensamble"
+        ]
+      },
+      "craft": {
+        "title": "Creación Artesanal",
+        "description": "El corte preciso de cada pieza de goma eva, el moldeado con calor, el pegado paciente capa por capa. Aquí es donde las manos saben más que la mente.",
+        "details": [
+          "Corte manual y plotter",
+          "Moldeado con calor",
+          "Ensamble capa a capa",
+          "Detalles pintados a mano"
+        ]
+      },
+      "finish": {
+        "title": "Acabado",
+        "description": "Los toques finales que elevan la pieza: barnices protectores, detalles metálicos, ajustes de movimiento, revisión de cada ángulo. La calidad está en lo que no se ve a simple vista.",
+        "details": [
+          "Barniz protector ecológico",
+          "Detalles en foil/relieve",
+          "Revisión de articulaciones",
+          "Control de calidad exhaustivo"
+        ]
+      },
+      "ready": {
+        "title": "Lista para Ti",
+        "description": "Empaquetada con cariño en materiales reciclados, con una nota manuscrita y lista para viajar a su nuevo hogar. El viaje termina cuando la abres y sonríes.",
+        "details": [
+          "Embalaje sostenible",
+          "Nota manuscrita personal",
+          "Certificado de autenticidad",
+          "Envío con seguimiento"
+        ]
+      }
+    }
+  },
+  "seasonal": {
+    "eyebrow": "Oferta de Temporada",
+    "titleStart": "Colección",
+    "titleAccent": "Especial & Novedades",
+    "description": "Piezas temáticas, recuerdos de temporada y las creaciones más recientes que salen del taller.",
+    "specialEdition": "Edición Especial",
+    "limitedArt": "Artesanías limitadas",
+    "discoverFullCollection": "Descubrir colección completa"
+  },
+  "customOrder": {
+    "eyebrow": "Encargos a Medida",
+    "titleStart": "¿Tienes una",
+    "titleAccent": "Idea Especial",
+    "description": "Cuéntame qué imaginas y juntas le daremos forma. Desde un personaje único hasta una colección completa para tu evento.",
+    "fullCustomization": "Personalización total",
+    "colorSizesThemes": "Colores, tamaños, temáticas y detalles a tu medida",
+    "whatsappTitle": "Hablemos por WhatsApp",
+    "whatsappText": "La forma más directa y cercana. Te respondo personalmente, vemos fotos de referencia, definimos colores y te doy presupuesto sin compromiso.",
+    "whatsappButton": "Escribir por WhatsApp",
+    "whatsappPrefill": "Hola Isabel, tengo una idea para un encargo personalizado...",
+    "emailTitle": "O envía tu consulta por email",
+    "emailText": "Ideal para proyectos más complejos, pedidos al por mayor o colaboraciones. Adjunta inspiración, medidas, cantidad y fecha estimada.",
+    "emailButton": "Enviar email",
+    "emailSubject": "Encargo Personalizado",
+    "emailBody": "Hola Isabel,\n\nTengo una idea para un encargo personalizado:\n\n- Tipo de pieza:\n- Temática/colores:\n- Tamaño aproximado:\n- Cantidad:\n- Fecha de entrega deseada:\n\nAdjunto imágenes de referencia.\n\nGracias!",
+    "imageAlt": "Encargo personalizado - Fofucho motociclista con moto y mascota",
+    "imageBadge": "Pieza 100% Personalizada",
+    "quote": "Nunca pensé que pudiera existir exactamente lo que tenía en mente. Isabel lo hizo realidad superando mis expectativas.",
+    "quoteAttribution": "— Cliente de Encargo Especial",
+    "howItWorksTitle": "Cómo Funciona un Encargo",
+    "satisfactionTitle": "Garantía de satisfacción",
+    "satisfactionText": "Revisamos juntas cada detalle antes del envío. Si no es lo que soñabas, lo ajustamos.",
+    "steps": {
+      "idea": {
+        "title": "Idea",
+        "desc": "Me cuentas tu visión, muestras referencias, definimos concepto"
+      },
+      "design": {
+        "title": "Diseño",
+        "desc": "Te presento bocetos y paleta de colores para tu aprobación"
+      },
+      "creation": {
+        "title": "Creación",
+        "desc": "Fabrico la pieza compartiendo avances por WhatsApp"
+      },
+      "delivery": {
+        "title": "Entrega",
+        "desc": "Embalaje cuidadoso y envío con seguimiento a todo el país"
+      }
+    }
+  },
+  "pricing": {
+    "eyebrow": "Precios",
+    "titleStart": "Inversión en",
+    "titleAccent": "Arte Hecho a Mano",
+    "description": "Cada precio refleja horas de dedicación, materiales de calidad y el cariño artesanal que hace única a cada pieza. No hay costos ocultos, solo transparencia.",
+    "mostPopular": "Más Popular",
+    "howItWorksTitle": "Cómo Funciona el Proceso",
+    "satisfactionTitle": "Garantía de Satisfacción",
+    "satisfactionText": "Si no es lo que soñabas, lo ajustamos. Revisamos cada detalle antes del envío.",
+    "closingQuestion": "¿Tienes dudas sobre qué opción se adapta mejor a ti?",
+    "freeAdvice": "Asesoramiento Gratis",
+    "freeAdviceWhatsapp": "Asesoramiento Gratis por WhatsApp",
+    "tiers": {
+      "catalog": {
+        "name": "Piezas de Catálogo",
+        "description": "Diseños listos para enviar de mi colección actual",
+        "price": "Desde $8.000",
+        "period": "por unidad",
+        "cta": "Ver Catálogo",
+        "features": [
+          "Disponibilidad inmediata",
+          "Diseños probados y queridos",
+          "Envío 2-5 días hábiles",
+          "Empaque sostenible incluido",
+          "Nota manuscrita de agradecimiento"
+        ]
+      },
+      "custom": {
+        "name": "Encargo Personalizado",
+        "description": "Tu idea hecha realidad, diseñada exclusivamente para ti",
+        "price": "Desde $25.000",
+        "period": "por pieza",
+        "cta": "Solicitar Presupuesto",
+        "features": [
+          "Diseño 100% original y exclusivo",
+          "Bocetos y revisiones incluidas",
+          "Elección de colores y materiales",
+          "Actualizaciones de proceso por WhatsApp",
+          "Certificado de autenticidad",
+          "Envío seguro con seguimiento"
+        ]
+      },
+      "wholesale": {
+        "name": "Pedidos al Por Mayor",
+        "description": "Para eventos, regalos corporativos o revendedores",
+        "price": "Consultar",
+        "period": "10+ unidades",
+        "cta": "Consultar Mayorista",
+        "features": [
+          "Descuento por volumen (15-30%)",
+          "Diseños coordinados para tu evento",
+          "Plazos de entrega acordados",
+          "Factura A / B disponible",
+          "Empaque personalizado opcional",
+          "Asesoría en selección de piezas"
+        ]
+      }
+    },
+    "process": {
+      "conversation": {
+        "title": "Conversación",
+        "desc": "Hablamos de tu idea, presupuesto y plazos"
+      },
+      "proposal": {
+        "title": "Propuesta",
+        "desc": "Te envío bocetos, paleta de colores y precio final"
+      },
+      "approval": {
+        "title": "Aprobación",
+        "desc": "Das el visto bueno y comienzo la creación"
+      },
+      "creation": {
+        "title": "Creación",
+        "desc": "Fabrico tu pieza compartiendo avances"
+      },
+      "delivery": {
+        "title": "Entrega",
+        "desc": "Empaqueto con amor y envío con seguimiento"
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonios",
+    "titleStart": "Lo que Dicen Quienes",
+    "titleAccent": "Ya Confiaron",
+    "description": "Más de 500 personas han llevado a casa una pieza de mi taller. Estas son algunas de sus historias.",
+    "pieceLabel": "Pieza:",
+    "satisfactionTitle": "Garantía de Satisfacción",
+    "satisfactionText": "Si no es lo que soñabas, lo ajustamos. Revisamos cada detalle antes del envío.",
+    "nextStory": "¿Quieres ser la próxima historia?",
+    "writeWhatsApp": "Escribir por WhatsApp",
+    "viewCatalog": "Ver Catálogo",
+    "stats": {
+      "happyClients": "Clientas Felices",
+      "recommend": "Recomiendan",
+      "yearsExperience": "Años de Experiencia",
+      "possibilities": "Posibilidades"
+    },
+    "items": {
+      "t1": {
+        "name": "María González",
+        "location": "Buenos Aires",
+        "role": "Mamá de Sofía (5 años)",
+        "text": "La muñeca hada que encargué para el cumpleaños de mi hija superó todas mis expectativas. Isabel capturó exactamente la esencia que yo imaginaba y los detalles son increíbles. Mi hija no se separa de ella. El proceso fue hermoso: me mandó fotos del avance y pude opinar en cada etapa. 100% recomendada.",
+        "product": "Hada del Bosque Encantado (Personalizada)",
+        "tags": [
+          "Encargo personalizado",
+          "Regalo infantil",
+          "Muñeca"
+        ]
+      },
+      "t2": {
+        "name": "Carlos Rodríguez",
+        "location": "Córdoba",
+        "role": "Novio de Ana",
+        "text": "Buscaba algo único para nuestro aniversario y la tarjeta pop-up personalizada fue el acierto total. Cuando Ana la abrió y vio nuestra foto en 3D con el mensaje que le escribí, se emocionó muchísimo. Isabel fue súper atenta, me guió en todo el proceso y la entrega fue rapidísima a Córdoba. Volveré a encargar sin duda.",
+        "product": "Tarjeta Pop-Up Aniversario (Personalizada)",
+        "tags": [
+          "Encargo personalizado",
+          "Aniversario",
+          "Tarjeta 3D"
+        ]
+      },
+      "t3": {
+        "name": "Laura Martínez",
+        "location": "Rosario",
+        "role": "Organizadora de eventos",
+        "text": "Encargué 50 libretas personalizadas para un evento corporativo y quedé fascinada. La calidad del papel, la encuadernación, los detalles en la tapa... todo impecable. Isabel respetó los plazos ajustados y la comunicación fue fluida todo el tiempo. Los asistentes al evento alucinaron con el detalle. Profesionalismo artesanal de verdad.",
+        "product": "Libretas Corporativas x50 (Por Mayor)",
+        "tags": [
+          "Pedido mayorista",
+          "Evento corporativo",
+          "Papelería"
+        ]
+      },
+      "t4": {
+        "name": "Sofía Herrera",
+        "location": "Mendoza",
+        "role": "Coleccionista",
+        "text": "Tengo varias piezas de Isabel y cada una es un tesoro. La bailarina articulada es mi favorita: la calidad de los materiales, la precisión en las articulaciones, los detalles pintados a mano... se nota que hay amor en cada corte. Además, el empaque es tan bonito que da pena abrirlo. Es arte para toda la vida.",
+        "product": "Bailarina de Ensueño + Muñeca Flor",
+        "tags": [
+          "Coleccionista",
+          "Muñecas articuladas",
+          "Calidad premium"
+        ]
+      },
+      "t5": {
+        "name": "Javier y Paula",
+        "location": "La Plata",
+        "role": "Novios",
+        "text": "Para nuestra boda quisimos tarjetas de agradecimiento especiales para cada invitado (120 personas). Isabel diseñó un modelo base y personalizó cada una con el nombre. El resultado fue mágico: los invitados se llevaron un recuerdo único y nosotros quedamos tranquilos sabiendo que cada detalle estaba cuidado. Gracias por hacer nuestro día aún más especial.",
+        "product": "Tarjetas Boda Personalizadas x120",
+        "tags": [
+          "Boda",
+          "Pedido mayorista",
+          "Tarjetas personalizadas"
+        ]
+      },
+      "t6": {
+        "name": "Valentina Ruiz",
+        "location": "Neuquén",
+        "role": "Docente",
+        "text": "Compré la maceta reciclada y el lapicero de botella para mi aula. Los chicos fliparon al saber que estaban hechos de materiales que íbamos a tirar. Isabel me explicó el proceso y hasta me mandó fichas didácticas para trabajar el reciclaje en clase. Ahora queremos encargar más cosas para el día del ambiente. Arte con conciencia.",
+        "product": "Maceta Reciclada + Lapicero Botella Mágica",
+        "tags": [
+          "Línea reciclada",
+          "Educación",
+          "Sostenibilidad"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "titleStart": "Creemos Algo",
+    "titleAccent": "Mágico Juntos",
+    "description": "¿Tienes una idea especial? ¿Quieres un regalo único? ¿Necesitas una cantidad para un evento? Cuéntame tu proyecto y diseñemos juntos una pieza que cuente tu historia.",
+    "formTitle": "Envía tu Consulta",
+    "nameLabel": "Nombre *",
+    "namePlaceholder": "Tu nombre",
+    "emailLabel": "Email *",
+    "emailPlaceholder": "tu@email.com",
+    "subjectLabel": "Asunto *",
+    "subjectPlaceholder": "Selecciona un tema",
+    "subjectOptions": {
+      "customOrder": "Encargo Personalizado",
+      "wholesale": "Pedidos al Por Mayor",
+      "event": "Evento / Celebración",
+      "collaboration": "Colaboración",
+      "other": "Otro"
+    },
+    "messageLabel": "Mensaje *",
+    "messagePlaceholder": "Cuéntame tu idea, colores, tamaños, cantidad, fecha de entrega...",
+    "submit": "Enviar Consulta",
+    "submitting": "Enviando...",
+    "privacyNote": "Al enviar, aceptas nuestra política de privacidad. Tus datos no se comparten con terceros.",
+    "successTitle": "¡Mensaje Enviado!",
+    "successText": "Te responderé lo antes posible. Gracias por confiar en mi arte.",
+    "sendAnother": "Enviar otra consulta",
+    "errorTitle": "Error al enviar",
+    "errorText": "Ocurrió un problema. Por favor, intenta de nuevo o escríbeme directamente por WhatsApp.",
+    "retry": "Reintentar",
+    "info": {
+      "email": {
+        "title": "Email",
+        "desc": "Respondo en 24-48hs"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "desc": "Mensajes y llamadas"
+      },
+      "location": {
+        "title": "Ubicación",
+        "value": "Buenos Aires, Argentina",
+        "desc": "Envíos a todo el país"
+      },
+      "instagram": {
+        "title": "Instagram",
+        "desc": "Proceso y novedades"
+      }
+    },
+    "features": {
+      "customization": {
+        "title": "Personalización Total",
+        "desc": "Colores, tamaños, temáticas y detalles a tu medida"
+      },
+      "directComm": {
+        "title": "Comunicación Directa",
+        "desc": "Hablamos por WhatsApp o email durante todo el proceso"
+      },
+      "safeShipping": {
+        "title": "Envíos Seguros",
+        "desc": "Embalaje cuidadoso y seguimiento a todo Argentina"
+      }
+    }
+  },
+  "validation": {
+    "requiredName": "El nombre es obligatorio",
+    "minLengthName": "El nombre debe tener al menos 2 caracteres",
+    "requiredEmail": "El email es obligatorio",
+    "validEmail": "Ingresa un email válido",
+    "requiredSubject": "Selecciona un asunto",
+    "requiredMessage": "El mensaje es obligatorio",
+    "minLengthMessage": "El mensaje debe tener al menos 10 caracteres"
+  },
+  "footer": {
+    "tagline": "Hecho a mano con amor",
+    "description": "Creaciones artesanales únicas en goma eva: muñecas con alma, tarjetas pop-up que guardan secretos, papelería que inspira y arte reciclado que honra el planeta. Cada pieza cuenta una historia.",
+    "exploreTitle": "Explorar",
+    "philosophyLink": "Nuestra Filosofía",
+    "collectionLink": "Colección Completa",
+    "processLink": "Proceso Creativo",
+    "offersLink": "Ofertas Especiales",
+    "customOrdersLink": "Pedidos Personalizados",
+    "contactTitle": "Contacto",
+    "hours": "Lun-Sáb: 10:00 - 19:00",
+    "location": "Buenos Aires, Argentina",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "craftedFrom": "Artesanía con alma desde Argentina"
+  },
+  "whatsapp": {
+    "ariaLabel": "Contactar por WhatsApp",
+    "tooltip": "¿En qué puedo ayudarte?"
+  },
+  "metadata": {
+    "home": {
+      "title": "Isabel Creando Arte y Magia | Artesanías en Goma Eva Hechas a Mano",
+      "description": "Creaciones artesanales únicas en goma eva: muñecas con alma, tarjetas pop-up, papelería artística y arte reciclado. Hecho a mano con amor en Argentina. Encargos personalizados."
+    },
+    "products": {
+      "title": "Catálogo Completo",
+      "description": "Explora nuestra colección completa de piezas únicas en goma eva, tarjetas y arte reciclado hechas a mano en Argentina."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "¿Tienes una idea especial? Contáctanos para encargos personalizados, pedidos al por mayor o cualquier consulta."
+    },
+    "pricing": {
+      "title": "Precios",
+      "description": "Conoce nuestros precios para piezas de catálogo, encargos personalizados y pedidos al por mayor."
+    },
+    "testimonials": {
+      "title": "Testimonios",
+      "description": "Lo que dicen quienes ya confiaron en nuestras creaciones artesanales hechas a mano."
+    }
+  },
+  "admin": {
+    "common": {
+      "save": "Guardar",
+      "saving": "Guardando...",
+      "cancel": "Cancelar",
+      "delete": "Eliminar",
+      "deleting": "Eliminando...",
+      "edit": "Editar",
+      "create": "Crear",
+      "search": "Buscar",
+      "retry": "Reintentar",
+      "loading": "Cargando...",
+      "confirm": "Confirmar",
+      "close": "Cerrar",
+      "yes": "Sí",
+      "no": "No",
+      "active": "Activa",
+      "inactive": "Inactiva",
+      "published": "Publicado",
+      "draft": "Borrador",
+      "featured": "Destacado",
+      "notFeatured": "No destacado",
+      "all": "Todos",
+      "errorGeneric": "Algo salió mal. Intenta de nuevo.",
+      "successSaved": "Cambios guardados correctamente.",
+      "successCreated": "Creado correctamente.",
+      "successDeleted": "Eliminado correctamente.",
+      "back": "Volver"
+    },
+    "sidebar": {
+      "brand": "Isabel Creando",
+      "brandSub": "Panel Privado",
+      "dashboard": "Panel",
+      "products": "Productos",
+      "categories": "Categorías",
+      "settings": "Configuración",
+      "logout": "Cerrar sesión",
+      "language": "Idioma"
+    },
+    "login": {
+      "eyebrow": "Acceso Administrativo",
+      "title": "Iniciar sesión",
+      "email": "Email",
+      "password": "Contraseña",
+      "submit": "Entrar al panel",
+      "submitting": "Ingresando...",
+      "error": "No se pudo iniciar sesión"
+    },
+    "dashboard": {
+      "eyebrow": "Panel de Administración",
+      "title": "Panel de administración",
+      "totalProducts": "Total de Productos",
+      "publishedProducts": "Publicados",
+      "draftProducts": "Borradores",
+      "totalCategories": "Categorías",
+      "featuredProducts": "Destacados",
+      "recentChanges": "Últimos cambios",
+      "viewAll": "Ver todo",
+      "quickActions": "Acciones rápidas",
+      "manageProducts": "Gestionar productos",
+      "manageCategories": "Gestionar categorías",
+      "mongoNotConfiguredTitle": "MongoDB no está configurado",
+      "mongoNotConfiguredText": "Agrega tu MONGODB_URI al entorno y ejecuta el comando de seed antes de usar el panel."
+    },
+    "products": {
+      "eyebrow": "Productos",
+      "title": "Gestión de piezas",
+      "newProduct": "Nueva pieza",
+      "searchPlaceholder": "Buscar por nombre o categoría",
+      "allCategories": "Todas las categorías",
+      "allStatuses": "Todos los estados",
+      "anyFeatured": "Cualquier destacado",
+      "columnImage": "Imagen",
+      "columnName": "Nombre",
+      "columnCategory": "Categoría",
+      "columnStatus": "Estado",
+      "columnFeatured": "Destacado",
+      "columnUpdated": "Actualizado",
+      "columnActions": "Acciones",
+      "emptyTitle": "No se encontraron productos",
+      "emptyText": "Aún no has agregado ninguna pieza a tu catálogo.",
+      "emptyAction": "Agrega tu primer producto",
+      "errorTitle": "No se pudieron cargar los productos",
+      "deleteConfirmTitle": "¿Eliminar esta pieza?",
+      "deleteConfirmText": "Esta acción no se puede deshacer. La pieza se eliminará permanentemente del catálogo.",
+      "deleteError": "No se pudo eliminar la pieza."
+    },
+    "categories": {
+      "eyebrow": "Categorías",
+      "title": "Gestión de categorías",
+      "newCategory": "Nueva categoría",
+      "columnImage": "Imagen",
+      "columnName": "Nombre",
+      "columnSlug": "Slug",
+      "columnStatus": "Estado",
+      "columnOrder": "Orden",
+      "columnProducts": "Productos",
+      "columnActions": "Acciones",
+      "emptyTitle": "No hay categorías todavía",
+      "emptyAction": "Agrega tu primera categoría",
+      "deleteConfirmTitle": "¿Eliminar esta categoría?",
+      "deleteConfirmText": "Esta acción no se puede deshacer.",
+      "deleteBlockedError": "No se puede eliminar una categoría que tiene productos asignados.",
+      "deleteError": "No se pudo eliminar la categoría."
+    },
+    "productForm": {
+      "titleNew": "Nueva pieza",
+      "titleEdit": "Editar pieza",
+      "sectionInfo": "Información del Producto",
+      "sectionMedia": "Imágenes del Producto",
+      "sectionOrganization": "Organización",
+      "sectionEnglish": "Contenido en Inglés (opcional)",
+      "sectionEnglishHint": "Opcional — si se deja en blanco, el sitio en inglés mostrará el contenido en español.",
+      "name": "Nombre",
+      "nameEn": "Nombre (Inglés)",
+      "slug": "Slug",
+      "shortDescription": "Descripción corta",
+      "shortDescriptionEn": "Descripción corta (Inglés)",
+      "description": "Descripción",
+      "descriptionEn": "Descripción (Inglés)",
+      "category": "Categoría",
+      "categoryPlaceholder": "Selecciona una categoría",
+      "availability": "Disponibilidad",
+      "availabilityOptions": {
+        "available": "Disponible para Entrega",
+        "madeToOrder": "Hecho a Pedido (Personalizable)",
+        "limited": "Últimas Unidades",
+        "soldOut": "Agotado"
+      },
+      "price": "Precio",
+      "priceLabel": "Etiqueta de precio",
+      "materials": "Materiales",
+      "materialsPlaceholder": "Agregar material...",
+      "colors": "Colores",
+      "colorsPlaceholder": "Agregar color...",
+      "features": "Características",
+      "featuresPlaceholder": "Agregar característica...",
+      "tags": "Etiquetas (tags)",
+      "tagsPlaceholder": "Agregar etiqueta...",
+      "images": "Imágenes",
+      "uploadImage": "Subir imagen",
+      "uploading": "Subiendo {current} de {total}...",
+      "status": "Estado",
+      "displayOrder": "Orden de visualización",
+      "markFeatured": "Marcar como destacado",
+      "featuredOn": "Destacado ✓",
+      "markNew": "Marcar como Nueva Creación",
+      "newOn": "Nueva Creación ✓",
+      "markSeasonal": "Marcar como Colección Especial",
+      "seasonalOn": "Colección Especial ✓",
+      "submitCreate": "Crear pieza",
+      "submitEdit": "Guardar cambios",
+      "errorNameLength": "El nombre debe tener al menos 2 caracteres.",
+      "errorSlugFormat": "El slug solo puede contener minúsculas, números y guiones.",
+      "errorDescriptionLength": "La descripción debe tener al menos 10 caracteres.",
+      "errorCategoryRequired": "Selecciona una categoría.",
+      "errorImagesRequired": "Sube al menos una imagen.",
+      "errorSlugTaken": "Ya existe una pieza con este slug.",
+      "errorGeneric": "No se pudo guardar la pieza."
+    },
+    "categoryForm": {
+      "sectionInfo": "Información de la Categoría",
+      "sectionEnglish": "Contenido en Inglés (opcional)",
+      "sectionEnglishHint": "Opcional — si se deja en blanco, el sitio en inglés mostrará el contenido en español.",
+      "titleNew": "Nueva categoría",
+      "titleEdit": "Editar categoría",
+      "name": "Nombre",
+      "nameEn": "Nombre (Inglés)",
+      "slug": "Slug",
+      "description": "Descripción",
+      "descriptionEn": "Descripción (Inglés)",
+      "image": "Imagen",
+      "displayOrder": "Orden de visualización",
+      "markActive": "Activa ✓",
+      "markInactive": "Inactiva",
+      "submitCreate": "Crear categoría",
+      "submitEdit": "Guardar cambios",
+      "errorNameLength": "El nombre debe tener al menos 2 caracteres.",
+      "errorSlugFormat": "El slug solo puede contener minúsculas, números y guiones.",
+      "errorSlugTaken": "Ya existe una categoría con este slug.",
+      "errorGeneric": "No se pudo guardar la categoría."
+    },
+    "imageUploader": {
+      "uploadImage": "Subir imagen",
+      "uploading": "Subiendo {current} de {total}...",
+      "onlyImages": "Solo se permiten archivos de imagen.",
+      "maxSize": "Cada imagen debe pesar menos de 8MB.",
+      "moveLeft": "Mover a la izquierda",
+      "moveRight": "Mover a la derecha",
+      "remove": "Quitar imagen",
+      "errorGeneric": "Error al subir la imagen"
+    }
+  }
+}

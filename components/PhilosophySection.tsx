@@ -3,31 +3,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Heart, Sparkles, Leaf, Award, Palette, Recycle } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+
+const valueConfig = [
+  { key: 'detail', icon: Heart },
+  { key: 'imagination', icon: Sparkles },
+  { key: 'nature', icon: Leaf },
+  { key: 'quality', icon: Award },
+  { key: 'color', icon: Palette },
+  { key: 'recycle', icon: Recycle },
+] as const;
+
+const storyKeys = ['beginning', 'evolution', 'today'] as const;
 
 const PhilosophySection = () => {
-  const values = [
-    { icon: Heart, title: 'Amor por el Detalle', desc: 'Cada pliegue, cada corte, cada color se elige con intención. El amor está en los detalles que solo el ojo artesanal puede ver.' },
-    { icon: Sparkles, title: 'Imaginación Sin Límites', desc: 'No hay diseños imposibles, solo ideas que esperan ser materializadas. Transformo sueños en objetos tangibles.' },
-    { icon: Leaf, title: 'Respeto Natural', desc: 'Uso goma eva de calidad premium y materiales reciclados. Crear belleza no debe costar el futuro del planeta.' },
-    { icon: Award, title: 'Calidad Heirloom', desc: 'Piezas hechas para durar generaciones. La durabilidad y el acabado impecable son mi promesa en cada creación.' },
-    { icon: Palette, title: 'Color como Lenguaje', desc: 'La paleta de cada pieza cuenta una historia. Los colores no decoran, comunican emociones y atmósferas.' },
-    { icon: Recycle, title: 'Segunda Vida', desc: 'La línea reciclada transforma residuos en arte. Botellas, cartón y vidrio cobran nueva vida con propósito.' },
-  ];
-
-  const story = [
-    {
-      title: 'El Inicio',
-      text: 'Todo comenzó en 2015, en una pequeña mesa de mi casa, con un paquete de goma eva y la curiosidad de una madre que quería crear juguetes únicos para su hija. Lo que empezó como un pasatiempo se convirtió en mi forma de expresión más pura.'
-    },
-    {
-      title: 'La Evolución',
-      text: 'Con los años, la técnica se refinó. Los cortes se volvieron más precisos, los ensambles más complejos, los diseños más atrevidos. Cada pieza me enseñó algo nuevo sobre la paciencia, la geometría del color y la magia de lo hecho a mano.'
-    },
-    {
-      title: 'Hoy',
-      text: 'Isabel Creando Arte y Magia es un taller donde cada día nacen muñecas con alma, tarjetas que guardan secretos, libretas que esperan historias y objetos reciclados que honran su pasado. Mi misión: que quien reciba una pieza sienta la intención con la que fue hecha.'
-    }
-  ];
+  const t = useTranslations('philosophy');
 
   return (
     <section id="philosophy" className="px-6 max-w-7xl mx-auto py-24 relative">
@@ -38,15 +28,14 @@ const PhilosophySection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         className="text-center mb-16 relative z-10"
       >
-        <span className="text-accent text-sm font-sans tracking-widest uppercase mb-4 block">Filosofía</span>
+        <span className="text-accent text-sm font-sans tracking-widest uppercase mb-4 block">{t('eyebrow')}</span>
         <h2 className="text-4xl md:text-5xl font-serif text-textBase mb-6">
-          El Arte de Crear
+          {t('titleStart')}
           <br />
-          <span className="text-primary">Con las Manos y el Alma</span>
+          <span className="text-primary">{t('titleAccent')}</span>
         </h2>
         <p className="text-textBase/60 text-lg max-w-3xl mx-auto leading-relaxed">
-          No solo hago manualidades. Doy forma a emociones, materializo sueños y creo puentes
-          entre la imaginación y la realidad tangible.
+          {t('description')}
         </p>
       </motion.div>
 
@@ -57,9 +46,9 @@ const PhilosophySection = () => {
         className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start relative z-10"
       >
         <div className="space-y-8">
-          {story.map((item, index) => (
+          {storyKeys.map((key, index) => (
             <motion.div
-              key={item.title}
+              key={key}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 + index * 0.1 }}
@@ -71,8 +60,8 @@ const PhilosophySection = () => {
                   <span className="text-primary font-serif text-xl">{index + 1}</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-serif text-textBase mb-2">{item.title}</h3>
-                  <p className="text-textBase/60 leading-relaxed">{item.text}</p>
+                  <h3 className="text-xl font-serif text-textBase mb-2">{t(`story.${key}.title`)}</h3>
+                  <p className="text-textBase/60 leading-relaxed">{t(`story.${key}.text`)}</p>
                 </div>
               </div>
             </motion.div>
@@ -88,7 +77,7 @@ const PhilosophySection = () => {
           >
             <Image
               src="/images/img/is4.jpg"
-              alt="Taller de Isabel creando arte y magia con goma eva"
+              alt={t('imageAlt')}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -96,38 +85,11 @@ const PhilosophySection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-surface/60 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 p-6 bg-surface/90 backdrop-blur-sm border border-accent/20">
               <p className="text-textBase/80 text-sm leading-relaxed italic">
-                &ldquo;Mis manos saben lo que mi corazón imagina. Cada pieza es un fragmento de mi mundo interior hecho visible.&rdquo;
+                &ldquo;{t('quote')}&rdquo;
               </p>
-              <p className="text-accent text-sm mt-3 font-sans">&mdash; Isabel</p>
+              <p className="text-accent text-sm mt-3 font-sans">{t('quoteAttribution')}</p>
             </div>
           </motion.div>
-
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="absolute -bottom-45 -left-6 md:-left-10 w-72 md:w-80 p-6 bg-primary border border-primary/50"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-sm bg-white/10 flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <p className="text-white text-sm font-sans uppercase tracking-wider">Hecho a Mano</p>
-                <p className="text-white/70 text-xs">En Argentina</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4 text-center">
-              <div>
-                <p className="text-2xl font-serif text-white">50+</p>
-                <p className="text-white/70 text-xs">Diseños Únicos</p>
-              </div>
-              <div>
-                <p className="text-2xl font-serif text-white">10+</p>
-                <p className="text-white/70 text-xs">Años de Experiencia</p>
-              </div>
-            </div>
-          </motion.div> */}
         </div>
       </motion.div>
 
@@ -137,11 +99,11 @@ const PhilosophySection = () => {
         transition={{ delay: 0.4 }}
         className="mt-20 relative z-10"
       >
-        <h3 className="text-3xl font-serif text-textBase text-center mb-12">Valores que Guían Cada Creación</h3>
+        <h3 className="text-3xl font-serif text-textBase text-center mb-12">{t('valuesTitle')}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {values.map((value, index) => (
+          {valueConfig.map((value, index) => (
             <motion.div
-              key={value.title}
+              key={value.key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 + index * 0.08 }}
@@ -150,8 +112,8 @@ const PhilosophySection = () => {
               <div className="w-14 h-14 rounded-sm bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all">
                 <value.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
               </div>
-              <h4 className="text-lg font-serif text-textBase mb-2">{value.title}</h4>
-              <p className="text-textBase/60 text-sm leading-relaxed">{value.desc}</p>
+              <h4 className="text-lg font-serif text-textBase mb-2">{t(`values.${value.key}.title`)}</h4>
+              <p className="text-textBase/60 text-sm leading-relaxed">{t(`values.${value.key}.desc`)}</p>
             </motion.div>
           ))}
         </div>
@@ -166,14 +128,14 @@ const PhilosophySection = () => {
         <div className="inline-flex items-center gap-4 px-4 md:px-8 py-5 md:py-6 bg-surfaceAlt/50 border border-accent/20 rounded-lg">
           <Sparkles className="w-6 h-6 text-accent" />
           <div className="text-left">
-            <p className="font-serif text-textBase">¿Tienes una idea en mente?</p>
-            <p className="text-textBase/60 text-sm">Hablemos y demos vida a tu visión única.</p>
+            <p className="font-serif text-textBase">{t('askIdea')}</p>
+            <p className="text-textBase/60 text-sm">{t('letSCreate')}</p>
           </div>
           <a
             href="#contact"
             className="ml-auto px-5 py-2 bg-primary text-white text-sm font-sans rounded-sm hover:bg-primary/90 transition-colors"
           >
-            Encargo Personalizado
+            {t('customOrderButton')}
           </a>
         </div>
       </motion.div>
