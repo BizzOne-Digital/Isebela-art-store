@@ -3,10 +3,11 @@ import { getAdminSession } from '@/lib/auth';
 import { connectMongo, hasMongoConfig } from '@/lib/db';
 import { Artwork } from '@/lib/models/Artwork';
 import { Category } from '@/lib/models/Category';
+import { Video } from '@/lib/models/Video';
 import MongoNotConfiguredNotice from '@/components/admin/MongoNotConfiguredNotice';
 import Badge from '@/components/admin/ui/Badge';
 import Link from 'next/link';
-import { Package, CheckCircle2, FileEdit, FolderTree, Sparkles } from 'lucide-react';
+import { Package, CheckCircle2, FileEdit, FolderTree, Sparkles, Clapperboard } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,12 +21,13 @@ export default async function AdminDashboardPage() {
 
   await connectMongo();
 
-  const [artworkCount, publishedCount, draftCount, categoryCount, featuredCount] = await Promise.all([
+  const [artworkCount, publishedCount, draftCount, categoryCount, featuredCount, videoCount] = await Promise.all([
     Artwork.countDocuments(),
     Artwork.countDocuments({ status: 'published' }),
     Artwork.countDocuments({ status: 'draft' }),
     Category.countDocuments({ isActive: true }),
     Artwork.countDocuments({ featured: true, status: 'published' }),
+    Video.countDocuments({ isActive: true }),
   ]);
 
   const recent = await Artwork.find({}).sort({ updatedAt: -1 }).limit(5).lean();
@@ -36,6 +38,7 @@ export default async function AdminDashboardPage() {
     { label: t('draftProducts'), value: draftCount, icon: FileEdit },
     { label: t('totalCategories'), value: categoryCount, icon: FolderTree },
     { label: t('featuredProducts'), value: featuredCount, icon: Sparkles },
+    { label: t('totalVideos'), value: videoCount, icon: Clapperboard },
   ];
 
   return (
@@ -47,7 +50,7 @@ export default async function AdminDashboardPage() {
         </h1>
       </header>
 
-      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {stats.map((stat) => (
           <div key={stat.label} className="rounded-2xl border border-admin-border bg-admin-surface p-5 shadow-admin-card">
             <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-admin-primary-soft text-admin-primary">
@@ -95,6 +98,12 @@ export default async function AdminDashboardPage() {
               className="block rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-3 text-admin-body transition hover:border-admin-gold hover:text-admin-ink"
             >
               {t('manageCategories')}
+            </Link>
+            <Link
+              href="/admin/dashboard/videos"
+              className="block rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-3 text-admin-body transition hover:border-admin-gold hover:text-admin-ink"
+            >
+              {t('manageVideos')}
             </Link>
           </div>
         </div>

@@ -14,7 +14,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import PricingSection from '@/components/PricingSection';
-import { getPublishedCatalog } from '@/lib/storefront-data';
+import { getPublishedCatalog, getPublishedVideos } from '@/lib/storefront-data';
 import { setRequestLocale } from 'next-intl/server';
 import type { AppLocale } from '@/i18n/routing';
 
@@ -27,7 +27,10 @@ interface Props {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const { products, categories } = await getPublishedCatalog(locale);
+  const [{ products, categories }, videos] = await Promise.all([
+    getPublishedCatalog(locale),
+    getPublishedVideos(locale),
+  ]);
 
   return (
     <>
@@ -39,7 +42,7 @@ export default async function HomePage({ params }: Props) {
         <ArtDecoDivider />
         <CategoryExplorer categories={categories} artworks={products} />
         <ArtDecoDivider />
-        <VideoShowcase />
+        <VideoShowcase videos={videos} />
         <ArtDecoDivider />
         <PhilosophySection />
         <ArtDecoDivider />

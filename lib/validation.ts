@@ -8,6 +8,10 @@ const imagePathSchema = z.string().refine(
   { message: 'Must be an absolute URL or a path starting with /' },
 );
 
+// Videos may live on Cloudinary (absolute URL) or in /public (root-relative path),
+// mirroring the image rule above.
+const mediaPathSchema = imagePathSchema;
+
 export const artworkSchema = z.object({
   name: z.string().min(2).max(180),
   nameEn: z.string().max(180).optional().or(z.literal('')),
@@ -49,4 +53,21 @@ export const categorySchema = z.object({
 export const loginSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6).max(200),
+});
+
+export const videoSchema = z.object({
+  title: z.string().min(2).max(180),
+  titleEn: z.string().max(180).optional().or(z.literal('')),
+  subtitle: z.string().max(250).optional().or(z.literal('')),
+  subtitleEn: z.string().max(250).optional().or(z.literal('')),
+  description: z.string().max(2000).optional().or(z.literal('')),
+  descriptionEn: z.string().max(2000).optional().or(z.literal('')),
+  tag: z.string().max(60).optional().or(z.literal('')),
+  tagEn: z.string().max(60).optional().or(z.literal('')),
+  videoUrl: mediaPathSchema,
+  videoPublicId: z.string().max(300).optional().or(z.literal('')),
+  thumbnail: mediaPathSchema.optional().or(z.literal('')),
+  thumbnailPublicId: z.string().max(300).optional().or(z.literal('')),
+  displayOrder: z.number().int().min(0).max(1000).optional().default(0),
+  isActive: z.boolean().optional().default(true),
 });

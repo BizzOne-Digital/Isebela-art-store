@@ -5,7 +5,7 @@
     "back": "Volver a la página anterior",
     "loading": "Cargando...",
     "retry": "Reintentar",
-    "madeInArgentina": "Hecho a mano en Argentina",
+    "madeInUsa": "Hecho a mano en EE. UU.",
     "shipping48h": "Despacho en 48hs",
     "process7to15": "Elaboración 7-15 días",
     "newLabel": "Nuevo",
@@ -31,7 +31,7 @@
     "badge": "Artesanías en Goma Eva Hechas a Mano",
     "titlePart1": "Donde la imaginación",
     "titlePart2": "cobra vida",
-    "description": "Creaciones artesanales únicas en goma eva: muñecas fofuchas con alma, tarjetas pop-up que guardan secretos, papelería decorada y arte reciclado sostenible. Cada pieza está hecha 100% a mano en Argentina.",
+    "description": "Creaciones artesanales únicas en goma eva: muñecas fofuchas con alma, tarjetas pop-up que guardan secretos, papelería decorada y arte reciclado sostenible. Cada pieza está hecha 100% a mano en Estados Unidos.",
     "viewCreations": "Ver Creaciones",
     "customOrder": "Encargo Personalizado",
     "madeByHand": "Hecho a Mano",
@@ -132,39 +132,7 @@
     "playVideo": "Reproducir video",
     "muteVideo": "Silenciar sonido",
     "unmuteVideo": "Activar sonido",
-    "whatsappMessage": "Hola Isabel, vi el video \"{title}\" y me encantó su trabajo. Quisiera consultar por una pieza similar.",
-    "items": {
-      "vid1": {
-        "title": "Creación y Detalles en el Taller",
-        "subtitle": "El proceso íntimo del trabajo manual",
-        "description": "Mira cómo cada lámina de goma eva se transforma en una obra con personalidad y cariño.",
-        "tag": "En el Taller"
-      },
-      "vid2": {
-        "title": "Modelado y Ensamblado Artesanal",
-        "subtitle": "Técnicas de precisión y termoformado",
-        "description": "El armado milimétrico de las piezas, cuidando proporciones, pliegues y texturas.",
-        "tag": "Técnica"
-      },
-      "vid3": {
-        "title": "Vista 360° de Nuestras Fofuchas",
-        "subtitle": "Aprecia cada ángulo y acabado",
-        "description": "Detalles minuciosos: calzado, vestimenta, accesorios y rostros pintados a mano.",
-        "tag": "Exhibición"
-      },
-      "vid4": {
-        "title": "Pintura y Toques de Expresión",
-        "subtitle": "Dando vida a las miradas y sonrisas",
-        "description": "La magia de los ojos, luces, sombras y rubor que otorgan alma a cada creación.",
-        "tag": "Pintura"
-      },
-      "vid5": {
-        "title": "Colección en Movimiento y Presentación",
-        "subtitle": "Lista para regalar o coleccionar",
-        "description": "El resultado final empacado con amor y listo para emocionar a quien lo reciba.",
-        "tag": "Creaciones"
-      }
-    }
+    "whatsappMessage": "Hola Isabel, vi el video \"{title}\" y me encantó su trabajo. Quisiera consultar por una pieza similar."
   },
   "philosophy": {
     "eyebrow": "Filosofía",
@@ -432,7 +400,7 @@
     "items": {
       "t1": {
         "name": "María González",
-        "location": "Buenos Aires",
+        "location": "Nueva York, NY",
         "role": "Mamá de Sofía (5 años)",
         "text": "La muñeca hada que encargué para el cumpleaños de mi hija superó todas mis expectativas. Isabel capturó exactamente la esencia que yo imaginaba y los detalles son increíbles. Mi hija no se separa de ella. El proceso fue hermoso: me mandó fotos del avance y pude opinar en cada etapa. 100% recomendada.",
         "product": "Hada del Bosque Encantado (Personalizada)",
@@ -444,9 +412,9 @@
       },
       "t2": {
         "name": "Carlos Rodríguez",
-        "location": "Córdoba",
+        "location": "Los Ángeles, CA",
         "role": "Novio de Ana",
-        "text": "Buscaba algo único para nuestro aniversario y la tarjeta pop-up personalizada fue el acierto total. Cuando Ana la abrió y vio nuestra foto en 3D con el mensaje que le escribí, se emocionó muchísimo. Isabel fue súper atenta, me guió en todo el proceso y la entrega fue rapidísima a Córdoba. Volveré a encargar sin duda.",
+        "text": "Buscaba algo único para nuestro aniversario y la tarjeta pop-up personalizada fue el acierto total. Cuando Ana la abrió y vio nuestra foto en 3D con el mensaje que le escribí, se emocionó muchísimo. Isabel fue súper atenta, me guió en todo el proceso y la entrega fue rapidísima a Los Ángeles. Volveré a encargar sin duda.",
         "product": "Tarjeta Pop-Up Aniversario (Personalizada)",
         "tags": [
           "Encargo personalizado",
@@ -456,7 +424,7 @@
       },
       "t3": {
         "name": "Laura Martínez",
-        "location": "Rosario",
+        "location": "Chicago, IL",
         "role": "Organizadora de eventos",
         "text": "Encargué 50 libretas personalizadas para un evento corporativo y quedé fascinada. La calidad del papel, la encuadernación, los detalles en la tapa... todo impecable. Isabel respetó los plazos ajustados y la comunicación fue fluida todo el tiempo. Los asistentes al evento alucinaron con el detalle. Profesionalismo artesanal de verdad.",
         "product": "Libretas Corporativas x50 (Por Mayor)",
@@ -468,7 +436,7 @@
       },
       "t4": {
         "name": "Sofía Herrera",
-        "location": "Mendoza",
+        "location": "Houston, TX",
         "role": "Coleccionista",
         "text": "Tengo varias piezas de Isabel y cada una es un tesoro. La bailarina articulada es mi favorita: la calidad de los materiales, la precisión en las articulaciones, los detalles pintados a mano... se nota que hay amor en cada corte. Además, el empaque es tan bonito que da pena abrirlo. Es arte para toda la vida.",
         "product": "Bailarina de Ensueño + Muñeca Flor",
@@ -480,7 +448,7 @@
       },
       "t5": {
         "name": "Javier y Paula",
-        "location": "La Plata",
+        "location": "Miami, FL",
         "role": "Novios",
         "text": "Para nuestra boda quisimos tarjetas de agradecimiento especiales para cada invitado (120 personas). Isabel diseñó un modelo base y personalizó cada una con el nombre. El resultado fue mágico: los invitados se llevaron un recuerdo único y nosotros quedamos tranquilos sabiendo que cada detalle estaba cuidado. Gracias por hacer nuestro día aún más especial.",
         "product": "Tarjetas Boda Personalizadas x120",
@@ -492,7 +460,7 @@
       },
       "t6": {
         "name": "Valentina Ruiz",
-        "location": "Neuquén",
+        "location": "Seattle, WA",
         "role": "Docente",
         "text": "Compré la maceta reciclada y el lapicero de botella para mi aula. Los chicos fliparon al saber que estaban hechos de materiales que íbamos a tirar. Isabel me explicó el proceso y hasta me mandó fichas didácticas para trabajar el reciclaje en clase. Ahora queremos encargar más cosas para el día del ambiente. Arte con conciencia.",
         "product": "Maceta Reciclada + Lapicero Botella Mágica",
@@ -545,7 +513,7 @@
       },
       "location": {
         "title": "Ubicación",
-        "value": "Buenos Aires, Argentina",
+        "value": "Estados Unidos",
         "desc": "Envíos a todo el país"
       },
       "instagram": {
@@ -564,7 +532,7 @@
       },
       "safeShipping": {
         "title": "Envíos Seguros",
-        "desc": "Embalaje cuidadoso y seguimiento a todo Argentina"
+        "desc": "Embalaje cuidadoso y seguimiento a todo Estados Unidos"
       }
     }
   },
@@ -588,11 +556,11 @@
     "customOrdersLink": "Pedidos Personalizados",
     "contactTitle": "Contacto",
     "hours": "Lun-Sáb: 10:00 - 19:00",
-    "location": "Buenos Aires, Argentina",
+    "location": "Estados Unidos",
     "rights": "Todos los derechos reservados.",
     "privacy": "Privacidad",
     "terms": "Términos",
-    "craftedFrom": "Artesanía con alma desde Argentina"
+    "craftedFrom": "Artesanía con alma desde Estados Unidos"
   },
   "whatsapp": {
     "ariaLabel": "Contactar por WhatsApp",
@@ -601,11 +569,11 @@
   "metadata": {
     "home": {
       "title": "Isabel Creando Arte y Magia | Artesanías en Goma Eva Hechas a Mano",
-      "description": "Creaciones artesanales únicas en goma eva: muñecas con alma, tarjetas pop-up, papelería artística y arte reciclado. Hecho a mano con amor en Argentina. Encargos personalizados."
+      "description": "Creaciones artesanales únicas en goma eva: muñecas con alma, tarjetas pop-up, papelería artística y arte reciclado. Hecho a mano con amor en Estados Unidos. Encargos personalizados."
     },
     "products": {
       "title": "Catálogo Completo",
-      "description": "Explora nuestra colección completa de piezas únicas en goma eva, tarjetas y arte reciclado hechas a mano en Argentina."
+      "description": "Explora nuestra colección completa de piezas únicas en goma eva, tarjetas y arte reciclado hechas a mano en Estados Unidos."
     },
     "contact": {
       "title": "Contacto",
@@ -655,6 +623,7 @@
       "dashboard": "Panel",
       "products": "Productos",
       "categories": "Categorías",
+      "videos": "Videos",
       "settings": "Configuración",
       "logout": "Cerrar sesión",
       "language": "Idioma"
@@ -682,7 +651,9 @@
       "manageProducts": "Gestionar productos",
       "manageCategories": "Gestionar categorías",
       "mongoNotConfiguredTitle": "MongoDB no está configurado",
-      "mongoNotConfiguredText": "Agrega tu MONGODB_URI al entorno y ejecuta el comando de seed antes de usar el panel."
+      "mongoNotConfiguredText": "Agrega tu MONGODB_URI al entorno y ejecuta el comando de seed antes de usar el panel.",
+      "totalVideos": "Videos",
+      "manageVideos": "Gestionar videos"
     },
     "products": {
       "eyebrow": "Productos",
@@ -811,6 +782,59 @@
       "moveRight": "Mover a la derecha",
       "remove": "Quitar imagen",
       "errorGeneric": "Error al subir la imagen"
+    },
+    "videos": {
+      "eyebrow": "Videos",
+      "title": "Gestión de videos",
+      "newVideo": "Subir video",
+      "preview": "Vista previa",
+      "columnPreview": "Vista previa",
+      "columnTitle": "Título",
+      "columnTag": "Etiqueta",
+      "columnStatus": "Estado",
+      "columnOrder": "Orden",
+      "columnActions": "Acciones",
+      "emptyTitle": "Todavía no hay videos",
+      "emptyText": "Subí tu primer video para mostrarlo en la sección de videos del sitio.",
+      "emptyAction": "Subir tu primer video",
+      "deleteConfirmTitle": "¿Eliminar este video?",
+      "deleteConfirmText": "Esta acción no se puede deshacer. El video se quitará del sitio y del almacenamiento.",
+      "deleteError": "No se pudo eliminar el video."
+    },
+    "videoForm": {
+      "titleNew": "Subir video",
+      "titleEdit": "Editar video",
+      "sectionFile": "Archivo de video",
+      "sectionFileHint": "MP4, WebM o MOV — hasta 100MB. Subir un archivo nuevo reemplaza el actual.",
+      "sectionInfo": "Información del video",
+      "sectionEnglish": "Contenido en inglés (opcional)",
+      "sectionEnglishHint": "Opcional — si se deja vacío, el sitio en inglés mostrará el contenido en español.",
+      "title": "Título",
+      "titleEn": "Título (inglés)",
+      "subtitle": "Subtítulo",
+      "subtitleEn": "Subtítulo (inglés)",
+      "description": "Descripción",
+      "descriptionEn": "Descripción (inglés)",
+      "tag": "Etiqueta",
+      "tagEn": "Etiqueta (inglés)",
+      "displayOrder": "Orden de aparición",
+      "markActive": "Visible en el sitio ✓",
+      "markInactive": "Oculto en el sitio",
+      "submitCreate": "Guardar video",
+      "submitEdit": "Guardar cambios",
+      "errorTitleLength": "El título debe tener al menos 2 caracteres.",
+      "errorVideoRequired": "Primero subí un archivo de video.",
+      "errorGeneric": "No se pudo guardar el video."
+    },
+    "videoUploader": {
+      "uploadVideo": "Subir video",
+      "replaceVideo": "Reemplazar video",
+      "uploading": "Subiendo video...",
+      "hint": "MP4, WebM o MOV — máximo 100MB.",
+      "onlyVideos": "Solo se permiten archivos de video.",
+      "maxSize": "El video debe pesar menos de 100MB.",
+      "remove": "Quitar video",
+      "errorGeneric": "Error al subir el video"
     }
   }
 }

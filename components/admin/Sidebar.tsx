@@ -3,13 +3,14 @@
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { LayoutDashboard, Package, FolderTree, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, Package, FolderTree, Clapperboard, Settings, LogOut } from 'lucide-react';
 import AdminLocaleSwitcher from './AdminLocaleSwitcher';
 
 const navItems = [
   { href: '/admin/dashboard', icon: LayoutDashboard, key: 'dashboard' as const, exact: true },
   { href: '/admin/dashboard/artworks', icon: Package, key: 'products' as const, exact: false },
   { href: '/admin/dashboard/categories', icon: FolderTree, key: 'categories' as const, exact: false },
+  { href: '/admin/dashboard/videos', icon: Clapperboard, key: 'videos' as const, exact: false },
   { href: '/admin/dashboard/settings', icon: Settings, key: 'settings' as const, exact: false },
 ];
 

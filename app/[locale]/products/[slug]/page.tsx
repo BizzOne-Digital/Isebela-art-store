@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: product.shortDescription,
     openGraph: {
       type: 'website',
-      locale: locale === 'es' ? 'es_AR' : 'en_US',
+      locale: locale === 'es' ? 'es_US' : 'en_US',
       url: productUrl,
       siteName: 'Isabel Creando Arte y Magia',
       title: `${product.name} | Isabel Creando Arte y Magia`,

@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       template: "%s | Isabel Creando Arte y Magia",
     },
     description: t("description"),
-    keywords: ["goma eva", "artesanías", "hecho a mano", "muñecas artesanales", "tarjetas pop-up", "papelería artesanal", "arte reciclado", "regalos personalizados", "Argentina"],
+    keywords: ["goma eva", "artesanías", "hecho a mano", "muñecas artesanales", "tarjetas pop-up", "papelería artesanal", "arte reciclado", "regalos personalizados", "USA", "Estados Unidos"],
     authors: [{ name: "Isabel Creando Arte y Magia" }],
     creator: "Isabel Creando Arte y Magia",
     publisher: "Isabel Creando Arte y Magia",
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       type: "website",
-      locale: locale === "es" ? "es_AR" : "en_US",
+      locale: locale === "es" ? "es_US" : "en_US",
       url: locale === routing.defaultLocale ? baseUrl : `${baseUrl}/${locale}`,
       siteName: "Isabel Creando Arte y Magia",
       title: t("title"),

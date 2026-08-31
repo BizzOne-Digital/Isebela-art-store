@@ -144,7 +144,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
               </span>
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surfaceAlt border border-accent/15 text-textBase/80 text-xs font-sans">
                 <MapPin className="w-3.5 h-3.5 text-primary" />
-                {tCommon('madeInArgentina')}
+                {tCommon('madeInUsa')}
               </span>
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surfaceAlt border border-accent/15 text-textBase/80 text-xs font-sans">
                 <Clock className="w-3.5 h-3.5 text-secondary" />

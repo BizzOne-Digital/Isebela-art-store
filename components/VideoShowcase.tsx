@@ -4,24 +4,15 @@ import { motion } from 'framer-motion';
 import { Play, Pause, Volume2, VolumeX, Video } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
+import type { VideoView } from '@/lib/storefront-data';
 
-interface VideoItem {
-  id: string;
-  key: 'vid1' | 'vid2' | 'vid3' | 'vid4' | 'vid5';
-  src: string;
+interface VideoShowcaseProps {
+  videos: VideoView[];
 }
 
-const videos: VideoItem[] = [
-  { id: 'vid-1', key: 'vid1', src: '/images/img/isvid1.mp4' },
-  { id: 'vid-2', key: 'vid2', src: '/images/img/isvid2.mp4' },
-  { id: 'vid-3', key: 'vid3', src: '/images/img/isvid3.mp4' },
-  { id: 'vid-4', key: 'vid4', src: '/images/img/isvid4.mp4' },
-  { id: 'vid-5', key: 'vid5', src: '/images/img/isvid5.mp4' },
-];
-
-const VideoShowcase: React.FC = () => {
+const VideoShowcase: React.FC<VideoShowcaseProps> = ({ videos }) => {
   const t = useTranslations('video');
-  const [selectedVideo, setSelectedVideo] = useState<VideoItem>(videos[0]);
+  const [selectedId, setSelectedId] = useState<string | null>(videos[0]?._id ?? null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -52,8 +43,11 @@ const VideoShowcase: React.FC = () => {
     };
   }, []);
 
-  const handleSelectVideo = (video: VideoItem) => {
-    setSelectedVideo(video);
+  // Derived, so the selection stays valid when the published set changes.
+  const selectedVideo = videos.find((video) => video._id === selectedId) ?? videos[0] ?? null;
+
+  const handleSelectVideo = (video: VideoView) => {
+    setSelectedId(video._id);
     setIsPlaying(true);
     if (videoRef.current) {
       videoRef.current.load();
@@ -82,6 +76,10 @@ const VideoShowcase: React.FC = () => {
     videoRef.current.muted = !isMuted;
     setIsMuted(!isMuted);
   };
+
+  if (!selectedVideo) {
+    return null;
+  }
 
   return (
     <section ref={sectionRef} id="videos" className="px-6 max-w-7xl mx-auto py-24 relative overflow-hidden">
@@ -116,8 +114,9 @@ const VideoShowcase: React.FC = () => {
           <div className="relative aspect-video max-h-[550px] w-full bg-black flex items-center justify-center">
             <video
               ref={videoRef}
-              key={selectedVideo.src}
-              src={selectedVideo.src}
+              key={selectedVideo._id}
+              src={selectedVideo.videoUrl}
+              poster={selectedVideo.thumbnail || undefined}
               className="w-full h-full object-contain"
               autoPlay
               loop
@@ -130,13 +129,13 @@ const VideoShowcase: React.FC = () => {
             <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-center justify-between text-white">
               <div>
                 <span className="px-2.5 py-1 bg-primary text-white text-xs font-sans rounded-full uppercase tracking-wider mb-2 inline-block">
-                  {t(`items.${selectedVideo.key}.tag`)}
+                  {selectedVideo.tag}
                 </span>
                 <h3 className="text-lg sm:text-xl font-serif text-white font-medium">
-                  {t(`items.${selectedVideo.key}.title`)}
+                  {selectedVideo.title}
                 </h3>
                 <p className="text-white/70 text-xs sm:text-sm hidden sm:block">
-                  {t(`items.${selectedVideo.key}.subtitle`)}
+                  {selectedVideo.subtitle}
                 </p>
               </div>
 
@@ -162,14 +161,14 @@ const VideoShowcase: React.FC = () => {
           <div className="p-6 bg-surfaceAlt/80 border-t border-accent/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <p className="text-textBase/80 text-sm leading-relaxed">
-                {t(`items.${selectedVideo.key}.description`)}
+                {selectedVideo.description}
               </p>
               <p className="text-xs text-primary font-medium mt-1">
                 {t('watchNote')}
               </p>
             </div>
             <a
-              href={`https://wa.me/5491186371242?text=${encodeURIComponent(t('whatsappMessage', { title: t(`items.${selectedVideo.key}.title`) }))}`}
+              href={`https://wa.me/5491186371242?text=${encodeURIComponent(t('whatsappMessage', { title: selectedVideo.title }))}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary text-white rounded-sm hover:bg-primary/90 transition-colors font-sans text-xs sm:text-sm flex-shrink-0"
@@ -187,10 +186,10 @@ const VideoShowcase: React.FC = () => {
           </p>
 
           {videos.map((vid, index) => {
-            const isCurrent = selectedVideo.id === vid.id;
+            const isCurrent = selectedVideo._id === vid._id;
             return (
               <motion.button
-                key={vid.id}
+                key={vid._id}
                 onClick={() => handleSelectVideo(vid)}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -203,7 +202,8 @@ const VideoShowcase: React.FC = () => {
               >
                 <div className="relative w-16 h-16 rounded-lg bg-black overflow-hidden flex-shrink-0 flex items-center justify-center">
                   <video
-                    src={vid.src}
+                    src={vid.videoUrl}
+                    poster={vid.thumbnail || undefined}
                     className="w-full h-full object-cover opacity-70"
                     muted
                     playsInline
@@ -221,7 +221,7 @@ const VideoShowcase: React.FC = () => {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-[10px] font-sans px-2 py-0.5 rounded bg-accent/15 text-accent font-medium uppercase">
-                      {t(`items.${vid.key}.tag`)}
+                      {vid.tag}
                     </span>
                     {isCurrent && (
                       <span className="text-[10px] font-sans text-primary font-bold">
@@ -230,10 +230,10 @@ const VideoShowcase: React.FC = () => {
                     )}
                   </div>
                   <h4 className="font-serif text-textBase text-sm font-medium line-clamp-1">
-                    {t(`items.${vid.key}.title`)}
+                    {vid.title}
                   </h4>
                   <p className="text-textBase/60 text-xs line-clamp-1 mt-0.5">
-                    {t(`items.${vid.key}.subtitle`)}
+                    {vid.subtitle}
                   </p>
                 </div>
               </motion.button>

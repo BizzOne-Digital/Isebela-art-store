@@ -5,7 +5,7 @@
     "back": "Back to previous page",
     "loading": "Loading...",
     "retry": "Retry",
-    "madeInArgentina": "Handmade in Argentina",
+    "madeInUsa": "Handmade in the USA",
     "shipping48h": "Ships in 48h",
     "process7to15": "Made in 7-15 days",
     "newLabel": "New",
@@ -31,7 +31,7 @@
     "badge": "Handmade EVA Foam Crafts",
     "titlePart1": "Where imagination",
     "titlePart2": "comes to life",
-    "description": "Unique handmade EVA foam creations: soulful fofucha dolls, pop-up cards that hold secrets, decorated stationery, and sustainable recycled art. Every piece is 100% handmade in Argentina.",
+    "description": "Unique handmade EVA foam creations: soulful fofucha dolls, pop-up cards that hold secrets, decorated stationery, and sustainable recycled art. Every piece is 100% handmade in the USA.",
     "viewCreations": "View Creations",
     "customOrder": "Custom Order",
     "madeByHand": "Handmade",
@@ -132,39 +132,7 @@
     "playVideo": "Play video",
     "muteVideo": "Mute sound",
     "unmuteVideo": "Unmute sound",
-    "whatsappMessage": "Hi Isabel, I saw the video \"{title}\" and loved your work. I'd like to ask about a similar piece.",
-    "items": {
-      "vid1": {
-        "title": "Creating and Detailing in the Workshop",
-        "subtitle": "The intimate process of handwork",
-        "description": "Watch how each sheet of EVA foam becomes a piece with personality and care.",
-        "tag": "In the Workshop"
-      },
-      "vid2": {
-        "title": "Handcrafted Molding and Assembly",
-        "subtitle": "Precision techniques and thermoforming",
-        "description": "The millimeter-precise assembly of pieces, minding proportions, folds, and textures.",
-        "tag": "Technique"
-      },
-      "vid3": {
-        "title": "360° View of Our Fofuchas",
-        "subtitle": "Appreciate every angle and finish",
-        "description": "Meticulous details: footwear, clothing, accessories, and hand-painted faces.",
-        "tag": "Showcase"
-      },
-      "vid4": {
-        "title": "Painting and Finishing Touches",
-        "subtitle": "Bringing looks and smiles to life",
-        "description": "The magic of eyes, highlights, shadows, and blush that give every creation soul.",
-        "tag": "Painting"
-      },
-      "vid5": {
-        "title": "Collection in Motion and Presentation",
-        "subtitle": "Ready to gift or collect",
-        "description": "The final result, packed with love and ready to delight whoever receives it.",
-        "tag": "Creations"
-      }
-    }
+    "whatsappMessage": "Hi Isabel, I saw the video \"{title}\" and loved your work. I'd like to ask about a similar piece."
   },
   "philosophy": {
     "eyebrow": "Philosophy",
@@ -432,7 +400,7 @@
     "items": {
       "t1": {
         "name": "María González",
-        "location": "Buenos Aires",
+        "location": "New York, NY",
         "role": "Mother of Sofía (5 years old)",
         "text": "The fairy doll I ordered for my daughter's birthday exceeded all my expectations. Isabel captured exactly the essence I imagined and the details are incredible. My daughter won't put her down. The process was beautiful: she sent me progress photos and I could give feedback at every stage. 100% recommended.",
         "product": "Enchanted Forest Fairy (Custom)",
@@ -444,9 +412,9 @@
       },
       "t2": {
         "name": "Carlos Rodríguez",
-        "location": "Córdoba",
+        "location": "Los Angeles, CA",
         "role": "Ana's boyfriend",
-        "text": "I was looking for something unique for our anniversary and the custom pop-up card was a total hit. When Ana opened it and saw our photo in 3D with the message I wrote, she got so emotional. Isabel was super attentive, guided me through the whole process, and delivery to Córdoba was super fast. I'll definitely order again.",
+        "text": "I was looking for something unique for our anniversary and the custom pop-up card was a total hit. When Ana opened it and saw our photo in 3D with the message I wrote, she got so emotional. Isabel was super attentive, guided me through the whole process, and delivery to Los Angeles was super fast. I'll definitely order again.",
         "product": "Anniversary Pop-Up Card (Custom)",
         "tags": [
           "Custom order",
@@ -456,7 +424,7 @@
       },
       "t3": {
         "name": "Laura Martínez",
-        "location": "Rosario",
+        "location": "Chicago, IL",
         "role": "Event organizer",
         "text": "I ordered 50 custom notebooks for a corporate event and was thrilled. The paper quality, the binding, the cover details... all flawless. Isabel kept to the tight deadline and communication was smooth the whole time. Event attendees were amazed by the detail. Real handcrafted professionalism.",
         "product": "Corporate Notebooks x50 (Wholesale)",
@@ -468,7 +436,7 @@
       },
       "t4": {
         "name": "Sofía Herrera",
-        "location": "Mendoza",
+        "location": "Houston, TX",
         "role": "Collector",
         "text": "I have several of Isabel's pieces and each one is a treasure. The articulated ballerina is my favorite: the quality of the materials, the precision of the joints, the hand-painted details... you can tell there's love in every cut. Plus, the packaging is so beautiful it's a shame to open it. It's art for a lifetime.",
         "product": "Dream Ballerina + Flower Doll",
@@ -480,7 +448,7 @@
       },
       "t5": {
         "name": "Javier and Paula",
-        "location": "La Plata",
+        "location": "Miami, FL",
         "role": "Newlyweds",
         "text": "For our wedding we wanted special thank-you cards for each guest (120 people). Isabel designed a base model and personalized each one with the guest's name. The result was magical: guests took home a unique keepsake and we felt at ease knowing every detail was cared for. Thank you for making our day even more special.",
         "product": "Custom Wedding Cards x120",
@@ -492,7 +460,7 @@
       },
       "t6": {
         "name": "Valentina Ruiz",
-        "location": "Neuquén",
+        "location": "Seattle, WA",
         "role": "Teacher",
         "text": "I bought the recycled planter and the bottle pencil holder for my classroom. The kids were amazed to learn they were made from materials we were going to throw away. Isabel explained the process and even sent me educational worksheets to teach recycling in class. Now we want to order more for Earth Day. Art with a conscience.",
         "product": "Recycled Planter + Magic Bottle Pencil Holder",
@@ -545,7 +513,7 @@
       },
       "location": {
         "title": "Location",
-        "value": "Buenos Aires, Argentina",
+        "value": "United States",
         "desc": "Shipping across the country"
       },
       "instagram": {
@@ -564,7 +532,7 @@
       },
       "safeShipping": {
         "title": "Secure Shipping",
-        "desc": "Careful packaging and tracking across Argentina"
+        "desc": "Careful packaging and tracking across the USA"
       }
     }
   },
@@ -588,11 +556,11 @@
     "customOrdersLink": "Custom Orders",
     "contactTitle": "Contact",
     "hours": "Mon-Sat: 10:00 - 19:00",
-    "location": "Buenos Aires, Argentina",
+    "location": "United States",
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms",
-    "craftedFrom": "Handcrafted art from Argentina"
+    "craftedFrom": "Handcrafted art from the USA"
   },
   "whatsapp": {
     "ariaLabel": "Contact via WhatsApp",
@@ -601,11 +569,11 @@
   "metadata": {
     "home": {
       "title": "Isabel Creando Arte y Magia | Handmade EVA Foam Crafts",
-      "description": "Unique handmade EVA foam creations: soulful dolls, pop-up cards, artistic stationery, and recycled art. Handmade with love in Argentina. Custom orders welcome."
+      "description": "Unique handmade EVA foam creations: soulful dolls, pop-up cards, artistic stationery, and recycled art. Handmade with love in the USA. Custom orders welcome."
     },
     "products": {
       "title": "Full Catalog",
-      "description": "Explore our complete collection of unique pieces in EVA foam, cards, and recycled art, handmade in Argentina."
+      "description": "Explore our complete collection of unique pieces in EVA foam, cards, and recycled art, handmade in the USA."
     },
     "contact": {
       "title": "Contact",
@@ -655,6 +623,7 @@
       "dashboard": "Dashboard",
       "products": "Products",
       "categories": "Categories",
+      "videos": "Videos",
       "settings": "Settings",
       "logout": "Log out",
       "language": "Language"
@@ -682,7 +651,9 @@
       "manageProducts": "Manage products",
       "manageCategories": "Manage categories",
       "mongoNotConfiguredTitle": "MongoDB is not configured",
-      "mongoNotConfiguredText": "Add your MONGODB_URI to the environment and run the seed command before using the dashboard."
+      "mongoNotConfiguredText": "Add your MONGODB_URI to the environment and run the seed command before using the dashboard.",
+      "totalVideos": "Videos",
+      "manageVideos": "Manage videos"
     },
     "products": {
       "eyebrow": "Products",
@@ -811,6 +782,59 @@
       "moveRight": "Move right",
       "remove": "Remove image",
       "errorGeneric": "Error uploading the image"
+    },
+    "videos": {
+      "eyebrow": "Videos",
+      "title": "Video management",
+      "newVideo": "Upload video",
+      "preview": "Preview",
+      "columnPreview": "Preview",
+      "columnTitle": "Title",
+      "columnTag": "Tag",
+      "columnStatus": "Status",
+      "columnOrder": "Order",
+      "columnActions": "Actions",
+      "emptyTitle": "No videos yet",
+      "emptyText": "Upload your first video to show it in the website video section.",
+      "emptyAction": "Upload your first video",
+      "deleteConfirmTitle": "Delete this video?",
+      "deleteConfirmText": "This action cannot be undone. The video will be removed from the website and from storage.",
+      "deleteError": "Couldn't delete the video."
+    },
+    "videoForm": {
+      "titleNew": "Upload video",
+      "titleEdit": "Edit video",
+      "sectionFile": "Video File",
+      "sectionFileHint": "MP4, WebM, or MOV — up to 100MB. Uploading a new file replaces the current one.",
+      "sectionInfo": "Video Information",
+      "sectionEnglish": "English Content (optional)",
+      "sectionEnglishHint": "Optional — if left blank, the English site will show the Spanish content.",
+      "title": "Title",
+      "titleEn": "Title (English)",
+      "subtitle": "Subtitle",
+      "subtitleEn": "Subtitle (English)",
+      "description": "Description",
+      "descriptionEn": "Description (English)",
+      "tag": "Tag",
+      "tagEn": "Tag (English)",
+      "displayOrder": "Display order",
+      "markActive": "Visible on the website ✓",
+      "markInactive": "Hidden from the website",
+      "submitCreate": "Save video",
+      "submitEdit": "Save changes",
+      "errorTitleLength": "Title must be at least 2 characters.",
+      "errorVideoRequired": "Upload a video file first.",
+      "errorGeneric": "Couldn't save the video."
+    },
+    "videoUploader": {
+      "uploadVideo": "Upload video",
+      "replaceVideo": "Replace video",
+      "uploading": "Uploading video...",
+      "hint": "MP4, WebM, or MOV — maximum 100MB.",
+      "onlyVideos": "Only video files are allowed.",
+      "maxSize": "The video must be under 100MB.",
+      "remove": "Remove video",
+      "errorGeneric": "Error uploading the video"
     }
   }
 }

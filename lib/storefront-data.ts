@@ -1,6 +1,7 @@
 import { connectMongo, hasMongoConfig } from './db';
 import { Artwork } from './models/Artwork';
 import { Category } from './models/Category';
+import { Video } from './models/Video';
 import { toProductView, toPlain, type ArtworkLean } from './artwork-adapter';
 import type { Product } from './products';
 import type { AppLocale } from '@/i18n/routing';
@@ -58,4 +59,55 @@ export async function getPublishedCatalog(locale: AppLocale = 'es'): Promise<{
     products: artworkDocs.map((doc) => toProductView(toPlain(doc) as ArtworkLean, locale)),
     categories: toPlain(categoryDocs).map((doc) => localizeCategory(doc as CategoryDocPlain, locale)),
   };
+}
+
+export interface VideoView {
+  _id: string;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  tag?: string;
+  videoUrl: string;
+  thumbnail?: string;
+  displayOrder?: number;
+}
+
+interface VideoDocPlain {
+  _id: unknown;
+  title: string;
+  titleEn?: string;
+  subtitle?: string;
+  subtitleEn?: string;
+  description?: string;
+  descriptionEn?: string;
+  tag?: string;
+  tagEn?: string;
+  videoUrl: string;
+  thumbnail?: string;
+  displayOrder?: number;
+}
+
+function localizeVideo(doc: VideoDocPlain, locale: AppLocale): VideoView {
+  const pick = (es?: string, en?: string) => (locale === 'en' && en ? en : es || '');
+  return {
+    _id: String(doc._id),
+    title: pick(doc.title, doc.titleEn),
+    subtitle: pick(doc.subtitle, doc.subtitleEn),
+    description: pick(doc.description, doc.descriptionEn),
+    tag: pick(doc.tag, doc.tagEn),
+    videoUrl: doc.videoUrl,
+    thumbnail: doc.thumbnail,
+    displayOrder: doc.displayOrder,
+  };
+}
+
+/** Videos published through the dedicated admin Videos section. Independent of the artwork catalog. */
+export async function getPublishedVideos(locale: AppLocale = 'es'): Promise<VideoView[]> {
+  if (!hasMongoConfig()) {
+    return [];
+  }
+
+  await connectMongo();
+  const videoDocs = await Video.find({ isActive: true }).sort({ displayOrder: 1, createdAt: -1 }).lean();
+  return toPlain(videoDocs).map((doc) => localizeVideo(doc as VideoDocPlain, locale));
 }
