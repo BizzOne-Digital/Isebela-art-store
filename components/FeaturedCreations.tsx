@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Product } from '@/lib/products';
-import { ChevronRight, Sparkles } from 'lucide-react';
+import { ChevronRight, Sparkles, Star } from 'lucide-react';
+import EmptyState from '@/components/ui/EmptyState';
 
 interface FeaturedCreationsProps {
   artworks: Product[];
@@ -34,84 +35,88 @@ const FeaturedCreations = ({ artworks }: FeaturedCreationsProps) => {
         </p>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
-      >
-        {featuredProducts.map((product, index) => (
-          <motion.article
-            key={product.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 + index * 0.08 }}
-            className="relative group border border-accent/15 bg-surfaceAlt/60 hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
-          >
-            <div>
-              <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-                <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
-                  {product.isNew && (
-                    <span className="bg-secondary text-white text-xs font-sans px-2.5 py-1 rounded-full shadow-sm">
-                      {tCommon('newLabel')}
-                    </span>
-                  )}
-                  {product.isFeatured && (
-                    <span className="bg-primary text-white text-xs font-sans px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-yellow-300" />
-                      {tCommon('featuredLabel')}
-                    </span>
-                  )}
-                </div>
-              </Link>
-
-              <div className="p-5 space-y-3">
-                <span className="text-accent text-xs font-sans uppercase tracking-wider font-medium">
-                  {product.category}
-                </span>
-                <Link href={`/products/${product.slug}`} className="block">
-                  <h3 className="text-lg font-serif text-textBase group-hover:text-primary transition-colors line-clamp-1">
-                    {product.name}
-                  </h3>
+      {featuredProducts.length === 0 ? (
+        <EmptyState icon={Star} title={t('emptyTitle')} message={t('emptyText')} />
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+        >
+          {featuredProducts.map((product, index) => (
+            <motion.article
+              key={product.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 + index * 0.08 }}
+              className="relative group border border-accent/15 bg-surfaceAlt/60 hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
+            >
+              <div>
+                <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
+                    {product.isNew && (
+                      <span className="bg-secondary text-white text-xs font-sans px-2.5 py-1 rounded-full shadow-sm">
+                        {tCommon('newLabel')}
+                      </span>
+                    )}
+                    {product.isFeatured && (
+                      <span className="bg-primary text-white text-xs font-sans px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+                        <Sparkles className="w-3 h-3 text-yellow-300" />
+                        {tCommon('featuredLabel')}
+                      </span>
+                    )}
+                  </div>
                 </Link>
-                <p className="text-textBase/60 text-xs line-clamp-2 leading-relaxed">
-                  {product.shortDescription}
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {product.features.slice(0, 2).map((feature, i) => (
-                    <span
-                      key={i}
-                      className="text-[11px] text-textBase/70 bg-surface px-2.5 py-1 rounded-md border border-accent/10"
-                    >
-                      {feature}
-                    </span>
-                  ))}
+
+                <div className="p-5 space-y-3">
+                  <span className="text-accent text-xs font-sans uppercase tracking-wider font-medium">
+                    {product.category}
+                  </span>
+                  <Link href={`/products/${product.slug}`} className="block">
+                    <h3 className="text-lg font-serif text-textBase group-hover:text-primary transition-colors line-clamp-1">
+                      {product.name}
+                    </h3>
+                  </Link>
+                  <p className="text-textBase/60 text-xs line-clamp-2 leading-relaxed">
+                    {product.shortDescription}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {product.features.slice(0, 2).map((feature, i) => (
+                      <span
+                        key={i}
+                        className="text-[11px] text-textBase/70 bg-surface px-2.5 py-1 rounded-md border border-accent/10"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="p-5 pt-0">
-              <div className="flex items-center justify-between pt-3 border-t border-accent/10">
-                <span className="text-primary font-serif text-lg font-semibold">{product.price}</span>
-                <Link
-                  href={`/products/${product.slug}`}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary/10 text-primary text-xs font-sans font-medium rounded-lg hover:bg-primary hover:text-white transition-colors"
-                >
-                  {tCommon('viewDetails')}
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </Link>
+              <div className="p-5 pt-0">
+                <div className="flex items-center justify-between pt-3 border-t border-accent/10">
+                  <span className="text-primary font-serif text-lg font-semibold">{product.price}</span>
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary/10 text-primary text-xs font-sans font-medium rounded-lg hover:bg-primary hover:text-white transition-colors"
+                  >
+                    {tCommon('viewDetails')}
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
-            </div>
-          </motion.article>
-        ))}
-      </motion.div>
+            </motion.article>
+          ))}
+        </motion.div>
+      )}
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

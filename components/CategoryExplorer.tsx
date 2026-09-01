@@ -42,7 +42,8 @@ const CategoryExplorer = ({ categories, artworks }: CategoryExplorerProps) => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 relative z-10"
+        // Mobile swipes through the categories; sm+ falls back to the grid.
+        className="relative z-10 flex snap-x snap-mandatory overflow-x-auto -mx-6 px-6 pb-2 gap-5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-6 lg:grid-cols-3 xl:grid-cols-5"
       >
         {categories.map((category, index) => {
           const categoryArtworks = artworks.filter((product) => product.category === category.canonicalName);
@@ -54,7 +55,7 @@ const CategoryExplorer = ({ categories, artworks }: CategoryExplorerProps) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 + index * 0.08 }}
-              className="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              className="group relative snap-start flex-shrink-0 w-[78%] sm:w-auto sm:flex-shrink overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow"
             >
               <Link
                 href={{ pathname: '/products', query: { category: category.canonicalName } }}
@@ -66,7 +67,7 @@ const CategoryExplorer = ({ categories, artworks }: CategoryExplorerProps) => {
                     alt={category.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                    sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 20vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                 </div>

@@ -77,9 +77,9 @@ export default function HeroSection({ artworks }: HeroSectionProps) {
               </Link>
               <Link
                 href="/custom-orders"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surfaceAlt border border-accent/30 text-textBase rounded-lg hover:border-primary/50 transition-colors font-sans text-base"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black/60 border hover:bg-black/70 border-black/70 text-white rounded-lg hover:border-primary/50 transition-colors font-sans text-base"
               >
-                <Heart className="w-5 h-5 text-primary" />
+                <Heart className="w-5 h-5 text-white" />
                 {t('customOrder')}
               </Link>
             </div>

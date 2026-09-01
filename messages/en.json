@@ -51,7 +51,9 @@
     "titleSuffix": "Creations",
     "description": "A curated selection of the most representative and beloved pieces from our workshop.",
     "catalogDescription": "Explore our complete collection of unique pieces in EVA foam, cards, and recycled art. Click on any piece to see it in detail.",
-    "viewAllCatalog": "View the full catalog"
+    "viewAllCatalog": "View the full catalog",
+    "emptyTitle": "No featured pieces yet",
+    "emptyText": "Our star creations are being selected. The full catalog is already open if you would like a look."
   },
   "categories": {
     "eyebrow": "Explore by Category",
@@ -136,7 +138,10 @@
     "playVideo": "Play video",
     "muteVideo": "Mute sound",
     "unmuteVideo": "Unmute sound",
-    "whatsappMessage": "Hi Isabel, I saw the video \"{title}\" and loved your work. I'd like to ask about a similar piece."
+    "whatsappMessage": "Hi Isabel, I saw the video \"{title}\" and loved your work. I'd like to ask about a similar piece.",
+    "emptyTitle": "No videos yet",
+    "emptyText": "We're filming new pieces in the workshop right now. The first videos land here soon — in the meantime, the full catalog is ready to browse.",
+    "emptyCta": "Browse the catalog"
   },
   "philosophy": {
     "eyebrow": "Philosophy",
@@ -259,7 +264,10 @@
     "description": "Thematic pieces, seasonal keepsakes, and the newest creations coming out of the studio.",
     "specialEdition": "Special Edition",
     "limitedArt": "Limited handcrafted pieces",
-    "discoverFullCollection": "Discover the full collection"
+    "discoverFullCollection": "Discover the full collection",
+    "emptyTitle": "No seasonal pieces right now",
+    "emptyText": "This season’s collection is being prepared. Every new and limited piece will appear here first.",
+    "emptyCta": "See all creations"
   },
   "customOrder": {
     "eyebrow": "Custom Orders",
@@ -591,10 +599,6 @@
       "title": "Testimonials",
       "description": "What people who already trusted our handmade creations have to say."
     },
-    "videos": {
-      "title": "Videos",
-      "description": "Watch the handcrafted process up close: molding, painting, finishing, and the 360° detail behind every piece."
-    },
     "philosophy": {
       "title": "Our Philosophy",
       "description": "The thinking behind the work: why every piece is shaped by hand, and what that means for the person who receives it."
@@ -885,5 +889,11 @@
       "notConfigured": "Not configured",
       "languageHint": "Sets the language of this dashboard only. The public site language is chosen by each visitor."
     }
+  },
+  "notFound": {
+    "title": "We could not find that page",
+    "text": "The piece or page you are looking for may have been sold, renamed, or is no longer published. The full catalog is still here.",
+    "catalogCta": "Browse the catalog",
+    "homeCta": "Back to home"
   }
 }

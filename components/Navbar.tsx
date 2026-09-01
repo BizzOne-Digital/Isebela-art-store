@@ -40,7 +40,8 @@ const Navbar = () => {
 
   const navLinks = [
     { href: '/', label: t('home') },
-    { href: '/videos', label: t('videos') },
+    // The videos section lives on the home page now, so this is an anchor.
+    // { href: '/#videos', label: t('videos') },
     { href: '/products', label: t('products') },
     { href: '/pricing', label: t('pricing') },
     { href: '/testimonials', label: t('testimonials') },
@@ -148,7 +149,7 @@ const Navbar = () => {
           </div>
 
           <div className="md:hidden flex items-center gap-2">
-            <LocaleSwitcher className="inline-flex items-center justify-center min-w-[44px] px-2.5 py-1.5 border border-accent/30 bg-surfaceAlt/80 text-textBase text-[10px] uppercase tracking-widest font-sans font-semibold rounded-full transition-all hover:border-primary/50 hover:text-primary" />
+            <LocaleSwitcher showIcon={false} />
             <button
               className="p-2 text-textBase hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

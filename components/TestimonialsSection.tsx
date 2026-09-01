@@ -45,7 +45,7 @@ const TestimonialsSection = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 relative z-10"
+        className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-20 relative z-10"
       >
         {statConfig.map((stat, index) => (
           <motion.div
@@ -53,13 +53,13 @@ const TestimonialsSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 + index * 0.08 }}
-            className="text-center p-6 border border-accent/10 bg-surfaceAlt/30 hover:border-primary/30 transition-colors"
+            className="text-center p-4 sm:p-6 border border-accent/10 bg-surfaceAlt/30 hover:border-primary/30 transition-colors rounded-lg"
           >
-            <div className="w-14 h-14 mx-auto mb-4 rounded-lg bg-primary/10 flex items-center justify-center">
-              <stat.icon className="w-7 h-7 text-primary" />
+            <div className="w-11 h-11 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-4 rounded-lg bg-primary/10 flex items-center justify-center">
+              <stat.icon className="w-5 h-5 sm:w-7 sm:h-7 text-primary" />
             </div>
-            <p className="text-3xl md:text-4xl font-serif text-primary mb-1">{stat.number}</p>
-            <p className="text-textBase/60 text-sm font-sans">{t(`stats.${stat.key}`)}</p>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-serif text-primary mb-1">{stat.number}</p>
+            <p className="text-textBase/60 text-xs sm:text-sm font-sans leading-snug">{t(`stats.${stat.key}`)}</p>
           </motion.div>
         ))}
       </motion.div>

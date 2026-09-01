@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Product } from '@/lib/products';
 import { ChevronRight, Sun, Flower2, Eye } from 'lucide-react';
+import EmptyState from '@/components/ui/EmptyState';
 
 interface SeasonalOffersProps {
   artworks: Product[];
@@ -54,69 +55,86 @@ const SeasonalOffers = ({ artworks }: SeasonalOffersProps) => {
         </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
-      >
-        {seasonalProducts.map((product, index) => (
-          <motion.article
-            key={product.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 + index * 0.08 }}
-            className="group relative border border-secondary/25 bg-surfaceAlt/60 hover:border-secondary/60 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between"
-          >
-            <div>
-              <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-                <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
-                  <span className="bg-secondary text-white text-[11px] font-sans px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
-                    <Flower2 className="w-3 h-3" />
-                    {tCommon('featuredLabel')}
-                  </span>
-                  {product.isNew && (
-                    <span className="bg-primary text-white text-[11px] font-sans px-2.5 py-0.5 rounded-full shadow-sm">
-                      {tCommon('newLabel')}
+      {seasonalProducts.length === 0 ? (
+        <EmptyState
+          icon={Flower2}
+          title={t('emptyTitle')}
+          message={t('emptyText')}
+          action={
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-secondary text-white rounded-sm hover:bg-secondary/90 transition-colors font-sans"
+            >
+              {t('emptyCta')}
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          }
+        />
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+        >
+          {seasonalProducts.map((product, index) => (
+            <motion.article
+              key={product.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 + index * 0.08 }}
+              className="group relative border border-secondary/25 bg-surfaceAlt/60 hover:border-secondary/60 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between"
+            >
+              <div>
+                <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
+                    <span className="bg-secondary text-white text-[11px] font-sans px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                      <Flower2 className="w-3 h-3" />
+                      {tCommon('featuredLabel')}
                     </span>
-                  )}
+                    {product.isNew && (
+                      <span className="bg-primary text-white text-[11px] font-sans px-2.5 py-0.5 rounded-full shadow-sm">
+                        {tCommon('newLabel')}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+                <div className="p-4 sm:p-5 space-y-2.5">
+                  <span className="text-secondary text-[11px] font-sans uppercase tracking-wider font-semibold">
+                    {product.category}
+                  </span>
+                  <Link href={`/products/${product.slug}`} className="block">
+                    <h3 className="text-base font-serif text-textBase group-hover:text-secondary transition-colors line-clamp-1 font-medium">
+                      {product.name}
+                    </h3>
+                  </Link>
+                  <p className="text-textBase/60 text-xs line-clamp-2 leading-relaxed">{product.shortDescription}</p>
                 </div>
-              </Link>
-              <div className="p-4 sm:p-5 space-y-2.5">
-                <span className="text-secondary text-[11px] font-sans uppercase tracking-wider font-semibold">
-                  {product.category}
-                </span>
-                <Link href={`/products/${product.slug}`} className="block">
-                  <h3 className="text-base font-serif text-textBase group-hover:text-secondary transition-colors line-clamp-1 font-medium">
-                    {product.name}
-                  </h3>
-                </Link>
-                <p className="text-textBase/60 text-xs line-clamp-2 leading-relaxed">{product.shortDescription}</p>
               </div>
-            </div>
 
-            <div className="p-4 sm:p-5 pt-0">
-              <div className="flex items-center justify-between pt-3 border-t border-secondary/15">
-                <span className="text-secondary font-serif text-base font-bold">{product.price}</span>
-                <Link
-                  href={`/products/${product.slug}`}
-                  className="inline-flex items-center gap-1 px-3 py-1.5 bg-secondary/15 text-secondary text-xs font-sans font-medium rounded-lg hover:bg-secondary hover:text-white transition-colors"
-                >
-                  <Eye className="w-3 h-3" />
-                  {tProducts('details')}
-                </Link>
+              <div className="p-4 sm:p-5 pt-0">
+                <div className="flex items-center justify-between pt-3 border-t border-secondary/15">
+                  <span className="text-secondary font-serif text-base font-bold">{product.price}</span>
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-secondary/15 text-secondary text-xs font-sans font-medium rounded-lg hover:bg-secondary hover:text-white transition-colors"
+                  >
+                    <Eye className="w-3 h-3" />
+                    {tProducts('details')}
+                  </Link>
+                </div>
               </div>
-            </div>
-          </motion.article>
-        ))}
-      </motion.div>
+            </motion.article>
+          ))}
+        </motion.div>
+      )}
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

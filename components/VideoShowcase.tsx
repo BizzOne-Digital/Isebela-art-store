@@ -1,9 +1,11 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Play, Pause, Volume2, VolumeX, Video } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Video, VideoOff } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import EmptyState from '@/components/ui/EmptyState';
 import type { VideoView } from '@/lib/storefront-data';
 
 interface VideoShowcaseProps {
@@ -77,12 +79,46 @@ const VideoShowcase: React.FC<VideoShowcaseProps> = ({ videos }) => {
     setIsMuted(!isMuted);
   };
 
+  // Nothing published yet: keep the section framing and explain the gap, rather
+  // than rendering nothing and leaving the page blank.
   if (!selectedVideo) {
-    return null;
+    return (
+      <section ref={sectionRef} id="videos" className="scroll-mt-24 px-6 max-w-7xl mx-auto py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-secondary/5" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center mb-10 relative z-10"
+        >
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary text-xs font-sans uppercase tracking-widest rounded-full mb-4">
+            <Video className="w-3.5 h-3.5" />
+            {t('eyebrow')}
+          </span>
+          <h2 className="text-4xl md:text-5xl font-serif text-textBase mb-4">
+            {t('titleStart')} <span className="text-primary">{t('titleAccent')}</span>
+          </h2>
+        </motion.div>
+
+        <EmptyState
+          icon={VideoOff}
+          title={t('emptyTitle')}
+          message={t('emptyText')}
+          action={
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-sm hover:bg-primary/90 transition-colors font-sans"
+            >
+              {t('emptyCta')}
+            </Link>
+          }
+        />
+      </section>
+    );
   }
 
   return (
-    <section ref={sectionRef} id="videos" className="px-6 max-w-7xl mx-auto py-24 relative overflow-hidden">
+    <section ref={sectionRef} id="videos" className="scroll-mt-24 px-6 max-w-7xl mx-auto py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-secondary/5" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
 

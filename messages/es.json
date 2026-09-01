@@ -51,7 +51,9 @@
     "titleSuffix": "Estrella",
     "description": "Una selección curada de las piezas más representativas y queridas de nuestro taller.",
     "catalogDescription": "Explora nuestra colección completa de piezas únicas en goma eva, tarjetas y arte reciclado. Haz clic en cualquier pieza para verla en detalle.",
-    "viewAllCatalog": "Ver todo el catálogo"
+    "viewAllCatalog": "Ver todo el catálogo",
+    "emptyTitle": "Todavía no hay piezas destacadas",
+    "emptyText": "Estamos seleccionando nuestras creaciones estrella. El catálogo completo ya está abierto si quieres verlo."
   },
   "categories": {
     "eyebrow": "Explorar por Categoría",
@@ -136,7 +138,10 @@
     "playVideo": "Reproducir video",
     "muteVideo": "Silenciar sonido",
     "unmuteVideo": "Activar sonido",
-    "whatsappMessage": "Hola Isabel, vi el video \"{title}\" y me encantó su trabajo. Quisiera consultar por una pieza similar."
+    "whatsappMessage": "Hola Isabel, vi el video \"{title}\" y me encantó su trabajo. Quisiera consultar por una pieza similar.",
+    "emptyTitle": "Todavía no hay videos",
+    "emptyText": "Estamos filmando nuevas piezas en el taller. Los primeros videos llegan pronto; mientras tanto, el catálogo completo está disponible.",
+    "emptyCta": "Ver el catálogo"
   },
   "philosophy": {
     "eyebrow": "Filosofía",
@@ -259,7 +264,10 @@
     "description": "Piezas temáticas, recuerdos de temporada y las creaciones más recientes que salen del taller.",
     "specialEdition": "Edición Especial",
     "limitedArt": "Artesanías limitadas",
-    "discoverFullCollection": "Descubrir colección completa"
+    "discoverFullCollection": "Descubrir colección completa",
+    "emptyTitle": "No hay piezas de temporada por ahora",
+    "emptyText": "La colección de esta temporada se está preparando. Cada pieza nueva y limitada aparecerá aquí primero.",
+    "emptyCta": "Ver todas las creaciones"
   },
   "customOrder": {
     "eyebrow": "Encargos a Medida",
@@ -591,10 +599,6 @@
       "title": "Testimonios",
       "description": "Lo que dicen quienes ya confiaron en nuestras creaciones artesanales hechas a mano."
     },
-    "videos": {
-      "title": "Videos",
-      "description": "Mirá de cerca el proceso artesanal: moldeado, pintura, terminaciones y el detalle en 360° de cada pieza."
-    },
     "philosophy": {
       "title": "Nuestra filosofía",
       "description": "El pensamiento detrás del trabajo: por qué cada pieza se hace a mano y qué significa para quien la recibe."
@@ -885,5 +889,11 @@
       "notConfigured": "Sin configurar",
       "languageHint": "Cambia el idioma de este panel solamente. El idioma del sitio público lo elige cada visitante."
     }
+  },
+  "notFound": {
+    "title": "No encontramos esa página",
+    "text": "La pieza o la página que buscas puede haberse vendido, cambiado de nombre o ya no estar publicada. El catálogo completo sigue disponible.",
+    "catalogCta": "Ver el catálogo",
+    "homeCta": "Volver al inicio"
   }
 }
