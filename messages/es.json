@@ -846,10 +846,10 @@
       "titleNew": "Subir video",
       "titleEdit": "Editar video",
       "sectionFile": "Archivo de video",
-      "sectionFileHint": "MP4, WebM o MOV — hasta 100MB. Subir un archivo nuevo reemplaza el actual.",
+      "sectionFileHint": "MP4, WebM o MOV, hasta 100MB. Subir un archivo nuevo reemplaza el actual.",
       "sectionInfo": "Información del video",
       "sectionEnglish": "Contenido en inglés (opcional)",
-      "sectionEnglishHint": "Opcional — si se deja vacío, el sitio en inglés mostrará el contenido en español.",
+      "sectionEnglishHint": "Opcional. Si se deja vacío, el sitio en inglés mostrará el contenido en español.",
       "title": "Título",
       "titleEn": "Título (inglés)",
       "subtitle": "Subtítulo",
@@ -870,12 +870,12 @@
     "videoUploader": {
       "uploadVideo": "Subir video",
       "replaceVideo": "Reemplazar video",
-      "uploading": "Subiendo video...",
-      "hint": "MP4, WebM o MOV — máximo 100MB.",
+      "hint": "MP4, WebM o MOV - máximo 100MB.",
       "onlyVideos": "Solo se permiten archivos de video.",
       "maxSize": "El video debe pesar menos de 100MB.",
       "remove": "Quitar video",
-      "errorGeneric": "Error al subir el video"
+      "errorGeneric": "Error al subir el video",
+      "uploadingPercent": "Subiendo... {percent}%"
     },
     "settings": {
       "subtitle": "Los datos de tu cuenta y los servicios de los que depende este panel.",

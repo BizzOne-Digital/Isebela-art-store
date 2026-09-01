@@ -846,10 +846,10 @@
       "titleNew": "Upload video",
       "titleEdit": "Edit video",
       "sectionFile": "Video File",
-      "sectionFileHint": "MP4, WebM, or MOV — up to 100MB. Uploading a new file replaces the current one.",
+      "sectionFileHint": "MP4, WebM, or MOV, up to 100MB. Uploading a new file replaces the current one.",
       "sectionInfo": "Video Information",
       "sectionEnglish": "English Content (optional)",
-      "sectionEnglishHint": "Optional — if left blank, the English site will show the Spanish content.",
+      "sectionEnglishHint": "Optional. If left blank, the English site will show the Spanish content.",
       "title": "Title",
       "titleEn": "Title (English)",
       "subtitle": "Subtitle",
@@ -870,12 +870,12 @@
     "videoUploader": {
       "uploadVideo": "Upload video",
       "replaceVideo": "Replace video",
-      "uploading": "Uploading video...",
-      "hint": "MP4, WebM, or MOV — maximum 100MB.",
+      "hint": "MP4, WebM, or MOV - maximum 100MB.",
       "onlyVideos": "Only video files are allowed.",
       "maxSize": "The video must be under 100MB.",
       "remove": "Remove video",
-      "errorGeneric": "Error uploading the video"
+      "errorGeneric": "Error uploading the video",
+      "uploadingPercent": "Uploading... {percent}%"
     },
     "settings": {
       "subtitle": "Your account details and the services this dashboard depends on.",
