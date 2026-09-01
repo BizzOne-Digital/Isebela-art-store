@@ -3,7 +3,7 @@
 import { useState, type FormEvent, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Loader2 } from 'lucide-react';
+import { AlertCircle, Loader2 } from 'lucide-react';
 import VideoUploader, { type UploadedVideo } from './VideoUploader';
 import Button from './ui/Button';
 import { useToast } from './ui/Toast';
@@ -47,18 +47,19 @@ const EMPTY_VALUES: VideoFormValues = {
   isActive: true,
 };
 
-const inputClass =
-  'w-full rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-3 text-admin-ink outline-none transition focus:border-admin-primary';
-const labelClass = 'mb-2 block text-sm font-medium text-admin-body';
+// Field chrome lives in globals.css (.admin-field / .admin-label) so every
+// admin form shares one border, focus ring, and disabled treatment.
+const inputClass = 'admin-field';
+const labelClass = 'admin-label';
 
 function FormSection({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
   return (
-    <section className="space-y-5 border-t border-admin-border pt-6 first:border-t-0 first:pt-0">
+    <section className="space-y-4 border-t border-admin-border pt-7 first:border-t-0 first:pt-0">
       <div>
-        <h2 className="font-serif text-lg text-admin-ink">{title}</h2>
-        {hint && <p className="mt-0.5 text-xs text-admin-muted">{hint}</p>}
+        <h2 className="text-[13px] font-semibold uppercase tracking-[0.08em] text-admin-ink">{title}</h2>
+        {hint && <p className="admin-hint max-w-[58ch]">{hint}</p>}
       </div>
-      {children}
+      <div className="space-y-4">{children}</div>
     </section>
   );
 }
@@ -130,7 +131,7 @@ export default function VideoForm({ mode, initialValues }: VideoFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-7">
       <FormSection title={t('sectionFile')} hint={t('sectionFileHint')}>
         <VideoUploader
           value={
@@ -143,7 +144,7 @@ export default function VideoForm({ mode, initialValues }: VideoFormProps) {
       </FormSection>
 
       <FormSection title={t('sectionInfo')}>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label className={labelClass}>{t('title')}</label>
             <input value={values.title} onChange={(event) => updateField('title', event.target.value)} required className={inputClass} />
@@ -164,7 +165,7 @@ export default function VideoForm({ mode, initialValues }: VideoFormProps) {
           <textarea value={values.description} onChange={(event) => updateField('description', event.target.value)} rows={3} className={inputClass} />
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label className={labelClass}>{t('displayOrder')}</label>
             <input
@@ -180,10 +181,11 @@ export default function VideoForm({ mode, initialValues }: VideoFormProps) {
             <button
               type="button"
               onClick={() => updateField('isActive', !values.isActive)}
-              className={`w-full rounded-xl border px-4 py-3 text-sm font-medium transition ${
+              aria-pressed={values.isActive}
+              className={`inline-flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition-colors ${
                 values.isActive
-                  ? 'border-admin-primary bg-admin-primary text-white'
-                  : 'border-admin-border bg-admin-surface-alt text-admin-body hover:bg-admin-primary-soft'
+                  ? 'border-admin-primary bg-admin-primary text-white shadow-sm'
+                  : 'border-admin-border bg-admin-surface text-admin-body hover:border-admin-border-strong hover:bg-admin-surface-alt'
               }`}
             >
               {values.isActive ? t('markActive') : t('markInactive')}
@@ -193,7 +195,7 @@ export default function VideoForm({ mode, initialValues }: VideoFormProps) {
       </FormSection>
 
       <FormSection title={t('sectionEnglish')} hint={t('sectionEnglishHint')}>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label className={labelClass}>{t('titleEn')}</label>
             <input value={values.titleEn} onChange={(event) => updateField('titleEn', event.target.value)} className={inputClass} />
@@ -214,12 +216,16 @@ export default function VideoForm({ mode, initialValues }: VideoFormProps) {
       </FormSection>
 
       {error && (
-        <div className="rounded-lg border border-admin-danger/25 bg-admin-danger-soft px-3 py-2 text-sm text-admin-danger">
-          {error}
+        <div
+          role="alert"
+          className="flex items-start gap-2.5 rounded-xl border border-admin-danger/25 bg-admin-danger-soft px-3.5 py-3 text-sm text-admin-danger"
+        >
+          <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
+          <span>{error}</span>
         </div>
       )}
 
-      <div className="flex justify-end gap-3 border-t border-admin-border pt-6">
+      <div className="flex flex-col-reverse gap-2.5 border-t border-admin-border pt-6 sm:flex-row sm:justify-end">
         <Button type="button" variant="secondary" onClick={() => router.push('/admin/dashboard/videos')}>
           {tCommon('cancel')}
         </Button>

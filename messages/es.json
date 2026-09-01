@@ -88,7 +88,11 @@
     "pageHeadingAccent": "Piezas Únicas",
     "pageDescription": "Cada creación nace de la imaginación y se materializa con dedicación artesanal. Descubre {count} modelos en muñecas, tarjetas, papelería y piezas recicladas.",
     "customIdeaText": "¿Buscas algo único y totalmente personalizado?",
-    "customOrderWhatsapp": "Encargo Personalizado por WhatsApp"
+    "customOrderWhatsapp": "Encargo Personalizado por WhatsApp",
+    "carouselHeading": "Piezas para mirar de cerca",
+    "carouselHint": "Deslizá para ver una selección de la colección actual.",
+    "carouselPrev": "Piezas anteriores",
+    "carouselNext": "Piezas siguientes"
   },
   "productDetail": {
     "photoOf": "Foto",
@@ -586,6 +590,26 @@
     "testimonials": {
       "title": "Testimonios",
       "description": "Lo que dicen quienes ya confiaron en nuestras creaciones artesanales hechas a mano."
+    },
+    "videos": {
+      "title": "Videos",
+      "description": "Mirá de cerca el proceso artesanal: moldeado, pintura, terminaciones y el detalle en 360° de cada pieza."
+    },
+    "philosophy": {
+      "title": "Nuestra filosofía",
+      "description": "El pensamiento detrás del trabajo: por qué cada pieza se hace a mano y qué significa para quien la recibe."
+    },
+    "process": {
+      "title": "Proceso creativo",
+      "description": "Cómo una pieza pasa de una primera conversación a una creación terminada y lista para regalar."
+    },
+    "offers": {
+      "title": "Ofertas especiales",
+      "description": "Novedades y piezas de temporada de la colección actual."
+    },
+    "customOrders": {
+      "title": "Encargos personalizados",
+      "description": "Encargá una pieza única: tus colores, tus medidas, tu temática, hecha a mano desde cero."
     }
   },
   "admin": {
@@ -626,10 +650,14 @@
       "videos": "Videos",
       "settings": "Configuración",
       "logout": "Cerrar sesión",
-      "language": "Idioma"
+      "language": "Idioma",
+      "groupOverview": "Resumen",
+      "groupCatalog": "Catálogo",
+      "groupAccount": "Cuenta",
+      "viewSite": "Ver sitio publicado",
+      "openMenu": "Abrir menú"
     },
     "login": {
-      "eyebrow": "Acceso Administrativo",
       "title": "Iniciar sesión",
       "email": "Email",
       "password": "Contraseña",
@@ -638,7 +666,6 @@
       "error": "No se pudo iniciar sesión"
     },
     "dashboard": {
-      "eyebrow": "Panel de Administración",
       "title": "Panel de administración",
       "totalProducts": "Total de Productos",
       "publishedProducts": "Publicados",
@@ -653,10 +680,13 @@
       "mongoNotConfiguredTitle": "MongoDB no está configurado",
       "mongoNotConfiguredText": "Agrega tu MONGODB_URI al entorno y ejecuta el comando de seed antes de usar el panel.",
       "totalVideos": "Videos",
-      "manageVideos": "Gestionar videos"
+      "manageVideos": "Gestionar videos",
+      "greeting": "Hola de nuevo, {name}",
+      "subtitle": "Todo lo que se ve en el sitio público se gestiona desde acá.",
+      "noRecentTitle": "Todavía no hay cambios",
+      "noRecentText": "Las ediciones de productos van a aparecer acá a medida que las hagas."
     },
     "products": {
-      "eyebrow": "Productos",
       "title": "Gestión de piezas",
       "newProduct": "Nueva pieza",
       "searchPlaceholder": "Buscar por nombre o categoría",
@@ -676,10 +706,14 @@
       "errorTitle": "No se pudieron cargar los productos",
       "deleteConfirmTitle": "¿Eliminar esta pieza?",
       "deleteConfirmText": "Esta acción no se puede deshacer. La pieza se eliminará permanentemente del catálogo.",
-      "deleteError": "No se pudo eliminar la pieza."
+      "deleteError": "No se pudo eliminar la pieza.",
+      "subtitle": "Agregá, editá y publicá las piezas que se muestran en el catálogo.",
+      "errorText": "No se pudo cargar la lista de productos. Revisá la conexión e intentá de nuevo.",
+      "noMatchesTitle": "Ningún producto coincide con estos filtros",
+      "noMatchesText": "Probá con otra búsqueda, o limpiá los filtros para ver todo.",
+      "clearFilters": "Limpiar filtros"
     },
     "categories": {
-      "eyebrow": "Categorías",
       "title": "Gestión de categorías",
       "newCategory": "Nueva categoría",
       "columnImage": "Imagen",
@@ -694,7 +728,9 @@
       "deleteConfirmTitle": "¿Eliminar esta categoría?",
       "deleteConfirmText": "Esta acción no se puede deshacer.",
       "deleteBlockedError": "No se puede eliminar una categoría que tiene productos asignados.",
-      "deleteError": "No se pudo eliminar la categoría."
+      "deleteError": "No se pudo eliminar la categoría.",
+      "subtitle": "Agrupá tus piezas para que se pueda recorrer el catálogo.",
+      "emptyText": "Las categorías organizan tu catálogo. Agregá una para empezar."
     },
     "productForm": {
       "titleNew": "Nueva pieza",
@@ -781,10 +817,10 @@
       "moveLeft": "Mover a la izquierda",
       "moveRight": "Mover a la derecha",
       "remove": "Quitar imagen",
-      "errorGeneric": "Error al subir la imagen"
+      "errorGeneric": "Error al subir la imagen",
+      "coverImage": "Portada"
     },
     "videos": {
-      "eyebrow": "Videos",
       "title": "Gestión de videos",
       "newVideo": "Subir video",
       "preview": "Vista previa",
@@ -799,7 +835,8 @@
       "emptyAction": "Subir tu primer video",
       "deleteConfirmTitle": "¿Eliminar este video?",
       "deleteConfirmText": "Esta acción no se puede deshacer. El video se quitará del sitio y del almacenamiento.",
-      "deleteError": "No se pudo eliminar el video."
+      "deleteError": "No se pudo eliminar el video.",
+      "subtitle": "Subí y ordená los clips que se muestran en la sección de videos del sitio."
     },
     "videoForm": {
       "titleNew": "Subir video",
@@ -835,6 +872,18 @@
       "maxSize": "El video debe pesar menos de 100MB.",
       "remove": "Quitar video",
       "errorGeneric": "Error al subir el video"
+    },
+    "settings": {
+      "subtitle": "Los datos de tu cuenta y los servicios de los que depende este panel.",
+      "account": "Cuenta",
+      "name": "Nombre",
+      "email": "Email",
+      "services": "Servicios",
+      "database": "Base de datos",
+      "mediaStorage": "Almacenamiento de medios",
+      "connected": "Conectado",
+      "notConfigured": "Sin configurar",
+      "languageHint": "Cambia el idioma de este panel solamente. El idioma del sitio público lo elige cada visitante."
     }
   }
 }

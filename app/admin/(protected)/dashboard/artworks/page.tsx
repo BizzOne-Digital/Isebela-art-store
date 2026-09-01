@@ -5,10 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Plus, Search, Pencil, Trash2, RotateCcw, PackageOpen } from 'lucide-react';
+import { Plus, Search, Pencil, Trash2, RotateCcw, PackageOpen, SearchX, AlertTriangle } from 'lucide-react';
 import Badge from '@/components/admin/ui/Badge';
 import Button from '@/components/admin/ui/Button';
-import Skeleton from '@/components/admin/ui/Skeleton';
+import { SkeletonRow } from '@/components/admin/ui/Skeleton';
+import PageHeader from '@/components/admin/ui/PageHeader';
+import EmptyState from '@/components/admin/ui/EmptyState';
 import ConfirmDialog from '@/components/admin/ui/ConfirmDialog';
 import { useToast } from '@/components/admin/ui/Toast';
 
@@ -121,126 +123,170 @@ export default function ArtworkAdminPage() {
   }, [artworks, category, featured, query, status]);
 
   return (
-    <div className="mx-auto max-w-7xl">
-      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-admin-gold">{t('eyebrow')}</p>
-          <h1 className="mt-2 font-serif text-3xl text-admin-ink">{t('title')}</h1>
-        </div>
-        <Link href="/admin/dashboard/artworks/new">
-          <Button>
-            <Plus className="h-4 w-4" />
-            {t('newProduct')}
-          </Button>
-        </Link>
-      </div>
+    <div>
+      <PageHeader
+        title={t('title')}
+        description={t('subtitle')}
+        action={
+          <Link href="/admin/dashboard/artworks/new">
+            <Button>
+              <Plus className="h-4 w-4" />
+              {t('newProduct')}
+            </Button>
+          </Link>
+        }
+      />
 
-      <div className="mb-6 rounded-2xl border border-admin-border bg-admin-surface p-4 shadow-admin-card">
-        <div className="grid gap-3 md:grid-cols-4">
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-admin-muted" />
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder={t('searchPlaceholder')}
-              className="w-full rounded-xl border border-admin-border bg-admin-surface-alt py-3 pl-9 pr-4 text-sm text-admin-ink outline-none focus:border-admin-primary"
-            />
-          </div>
-          <select value={category} onChange={(event) => setCategory(event.target.value)} className="rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-3 text-sm text-admin-ink">
-            <option value="all">{t('allCategories')}</option>
-            {categories.map((item) => (
-              <option key={item} value={item}>{item}</option>
-            ))}
-          </select>
-          <select value={status} onChange={(event) => setStatus(event.target.value)} className="rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-3 text-sm text-admin-ink">
-            <option value="all">{t('allStatuses')}</option>
-            <option value="published">{tCommon('published')}</option>
-            <option value="draft">{tCommon('draft')}</option>
-          </select>
-          <select value={featured} onChange={(event) => setFeatured(event.target.value)} className="rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-3 text-sm text-admin-ink">
-            <option value="all">{t('anyFeatured')}</option>
-            <option value="yes">{tCommon('featured')}</option>
-            <option value="no">{tCommon('notFeatured')}</option>
-          </select>
+      <div className="mb-5 grid gap-2.5 md:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
+        <div className="relative">
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-admin-muted" />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t('searchPlaceholder')}
+            aria-label={t('searchPlaceholder')}
+            className="admin-field pl-9"
+          />
         </div>
+        <select value={category} onChange={(event) => setCategory(event.target.value)} aria-label={t('allCategories')} className="admin-field">
+          <option value="all">{t('allCategories')}</option>
+          {categories.map((item) => (
+            <option key={item} value={item}>{item}</option>
+          ))}
+        </select>
+        <select value={status} onChange={(event) => setStatus(event.target.value)} aria-label={t('allStatuses')} className="admin-field">
+          <option value="all">{t('allStatuses')}</option>
+          <option value="published">{tCommon('published')}</option>
+          <option value="draft">{tCommon('draft')}</option>
+        </select>
+        <select value={featured} onChange={(event) => setFeatured(event.target.value)} aria-label={t('anyFeatured')} className="admin-field">
+          <option value="all">{t('anyFeatured')}</option>
+          <option value="yes">{tCommon('featured')}</option>
+          <option value="no">{tCommon('notFeatured')}</option>
+        </select>
       </div>
 
       {loadState === 'loading' && (
-        <div className="space-y-3">
+        <div className="space-y-3" aria-busy="true">
           {Array.from({ length: 5 }).map((_, i) => (
-            <Skeleton key={i} className="h-16 w-full" />
+            <SkeletonRow key={i} />
           ))}
         </div>
       )}
 
       {loadState === 'error' && (
-        <div className="rounded-2xl border border-admin-border bg-admin-surface p-10 text-center shadow-admin-card">
-          <p className="text-admin-ink font-serif text-lg">{t('errorTitle')}</p>
-          <Button variant="secondary" className="mt-4 mx-auto" onClick={load}>
-            <RotateCcw className="h-4 w-4" />
-            {tCommon('retry')}
-          </Button>
-        </div>
+        <EmptyState
+          icon={AlertTriangle}
+          tone="danger"
+          title={t('errorTitle')}
+          description={t('errorText')}
+          action={
+            <Button variant="secondary" onClick={load}>
+              <RotateCcw className="h-4 w-4" />
+              {tCommon('retry')}
+            </Button>
+          }
+        />
       )}
 
       {loadState === 'ready' && artworks.length === 0 && (
-        <div className="rounded-2xl border border-admin-border bg-admin-surface p-12 text-center shadow-admin-card">
-          <PackageOpen className="mx-auto mb-3 h-10 w-10 text-admin-muted" strokeWidth={1.5} />
-          <p className="font-serif text-lg text-admin-ink">{t('emptyTitle')}</p>
-          <p className="mt-1 text-sm text-admin-muted">{t('emptyText')}</p>
-          <Link href="/admin/dashboard/artworks/new" className="mt-5 inline-block">
-            <Button>
-              <Plus className="h-4 w-4" />
-              {t('emptyAction')}
-            </Button>
-          </Link>
-        </div>
+        <EmptyState
+          icon={PackageOpen}
+          title={t('emptyTitle')}
+          description={t('emptyText')}
+          action={
+            <Link href="/admin/dashboard/artworks/new">
+              <Button>
+                <Plus className="h-4 w-4" />
+                {t('emptyAction')}
+              </Button>
+            </Link>
+          }
+        />
       )}
 
-      {loadState === 'ready' && artworks.length > 0 && (
+      {loadState === 'ready' && artworks.length > 0 && filtered.length === 0 && (
+        <EmptyState
+          icon={SearchX}
+          title={t('noMatchesTitle')}
+          description={t('noMatchesText')}
+          action={
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setQuery('');
+                setCategory('all');
+                setStatus('all');
+                setFeatured('all');
+              }}
+            >
+              <RotateCcw className="h-4 w-4" />
+              {t('clearFilters')}
+            </Button>
+          }
+        />
+      )}
+
+      {loadState === 'ready' && filtered.length > 0 && (
         <>
           {/* Desktop table */}
           <div className="hidden overflow-hidden rounded-2xl border border-admin-border bg-admin-surface shadow-admin-card md:block">
             <div className="overflow-x-auto">
-              <table className="min-w-full text-left">
-                <thead className="bg-admin-surface-alt text-xs uppercase tracking-[0.12em] text-admin-muted">
+              <table className="min-w-full text-left text-sm">
+                <thead className="border-b border-admin-border bg-admin-surface-alt text-[11px] font-semibold uppercase tracking-[0.1em] text-admin-muted">
                   <tr>
-                    <th className="px-4 py-3">{t('columnImage')}</th>
-                    <th className="px-4 py-3">{t('columnName')}</th>
-                    <th className="px-4 py-3">{t('columnCategory')}</th>
-                    <th className="px-4 py-3">{t('columnStatus')}</th>
-                    <th className="px-4 py-3">{t('columnFeatured')}</th>
-                    <th className="px-4 py-3">{t('columnUpdated')}</th>
-                    <th className="px-4 py-3">{t('columnActions')}</th>
+                    <th scope="col" className="py-2.5 pl-5 pr-3">{t('columnImage')}</th>
+                    <th scope="col" className="px-3 py-2.5">{t('columnName')}</th>
+                    <th scope="col" className="px-3 py-2.5">{t('columnCategory')}</th>
+                    <th scope="col" className="px-3 py-2.5">{t('columnStatus')}</th>
+                    <th scope="col" className="px-3 py-2.5">{t('columnFeatured')}</th>
+                    <th scope="col" className="px-3 py-2.5">{t('columnUpdated')}</th>
+                    <th scope="col" className="py-2.5 pl-3 pr-5 text-right">{t('columnActions')}</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="divide-y divide-admin-border">
                   {filtered.map((item) => (
-                    <tr key={item._id} className="border-t border-admin-border">
-                      <td className="px-4 py-3">
-                        <div className="relative h-14 w-14 overflow-hidden rounded-xl border border-admin-border bg-admin-surface-alt">
+                    <tr key={item._id} className="admin-row">
+                      <td className="py-2.5 pl-5 pr-3">
+                        <div className="relative h-11 w-11 overflow-hidden rounded-xl border border-admin-border bg-admin-surface-alt">
                           {item.images?.[0] ? (
-                            <Image src={item.images[0]} alt={item.name} fill className="object-cover" sizes="56px" />
+                            <Image src={item.images[0]} alt="" fill className="object-cover" sizes="44px" />
                           ) : null}
                         </div>
                       </td>
-                      <td className="px-4 py-3 font-medium text-admin-ink">{item.name}</td>
-                      <td className="px-4 py-3 text-admin-body">{item.category}</td>
-                      <td className="px-4 py-3">
-                        <Badge tone={item.status === 'published' ? 'success' : 'neutral'}>{item.status}</Badge>
+                      <td className="px-3 py-2.5">
+                        <p className="font-medium text-admin-ink">{item.name}</p>
+                        <p className="text-[13px] text-admin-muted">{item.slug}</p>
                       </td>
-                      <td className="px-4 py-3">{item.featured ? <Badge tone="gold">{tCommon('featured')}</Badge> : <span className="text-admin-muted text-sm">—</span>}</td>
-                      <td className="px-4 py-3 text-admin-body">{new Date(item.updatedAt).toLocaleDateString()}</td>
-                      <td className="px-4 py-3">
-                        <div className="flex gap-2">
-                          <Link href={`/admin/dashboard/artworks/${item._id}`} className="inline-flex items-center gap-1 rounded-lg border border-admin-border px-2.5 py-1.5 text-xs text-admin-body hover:bg-admin-surface-alt">
+                      <td className="px-3 py-2.5 text-admin-body">{item.category}</td>
+                      <td className="px-3 py-2.5">
+                        <Badge tone={item.status === 'published' ? 'success' : 'neutral'} dot>
+                          {item.status === 'published' ? tCommon('published') : tCommon('draft')}
+                        </Badge>
+                      </td>
+                      <td className="px-3 py-2.5">
+                        {item.featured ? (
+                          <Badge tone="gold">{tCommon('featured')}</Badge>
+                        ) : (
+                          <span className="text-admin-muted">-</span>
+                        )}
+                      </td>
+                      <td className="admin-num px-3 py-2.5 text-admin-body">{new Date(item.updatedAt).toLocaleDateString()}</td>
+                      <td className="py-2.5 pl-3 pr-5">
+                        <div className="flex justify-end gap-1.5">
+                          <Link
+                            href={`/admin/dashboard/artworks/${item._id}`}
+                            aria-label={`${tCommon('edit')} ${item.name}`}
+                            className="inline-flex items-center gap-1.5 rounded-xl border border-admin-border px-2.5 py-1.5 text-xs text-admin-body transition-colors hover:border-admin-border-strong hover:bg-admin-surface-alt hover:text-admin-ink"
+                          >
                             <Pencil className="h-3.5 w-3.5" />
                             {tCommon('edit')}
                           </Link>
                           <button
                             onClick={() => setPendingDelete(item)}
                             disabled={deletingId === item._id}
-                            className="inline-flex items-center gap-1 rounded-lg border border-admin-danger/25 bg-admin-danger-soft px-2.5 py-1.5 text-xs text-admin-danger disabled:cursor-not-allowed disabled:opacity-60"
+                            aria-label={`${tCommon('delete')} ${item.name}`}
+                            className="inline-flex items-center gap-1.5 rounded-xl border border-admin-danger/20 px-2.5 py-1.5 text-xs text-admin-danger transition-colors hover:bg-admin-danger-soft disabled:pointer-events-none disabled:opacity-55"
                           >
                             <Trash2 className="h-3.5 w-3.5" />
                             {tCommon('delete')}
@@ -255,33 +301,36 @@ export default function ArtworkAdminPage() {
           </div>
 
           {/* Mobile cards */}
-          <div className="space-y-3 md:hidden">
+          <div className="space-y-2.5 md:hidden">
             {filtered.map((item) => (
-              <div key={item._id} className="rounded-2xl border border-admin-border bg-admin-surface p-4 shadow-admin-card">
+              <div key={item._id} className="rounded-2xl border border-admin-border bg-admin-surface p-3.5 shadow-admin-card">
                 <div className="flex gap-3">
-                  <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-xl border border-admin-border bg-admin-surface-alt">
+                  <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-xl border border-admin-border bg-admin-surface-alt">
                     {item.images?.[0] ? (
-                      <Image src={item.images[0]} alt={item.name} fill className="object-cover" sizes="64px" />
+                      <Image src={item.images[0]} alt="" fill className="object-cover" sizes="56px" />
                     ) : null}
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate font-medium text-admin-ink">{item.name}</p>
-                    <p className="text-sm text-admin-muted">{item.category}</p>
-                    <div className="mt-1.5 flex flex-wrap gap-1.5">
-                      <Badge tone={item.status === 'published' ? 'success' : 'neutral'}>{item.status}</Badge>
+                    <p className="truncate text-[13px] text-admin-muted">{item.category}</p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      <Badge tone={item.status === 'published' ? 'success' : 'neutral'} dot>
+                        {item.status === 'published' ? tCommon('published') : tCommon('draft')}
+                      </Badge>
                       {item.featured && <Badge tone="gold">{tCommon('featured')}</Badge>}
                     </div>
                   </div>
                 </div>
                 <div className="mt-3 flex gap-2 border-t border-admin-border pt-3">
                   <Link href={`/admin/dashboard/artworks/${item._id}`} className="flex-1">
-                    <Button variant="secondary" className="w-full">
+                    <Button variant="secondary" size="sm" className="w-full">
                       <Pencil className="h-3.5 w-3.5" />
                       {tCommon('edit')}
                     </Button>
                   </Link>
                   <Button
                     variant="destructive"
+                    size="sm"
                     className="flex-1"
                     onClick={() => setPendingDelete(item)}
                     disabled={deletingId === item._id}

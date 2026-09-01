@@ -4,10 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Pencil, Trash2, Eye } from 'lucide-react';
+import { Pencil, Trash2, Eye, Clapperboard } from 'lucide-react';
 import Badge from './ui/Badge';
 import Button from './ui/Button';
 import ConfirmDialog from './ui/ConfirmDialog';
+import EmptyState from './ui/EmptyState';
 import { useToast } from './ui/Toast';
 
 export interface VideoRecord {
@@ -71,13 +72,16 @@ export default function VideosTable({ initialVideos }: VideosTableProps) {
 
   if (videos.length === 0) {
     return (
-      <div className="rounded-2xl border border-admin-border bg-admin-surface p-12 text-center shadow-admin-card">
-        <p className="font-serif text-lg text-admin-ink">{t('emptyTitle')}</p>
-        <p className="mt-1 text-sm text-admin-muted">{t('emptyText')}</p>
-        <Link href="/admin/dashboard/videos/new" className="mt-5 inline-block">
-          <Button>{t('emptyAction')}</Button>
-        </Link>
-      </div>
+      <EmptyState
+        icon={Clapperboard}
+        title={t('emptyTitle')}
+        description={t('emptyText')}
+        action={
+          <Link href="/admin/dashboard/videos/new">
+            <Button>{t('emptyAction')}</Button>
+          </Link>
+        }
+      />
     );
   }
 
@@ -86,22 +90,22 @@ export default function VideosTable({ initialVideos }: VideosTableProps) {
       {/* Desktop table */}
       <div className="hidden overflow-hidden rounded-2xl border border-admin-border bg-admin-surface shadow-admin-card md:block">
         <div className="overflow-x-auto">
-          <table className="min-w-full text-left">
-            <thead className="bg-admin-surface-alt text-xs uppercase tracking-[0.12em] text-admin-muted">
+          <table className="min-w-full text-left text-sm">
+            <thead className="border-b border-admin-border bg-admin-surface-alt text-[11px] font-semibold uppercase tracking-[0.1em] text-admin-muted">
               <tr>
-                <th className="px-4 py-3">{t('columnPreview')}</th>
-                <th className="px-4 py-3">{t('columnTitle')}</th>
-                <th className="px-4 py-3">{t('columnTag')}</th>
-                <th className="px-4 py-3">{t('columnStatus')}</th>
-                <th className="px-4 py-3">{t('columnOrder')}</th>
-                <th className="px-4 py-3">{t('columnActions')}</th>
+                <th scope="col" className="py-2.5 pl-5 pr-3">{t('columnPreview')}</th>
+                <th scope="col" className="px-3 py-2.5">{t('columnTitle')}</th>
+                <th scope="col" className="px-3 py-2.5">{t('columnTag')}</th>
+                <th scope="col" className="px-3 py-2.5">{t('columnStatus')}</th>
+                <th scope="col" className="px-3 py-2.5">{t('columnOrder')}</th>
+                <th scope="col" className="py-2.5 pl-3 pr-5 text-right">{t('columnActions')}</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-admin-border">
               {videos.map((video) => (
-                <tr key={video._id} className="border-t border-admin-border">
-                  <td className="px-4 py-3">
-                    <div className="relative h-14 w-24 overflow-hidden rounded-xl border border-admin-border bg-black">
+                <tr key={video._id} className="admin-row">
+                  <td className="py-2.5 pl-5 pr-3">
+                    <div className="relative h-11 w-[72px] overflow-hidden rounded-xl border border-admin-border bg-black">
                       <video
                         src={video.videoUrl}
                         poster={video.thumbnail || undefined}
@@ -112,29 +116,33 @@ export default function VideosTable({ initialVideos }: VideosTableProps) {
                       />
                     </div>
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-3 py-2.5">
                     <p className="font-medium text-admin-ink">{video.title}</p>
-                    {video.subtitle && <p className="text-sm text-admin-muted">{video.subtitle}</p>}
+                    {video.subtitle && <p className="text-[13px] text-admin-muted">{video.subtitle}</p>}
                   </td>
-                  <td className="px-4 py-3 text-admin-body">{video.tag || '—'}</td>
-                  <td className="px-4 py-3">
-                    <Badge tone={video.isActive ? 'success' : 'neutral'}>
+                  <td className="px-3 py-2.5 text-admin-body">
+                    {video.tag ? video.tag : <span className="text-admin-muted">-</span>}
+                  </td>
+                  <td className="px-3 py-2.5">
+                    <Badge tone={video.isActive ? 'success' : 'neutral'} dot>
                       {video.isActive ? tCommon('active') : tCommon('inactive')}
                     </Badge>
                   </td>
-                  <td className="px-4 py-3 text-admin-body">{video.displayOrder ?? 0}</td>
-                  <td className="px-4 py-3">
-                    <div className="flex gap-2">
+                  <td className="admin-num px-3 py-2.5 text-admin-body">{video.displayOrder ?? 0}</td>
+                  <td className="py-2.5 pl-3 pr-5">
+                    <div className="flex justify-end gap-1.5">
                       <button
                         onClick={() => setPreview(video)}
-                        className="inline-flex items-center gap-1 rounded-lg border border-admin-border px-2.5 py-1.5 text-xs text-admin-body hover:bg-admin-surface-alt"
+                        aria-label={`${t('preview')} ${video.title}`}
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-admin-border px-2.5 py-1.5 text-xs text-admin-body transition-colors hover:border-admin-border-strong hover:bg-admin-surface-alt hover:text-admin-ink"
                       >
                         <Eye className="h-3.5 w-3.5" />
                         {t('preview')}
                       </button>
                       <Link
                         href={`/admin/dashboard/videos/${video._id}`}
-                        className="inline-flex items-center gap-1 rounded-lg border border-admin-border px-2.5 py-1.5 text-xs text-admin-body hover:bg-admin-surface-alt"
+                        aria-label={`${tCommon('edit')} ${video.title}`}
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-admin-border px-2.5 py-1.5 text-xs text-admin-body transition-colors hover:border-admin-border-strong hover:bg-admin-surface-alt hover:text-admin-ink"
                       >
                         <Pencil className="h-3.5 w-3.5" />
                         {tCommon('edit')}
@@ -142,7 +150,8 @@ export default function VideosTable({ initialVideos }: VideosTableProps) {
                       <button
                         onClick={() => setPendingDelete(video)}
                         disabled={deletingId === video._id}
-                        className="inline-flex items-center gap-1 rounded-lg border border-admin-danger/25 bg-admin-danger-soft px-2.5 py-1.5 text-xs text-admin-danger disabled:cursor-not-allowed disabled:opacity-60"
+                        aria-label={`${tCommon('delete')} ${video.title}`}
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-admin-danger/20 px-2.5 py-1.5 text-xs text-admin-danger transition-colors hover:bg-admin-danger-soft disabled:pointer-events-none disabled:opacity-55"
                       >
                         <Trash2 className="h-3.5 w-3.5" />
                         {tCommon('delete')}
@@ -157,11 +166,11 @@ export default function VideosTable({ initialVideos }: VideosTableProps) {
       </div>
 
       {/* Mobile cards */}
-      <div className="space-y-3 md:hidden">
+      <div className="space-y-2.5 md:hidden">
         {videos.map((video) => (
-          <div key={video._id} className="rounded-2xl border border-admin-border bg-admin-surface p-4 shadow-admin-card">
+          <div key={video._id} className="rounded-2xl border border-admin-border bg-admin-surface p-3.5 shadow-admin-card">
             <div className="flex gap-3">
-              <div className="relative h-16 w-24 flex-shrink-0 overflow-hidden rounded-xl border border-admin-border bg-black">
+              <div className="relative h-14 w-[84px] flex-shrink-0 overflow-hidden rounded-xl border border-admin-border bg-black">
                 <video
                   src={video.videoUrl}
                   poster={video.thumbnail || undefined}
@@ -173,27 +182,28 @@ export default function VideosTable({ initialVideos }: VideosTableProps) {
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate font-medium text-admin-ink">{video.title}</p>
-                {video.subtitle && <p className="truncate text-sm text-admin-muted">{video.subtitle}</p>}
-                <div className="mt-1.5">
-                  <Badge tone={video.isActive ? 'success' : 'neutral'}>
+                {video.subtitle && <p className="truncate text-[13px] text-admin-muted">{video.subtitle}</p>}
+                <div className="mt-2">
+                  <Badge tone={video.isActive ? 'success' : 'neutral'} dot>
                     {video.isActive ? tCommon('active') : tCommon('inactive')}
                   </Badge>
                 </div>
               </div>
             </div>
             <div className="mt-3 flex gap-2 border-t border-admin-border pt-3">
-              <Button variant="secondary" className="flex-1" onClick={() => setPreview(video)}>
+              <Button variant="secondary" size="sm" className="flex-1" onClick={() => setPreview(video)}>
                 <Eye className="h-3.5 w-3.5" />
                 {t('preview')}
               </Button>
               <Link href={`/admin/dashboard/videos/${video._id}`} className="flex-1">
-                <Button variant="secondary" className="w-full">
+                <Button variant="secondary" size="sm" className="w-full">
                   <Pencil className="h-3.5 w-3.5" />
                   {tCommon('edit')}
                 </Button>
               </Link>
               <Button
                 variant="destructive"
+                size="sm"
                 className="flex-1"
                 onClick={() => setPendingDelete(video)}
                 disabled={deletingId === video._id}

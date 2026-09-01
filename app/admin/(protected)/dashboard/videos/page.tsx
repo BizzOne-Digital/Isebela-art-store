@@ -6,6 +6,7 @@ import { toPlain } from '@/lib/artwork-adapter';
 import MongoNotConfiguredNotice from '@/components/admin/MongoNotConfiguredNotice';
 import VideosTable, { type VideoRecord } from '@/components/admin/VideosTable';
 import Button from '@/components/admin/ui/Button';
+import PageHeader from '@/components/admin/ui/PageHeader';
 import { Plus } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
@@ -25,19 +26,19 @@ export default async function VideosAdminPage() {
   })) as VideoRecord[];
 
   return (
-    <div className="mx-auto max-w-7xl">
-      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-admin-gold">{t('eyebrow')}</p>
-          <h1 className="mt-2 font-serif text-3xl text-admin-ink">{t('title')}</h1>
-        </div>
-        <Link href="/admin/dashboard/videos/new">
-          <Button>
-            <Plus className="h-4 w-4" />
-            {t('newVideo')}
-          </Button>
-        </Link>
-      </div>
+    <div>
+      <PageHeader
+        title={t('title')}
+        description={t('subtitle')}
+        action={
+          <Link href="/admin/dashboard/videos/new">
+            <Button>
+              <Plus className="h-4 w-4" />
+              {t('newVideo')}
+            </Button>
+          </Link>
+        }
+      />
 
       <VideosTable initialVideos={videos} />
     </div>

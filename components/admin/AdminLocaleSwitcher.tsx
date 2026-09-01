@@ -23,14 +23,14 @@ export default function AdminLocaleSwitcher() {
   return (
     <div className="flex items-center justify-between rounded-xl border border-admin-border bg-admin-surface-alt px-3 py-2">
       <span className="text-xs font-medium uppercase tracking-wider text-admin-muted">{t('language')}</span>
-      <div className="flex items-center gap-1 rounded-lg bg-admin-bg p-0.5">
+      <div className="flex items-center gap-1 rounded-full bg-admin-bg p-0.5">
         {(['en', 'es'] as const).map((code) => (
           <button
             key={code}
             type="button"
             disabled={isPending}
             onClick={() => handleSelect(code)}
-            className={`rounded-md px-2.5 py-1 text-xs font-semibold uppercase transition-colors ${
+            className={`rounded-full px-2.5 py-1 text-xs font-semibold uppercase transition-colors ${
               locale === code
                 ? 'bg-admin-primary text-white shadow-sm'
                 : 'text-admin-body hover:text-admin-ink'

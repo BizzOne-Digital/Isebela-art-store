@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ChevronRight, Sparkles, Heart, Leaf } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
 
 const BentoHero = () => {
   return (
@@ -55,19 +56,19 @@ const BentoHero = () => {
               Cada pieza cuenta una historia hecha con el corazón.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#collection"
+              <Link
+                href="/products"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-sm hover:bg-primary/90 transition-all font-sans text-sm"
               >
                 Ver Colección
                 <ChevronRight className="w-4 h-4" />
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                href="/custom-orders"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-accent/30 text-accent rounded-sm hover:bg-accent/10 transition-all font-sans text-sm"
               >
                 Encargo Personalizado
-              </a>
+              </Link>
             </div>
             <span className="absolute bottom-4 right-4 text-accent text-2xl">┘</span>
           </div>
@@ -92,10 +93,10 @@ const BentoHero = () => {
             </p>
           </div>
           <div className="pt-4 border-t border-accent/10">
-            <a href="#philosophy" className="text-accent text-sm font-sans hover:underline flex items-center gap-1">
+            <Link href="/philosophy" className="text-accent text-sm font-sans hover:underline flex items-center gap-1">
               Descubrir más
               <ChevronRight className="w-3 h-3" />
-            </a>
+            </Link>
           </div>
         </motion.div>
 
@@ -118,10 +119,10 @@ const BentoHero = () => {
             </p>
           </div>
           <div className="pt-4 border-t border-secondary/20">
-            <a href="#collection" className="text-secondary text-sm font-sans hover:underline flex items-center gap-1 font-medium">
+            <Link href="/offers" className="text-secondary text-sm font-sans hover:underline flex items-center gap-1 font-medium">
               Ver Novedades
               <ChevronRight className="w-3 h-3" />
-            </a>
+            </Link>
           </div>
         </motion.div>
 

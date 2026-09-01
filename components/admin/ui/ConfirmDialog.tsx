@@ -46,18 +46,18 @@ export default function ConfirmDialog({
             onClick={(e) => e.stopPropagation()}
             role="alertdialog"
             aria-modal="true"
-            className="w-full max-w-sm rounded-2xl border border-admin-border bg-admin-surface p-6 shadow-admin-pop"
+            className="w-full max-w-[400px] rounded-2xl border border-admin-border bg-admin-surface p-6 shadow-admin-pop"
           >
             <div className="flex items-start gap-3">
               <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full ${destructive ? 'bg-admin-danger-soft text-admin-danger' : 'bg-admin-gold-soft text-admin-gold'}`}>
                 <AlertTriangle className="h-5 w-5" />
               </div>
               <div>
-                <h2 className="font-serif text-lg text-admin-ink">{title}</h2>
-                <p className="mt-1.5 text-sm text-admin-body">{description}</p>
+                <h2 className="font-serif text-lg leading-snug text-admin-ink">{title}</h2>
+                <p className="mt-1.5 text-sm leading-relaxed text-admin-body">{description}</p>
               </div>
             </div>
-            <div className="mt-6 flex justify-end gap-3">
+            <div className="mt-6 flex flex-col-reverse gap-2.5 sm:flex-row sm:justify-end">
               <Button variant="secondary" onClick={onCancel} disabled={loading}>
                 {cancelLabel}
               </Button>

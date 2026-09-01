@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Heart, Sparkles, Leaf, Award, Palette, Recycle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 const valueConfig = [
   { key: 'detail', icon: Heart },
@@ -131,12 +132,12 @@ const PhilosophySection = () => {
             <p className="font-serif text-textBase">{t('askIdea')}</p>
             <p className="text-textBase/60 text-sm">{t('letSCreate')}</p>
           </div>
-          <a
-            href="#contact"
+          <Link
+            href="/custom-orders"
             className="ml-auto px-5 py-2 bg-primary text-white text-sm font-sans rounded-sm hover:bg-primary/90 transition-colors"
           >
             {t('customOrderButton')}
-          </a>
+          </Link>
         </div>
       </motion.div>
     </section>

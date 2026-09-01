@@ -89,11 +89,16 @@ export default function ImageUploader({ images, onChange, multiple = true, max }
   return (
     <div className="space-y-3">
       {images.length > 0 && (
-        <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
+        <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-4">
           {images.map((image, index) => (
             <div key={image + index} className="group relative aspect-square overflow-hidden rounded-xl border border-admin-border bg-admin-surface-alt">
-              <Image src={image} alt={`${index + 1}`} fill className="object-cover" sizes="120px" />
-              <div className="absolute inset-0 flex items-center justify-center gap-1 bg-admin-ink/50 opacity-0 transition-opacity group-hover:opacity-100">
+              <Image src={image} alt="" fill className="object-cover" sizes="120px" />
+              {index === 0 && (
+                <span className="absolute left-1.5 top-1.5 rounded-full bg-admin-ink/70 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm">
+                  {t('coverImage')}
+                </span>
+              )}
+              <div className="absolute inset-0 flex items-center justify-center gap-1 bg-admin-ink/55 opacity-0 transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
                 {index > 0 && (
                   <button
                     type="button"
@@ -143,7 +148,7 @@ export default function ImageUploader({ images, onChange, multiple = true, max }
             type="button"
             disabled={uploading}
             onClick={() => inputRef.current?.click()}
-            className="inline-flex items-center gap-2 rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-2.5 text-sm text-admin-body transition hover:bg-admin-primary-soft hover:text-admin-primary disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-admin-border-strong bg-admin-surface px-4 py-3.5 text-sm text-admin-body transition-colors hover:border-admin-primary hover:bg-admin-primary-soft hover:text-admin-primary disabled:pointer-events-none disabled:opacity-55"
           >
             <Upload className="h-4 w-4" />
             {uploading ? t('uploading', { current: progress.current, total: progress.total }) : t('uploadImage')}
@@ -151,7 +156,11 @@ export default function ImageUploader({ images, onChange, multiple = true, max }
         </div>
       )}
 
-      {error && <p className="text-sm text-admin-danger">{error}</p>}
+      {error && (
+        <p role="alert" className="text-sm text-admin-danger">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

@@ -3,9 +3,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Sparkles, Heart, Shield, Star, Crown, Gift } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 const tierIcons = { catalog: Sparkles, custom: Heart, wholesale: Crown } as const;
-const tierScrollTargets = { catalog: '#productos', custom: '#contacto', wholesale: '#contacto' } as const;
+const tierLinks = { catalog: '/products', custom: '/contact', wholesale: '/contact' } as const;
 const processIcons = [Sparkles, Star, Check, Heart, Shield];
 
 const PricingSection = () => {
@@ -13,13 +14,6 @@ const PricingSection = () => {
 
   const tierKeys: Array<keyof typeof tierIcons> = ['catalog', 'custom', 'wholesale'];
   const processKeys = ['conversation', 'proposal', 'approval', 'creation', 'delivery'] as const;
-
-  const scrollTo = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="precios" className="px-6 max-w-7xl mx-auto py-20 md:py-32 relative">
@@ -50,7 +44,7 @@ const PricingSection = () => {
         {tierKeys.map((key, index) => {
           const Icon = tierIcons[key];
           const isPopular = key === 'custom';
-          const scrollTarget = tierScrollTargets[key];
+          const tierHref = tierLinks[key];
           const features = t.raw(`tiers.${key}.features`) as string[];
           return (
             <motion.article
@@ -88,8 +82,8 @@ const PricingSection = () => {
                   </li>
                 ))}
               </ul>
-              <button
-                onClick={() => scrollTo(scrollTarget)}
+              <Link
+                href={tierHref}
                 className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-sans text-sm transition-colors ${
                   isPopular
                     ? 'bg-primary text-white hover:bg-primary/90'
@@ -97,8 +91,8 @@ const PricingSection = () => {
                 }`}
               >
                 {t(`tiers.${key}.cta`)}
-                {scrollTarget === '#contacto' && <Gift className="w-4 h-4" />}
-              </button>
+                {tierHref === '/contact' && <Gift className="w-4 h-4" />}
+              </Link>
             </motion.article>
           );
         })}
@@ -151,13 +145,13 @@ const PricingSection = () => {
         </div>
 
         <p className="text-textBase/60 mb-4">{t('closingQuestion')}</p>
-        <button
-          onClick={() => { const el = document.querySelector('#contacto'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+        <Link
+          href="/contact"
           className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-sm hover:bg-primary/90 transition-colors font-sans"
         >
           <Star className="w-5 h-5" />
           {t('freeAdvice')}
-        </button>
+        </Link>
       </motion.div>
     </section>
   );

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import { Link } from '@/i18n/navigation';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
@@ -56,11 +56,11 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-white text-lg mb-8">{t('exploreTitle')}</h4>
             <nav className="flex flex-col gap-4">
-              <Link href="/#philosophy" className="text-sm hover:text-primary transition-colors">{t('philosophyLink')}</Link>
-              <Link href="/#collection" className="text-sm hover:text-primary transition-colors">{t('collectionLink')}</Link>
-              <Link href="/#process" className="text-sm hover:text-primary transition-colors">{t('processLink')}</Link>
-              <Link href="/#offers" className="text-sm hover:text-primary transition-colors">{t('offersLink')}</Link>
-              <Link href="/#contact" className="text-sm hover:text-primary transition-colors">{t('customOrdersLink')}</Link>
+              <Link href="/philosophy" className="text-sm hover:text-primary transition-colors">{t('philosophyLink')}</Link>
+              <Link href="/products" className="text-sm hover:text-primary transition-colors">{t('collectionLink')}</Link>
+              <Link href="/process" className="text-sm hover:text-primary transition-colors">{t('processLink')}</Link>
+              <Link href="/offers" className="text-sm hover:text-primary transition-colors">{t('offersLink')}</Link>
+              <Link href="/custom-orders" className="text-sm hover:text-primary transition-colors">{t('customOrdersLink')}</Link>
             </nav>
           </div>
 

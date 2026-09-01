@@ -1,39 +1,34 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Navbar from '@/components/Navbar';
+import SeasonalOffers from '@/components/SeasonalOffers';
 import Footer from '@/components/Footer';
-import ProductsCatalogClient from '@/components/ProductsCatalogClient';
 import { getPublishedCatalog } from '@/lib/storefront-data';
 import type { AppLocale } from '@/i18n/routing';
 
+export const revalidate = 60;
+
 interface Props {
   params: Promise<{ locale: AppLocale }>;
-  searchParams: Promise<{ category?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'metadata.products' });
+  const t = await getTranslations({ locale, namespace: 'metadata.offers' });
   return { title: t('title'), description: t('description') };
 }
 
-export default async function ProductsPage({ params, searchParams }: Props) {
+export default async function OffersPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-
-  // `?category=` is resolved on the server so the catalog (and the carousel)
-  // ship in the HTML instead of behind a client-only Suspense fallback.
-  const { category } = await searchParams;
-  const { products, categories } = await getPublishedCatalog(locale);
+  const { products } = await getPublishedCatalog(locale);
 
   return (
     <>
       <Navbar />
-      <ProductsCatalogClient
-        artworks={products}
-        categories={categories}
-        initialCategory={category}
-      />
+      <main className="min-h-screen bg-surface pt-8">
+        <SeasonalOffers artworks={products} />
+      </main>
       <Footer />
     </>
   );

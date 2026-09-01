@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Star, Heart, Sparkles, Shield, Crown } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 const testimonialKeys = ['t1', 't2', 't3', 't4', 't5', 't6'] as const;
 const testimonialAvatars: Record<(typeof testimonialKeys)[number], string> = {
@@ -143,13 +144,13 @@ const TestimonialsSection = () => {
             <FaWhatsapp className="w-5 h-5" />
             {t('writeWhatsApp')}
           </a>
-          <button
-            onClick={() => { const el = document.querySelector('#productos'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+          <Link
+            href="/products"
             className="inline-flex items-center gap-2 px-8 py-3 border border-accent/30 text-accent rounded-sm hover:bg-accent/10 transition-colors font-sans"
           >
             {t('viewCatalog')}
             <Sparkles className="w-5 h-5" />
-          </button>
+          </Link>
         </div>
       </motion.div>
     </section>

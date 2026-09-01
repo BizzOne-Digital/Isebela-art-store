@@ -98,15 +98,19 @@ export default function VideoUploader({ value, onChange }: VideoUploaderProps) {
           type="button"
           disabled={uploading}
           onClick={() => inputRef.current?.click()}
-          className="inline-flex items-center gap-2 rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-2.5 text-sm text-admin-body transition hover:bg-admin-primary-soft hover:text-admin-primary disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-admin-border-strong bg-admin-surface px-4 py-3.5 text-sm text-admin-body transition-colors hover:border-admin-primary hover:bg-admin-primary-soft hover:text-admin-primary disabled:pointer-events-none disabled:opacity-55"
         >
           {uploading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
           {uploading ? t('uploading') : value?.url ? t('replaceVideo') : t('uploadVideo')}
         </button>
-        <p className="mt-2 text-xs text-admin-muted">{t('hint')}</p>
+        <p className="admin-hint">{t('hint')}</p>
       </div>
 
-      {error && <p className="text-sm text-admin-danger">{error}</p>}
+      {error && (
+        <p role="alert" className="text-sm text-admin-danger">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

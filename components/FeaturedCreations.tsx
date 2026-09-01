@@ -123,14 +123,7 @@ const FeaturedCreations = ({ artworks }: FeaturedCreationsProps) => {
           {t('catalogDescription')}
         </p>
         <Link
-          href="/#productos"
-          onClick={(e) => {
-            const el = document.getElementById('productos');
-            if (el) {
-              e.preventDefault();
-              el.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}
+          href="/products"
           className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all font-sans shadow-md"
         >
           {t('viewAllCatalog')}

@@ -3,7 +3,7 @@
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Loader2 } from 'lucide-react';
+import { AlertCircle, Loader2 } from 'lucide-react';
 import Button from './ui/Button';
 
 export default function LoginForm() {
@@ -41,9 +41,9 @@ export default function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="email" className="mb-2 block text-sm font-medium text-admin-body">
+        <label htmlFor="email" className="admin-label">
           {t('email')}
         </label>
         <input
@@ -52,12 +52,12 @@ export default function LoginForm() {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           required
-          className="w-full rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-3 text-admin-ink outline-none transition focus:border-admin-primary"
+          className="admin-field"
         />
       </div>
 
       <div>
-        <label htmlFor="password" className="mb-2 block text-sm font-medium text-admin-body">
+        <label htmlFor="password" className="admin-label">
           {t('password')}
         </label>
         <input
@@ -66,13 +66,17 @@ export default function LoginForm() {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           required
-          className="w-full rounded-xl border border-admin-border bg-admin-surface-alt px-4 py-3 text-admin-ink outline-none transition focus:border-admin-primary"
+          className="admin-field"
         />
       </div>
 
       {error && (
-        <div className="rounded-lg border border-admin-danger/25 bg-admin-danger-soft px-3 py-2 text-sm text-admin-danger">
-          {error}
+        <div
+          role="alert"
+          className="flex items-start gap-2.5 rounded-xl border border-admin-danger/25 bg-admin-danger-soft px-3.5 py-3 text-sm text-admin-danger"
+        >
+          <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
+          <span>{error}</span>
         </div>
       )}
 

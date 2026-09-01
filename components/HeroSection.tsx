@@ -31,13 +31,6 @@ export default function HeroSection({ artworks }: HeroSectionProps) {
 
   const activeCraft = heroCrafts[Math.min(selectedCraftIndex, heroCrafts.length - 1)];
 
-  const scrollToProducts = () => {
-    const element = document.querySelector('#productos');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="inicio" suppressHydrationWarning className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-28 pb-16">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
@@ -74,21 +67,21 @@ export default function HeroSection({ artworks }: HeroSectionProps) {
               {t('description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button
-                onClick={scrollToProducts}
+              <Link
+                href="/products"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all font-sans text-base shadow-lg shadow-primary/20"
               >
                 <Sparkles className="w-5 h-5" />
                 {t('viewCreations')}
                 <ChevronRight className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => { const el = document.querySelector('#contacto'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+              </Link>
+              <Link
+                href="/custom-orders"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surfaceAlt border border-accent/30 text-textBase rounded-lg hover:border-primary/50 transition-colors font-sans text-base"
               >
                 <Heart className="w-5 h-5 text-primary" />
                 {t('customOrder')}
-              </button>
+              </Link>
             </div>
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">

@@ -5,10 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Pencil, Trash2 } from 'lucide-react';
+import { Pencil, Trash2, FolderTree } from 'lucide-react';
 import Badge from './ui/Badge';
 import Button from './ui/Button';
 import ConfirmDialog from './ui/ConfirmDialog';
+import EmptyState from './ui/EmptyState';
 import { useToast } from './ui/Toast';
 
 export interface CategoryRecord {
@@ -69,12 +70,16 @@ export default function CategoriesTable({ initialCategories }: CategoriesTablePr
 
   if (categories.length === 0) {
     return (
-      <div className="rounded-2xl border border-admin-border bg-admin-surface p-12 text-center shadow-admin-card">
-        <p className="font-serif text-lg text-admin-ink">{t('emptyTitle')}</p>
-        <Link href="/admin/dashboard/categories/new" className="mt-5 inline-block">
-          <Button>{t('emptyAction')}</Button>
-        </Link>
-      </div>
+      <EmptyState
+        icon={FolderTree}
+        title={t('emptyTitle')}
+        description={t('emptyText')}
+        action={
+          <Link href="/admin/dashboard/categories/new">
+            <Button>{t('emptyAction')}</Button>
+          </Link>
+        }
+      />
     );
   }
 
@@ -83,45 +88,51 @@ export default function CategoriesTable({ initialCategories }: CategoriesTablePr
       {/* Desktop table */}
       <div className="hidden overflow-hidden rounded-2xl border border-admin-border bg-admin-surface shadow-admin-card md:block">
         <div className="overflow-x-auto">
-          <table className="min-w-full text-left">
-            <thead className="bg-admin-surface-alt text-xs uppercase tracking-[0.12em] text-admin-muted">
+          <table className="min-w-full text-left text-sm">
+            <thead className="border-b border-admin-border bg-admin-surface-alt text-[11px] font-semibold uppercase tracking-[0.1em] text-admin-muted">
               <tr>
-                <th className="px-4 py-3">{t('columnImage')}</th>
-                <th className="px-4 py-3">{t('columnName')}</th>
-                <th className="px-4 py-3">{t('columnSlug')}</th>
-                <th className="px-4 py-3">{t('columnStatus')}</th>
-                <th className="px-4 py-3">{t('columnOrder')}</th>
-                <th className="px-4 py-3">{t('columnActions')}</th>
+                <th scope="col" className="py-2.5 pl-5 pr-3">{t('columnImage')}</th>
+                <th scope="col" className="px-3 py-2.5">{t('columnName')}</th>
+                <th scope="col" className="px-3 py-2.5">{t('columnStatus')}</th>
+                <th scope="col" className="px-3 py-2.5">{t('columnOrder')}</th>
+                <th scope="col" className="py-2.5 pl-3 pr-5 text-right">{t('columnActions')}</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-admin-border">
               {categories.map((category) => (
-                <tr key={category._id} className="border-t border-admin-border">
-                  <td className="px-4 py-3">
-                    <div className="relative h-14 w-14 overflow-hidden rounded-xl border border-admin-border bg-admin-surface-alt">
+                <tr key={category._id} className="admin-row">
+                  <td className="py-2.5 pl-5 pr-3">
+                    <div className="relative h-11 w-11 overflow-hidden rounded-xl border border-admin-border bg-admin-surface-alt">
                       {category.image ? (
-                        <Image src={category.image} alt={category.name} fill className="object-cover" sizes="56px" />
+                        <Image src={category.image} alt="" fill className="object-cover" sizes="44px" />
                       ) : null}
                     </div>
                   </td>
-                  <td className="px-4 py-3 font-medium text-admin-ink">{category.name}</td>
-                  <td className="px-4 py-3 text-admin-body">{category.slug}</td>
-                  <td className="px-4 py-3">
-                    <Badge tone={category.isActive ? 'success' : 'neutral'}>
+                  <td className="px-3 py-2.5">
+                    <p className="font-medium text-admin-ink">{category.name}</p>
+                    <p className="text-[13px] text-admin-muted">{category.slug}</p>
+                  </td>
+                  <td className="px-3 py-2.5">
+                    <Badge tone={category.isActive ? 'success' : 'neutral'} dot>
                       {category.isActive ? tCommon('active') : tCommon('inactive')}
                     </Badge>
                   </td>
-                  <td className="px-4 py-3 text-admin-body">{category.displayOrder ?? 0}</td>
-                  <td className="px-4 py-3">
-                    <div className="flex gap-2">
-                      <Link href={`/admin/dashboard/categories/${category._id}`} className="inline-flex items-center gap-1 rounded-lg border border-admin-border px-2.5 py-1.5 text-xs text-admin-body hover:bg-admin-surface-alt">
+                  <td className="admin-num px-3 py-2.5 text-admin-body">{category.displayOrder ?? 0}</td>
+                  <td className="py-2.5 pl-3 pr-5">
+                    <div className="flex justify-end gap-1.5">
+                      <Link
+                        href={`/admin/dashboard/categories/${category._id}`}
+                        aria-label={`${tCommon('edit')} ${category.name}`}
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-admin-border px-2.5 py-1.5 text-xs text-admin-body transition-colors hover:border-admin-border-strong hover:bg-admin-surface-alt hover:text-admin-ink"
+                      >
                         <Pencil className="h-3.5 w-3.5" />
                         {tCommon('edit')}
                       </Link>
                       <button
                         onClick={() => setPendingDelete(category)}
                         disabled={deletingId === category._id}
-                        className="inline-flex items-center gap-1 rounded-lg border border-admin-danger/25 bg-admin-danger-soft px-2.5 py-1.5 text-xs text-admin-danger disabled:cursor-not-allowed disabled:opacity-60"
+                        aria-label={`${tCommon('delete')} ${category.name}`}
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-admin-danger/20 px-2.5 py-1.5 text-xs text-admin-danger transition-colors hover:bg-admin-danger-soft disabled:pointer-events-none disabled:opacity-55"
                       >
                         <Trash2 className="h-3.5 w-3.5" />
                         {tCommon('delete')}
@@ -136,20 +147,20 @@ export default function CategoriesTable({ initialCategories }: CategoriesTablePr
       </div>
 
       {/* Mobile cards */}
-      <div className="space-y-3 md:hidden">
+      <div className="space-y-2.5 md:hidden">
         {categories.map((category) => (
-          <div key={category._id} className="rounded-2xl border border-admin-border bg-admin-surface p-4 shadow-admin-card">
+          <div key={category._id} className="rounded-2xl border border-admin-border bg-admin-surface p-3.5 shadow-admin-card">
             <div className="flex gap-3">
-              <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-xl border border-admin-border bg-admin-surface-alt">
+              <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-xl border border-admin-border bg-admin-surface-alt">
                 {category.image ? (
-                  <Image src={category.image} alt={category.name} fill className="object-cover" sizes="64px" />
+                  <Image src={category.image} alt="" fill className="object-cover" sizes="56px" />
                 ) : null}
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate font-medium text-admin-ink">{category.name}</p>
-                <p className="text-sm text-admin-muted">{category.slug}</p>
-                <div className="mt-1.5">
-                  <Badge tone={category.isActive ? 'success' : 'neutral'}>
+                <p className="truncate text-[13px] text-admin-muted">{category.slug}</p>
+                <div className="mt-2">
+                  <Badge tone={category.isActive ? 'success' : 'neutral'} dot>
                     {category.isActive ? tCommon('active') : tCommon('inactive')}
                   </Badge>
                 </div>
@@ -157,13 +168,14 @@ export default function CategoriesTable({ initialCategories }: CategoriesTablePr
             </div>
             <div className="mt-3 flex gap-2 border-t border-admin-border pt-3">
               <Link href={`/admin/dashboard/categories/${category._id}`} className="flex-1">
-                <Button variant="secondary" className="w-full">
+                <Button variant="secondary" size="sm" className="w-full">
                   <Pencil className="h-3.5 w-3.5" />
                   {tCommon('edit')}
                 </Button>
               </Link>
               <Button
                 variant="destructive"
+                size="sm"
                 className="flex-1"
                 onClick={() => setPendingDelete(category)}
                 disabled={deletingId === category._id}

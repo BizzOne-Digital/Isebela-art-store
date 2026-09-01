@@ -27,12 +27,12 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'tween', duration: 0.22, ease: 'easeOut' }}
-            className="fixed inset-y-0 left-0 z-50 w-72 max-w-[85vw] border-r border-admin-border shadow-admin-pop lg:hidden"
+            className="fixed inset-y-0 left-0 z-50 w-[280px] max-w-[85vw] border-r border-admin-border shadow-admin-pop lg:hidden"
           >
             <button
               onClick={onClose}
               aria-label="Close menu"
-              className="absolute right-3 top-3 rounded-full p-1.5 text-admin-muted hover:bg-admin-surface-alt hover:text-admin-ink"
+              className="absolute right-3 top-5 z-10 rounded-xl p-1.5 text-admin-muted transition-colors hover:bg-admin-surface-alt hover:text-admin-ink"
             >
               <X className="h-5 w-5" />
             </button>

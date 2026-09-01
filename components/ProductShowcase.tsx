@@ -12,15 +12,18 @@ import { Search, Filter, X, Sparkles, Grid, Eye } from 'lucide-react';
 interface ProductShowcaseProps {
   artworks: Product[];
   categories: CategoryView[];
+  /** How many pieces to show before "load more". The home page passes a small
+      number so the full catalog stays the job of /products. */
+  initialVisible?: number;
 }
 
-const ProductShowcase = ({ artworks, categories }: ProductShowcaseProps) => {
+const ProductShowcase = ({ artworks, categories, initialVisible = 24 }: ProductShowcaseProps) => {
   const t = useTranslations('products');
   const tCommon = useTranslations('common');
   const tCategories = useTranslations('categories');
   const { activeCategory: activeTab, setActiveCategory: setActiveTab } = useCatalogFilter();
   const [searchQuery, setSearchQuery] = useState('');
-  const [visibleCount, setVisibleCount] = useState(24);
+  const [visibleCount, setVisibleCount] = useState(initialVisible);
 
   const categoryTabs = useMemo(
     () => [
@@ -102,7 +105,7 @@ const ProductShowcase = ({ artworks, categories }: ProductShowcaseProps) => {
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
-                  setVisibleCount(24);
+                  setVisibleCount(initialVisible);
                 }}
                 className="w-full pl-12 pr-10 py-3.5 bg-surface border border-accent/25 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-textBase placeholder:text-textBase/40 rounded-xl shadow-sm [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
                 aria-label={t('searchAriaLabel')}
@@ -128,7 +131,7 @@ const ProductShowcase = ({ artworks, categories }: ProductShowcaseProps) => {
                     onClick={() => {
                       setActiveTab(cat.value);
                       setSearchQuery('');
-                      setVisibleCount(24);
+                      setVisibleCount(initialVisible);
                     }}
                     className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-sans transition-all flex items-center gap-2 ${
                       activeTab === cat.value
@@ -263,7 +266,7 @@ const ProductShowcase = ({ artworks, categories }: ProductShowcaseProps) => {
                 onClick={() => {
                   setSearchQuery('');
                   setActiveTab(ALL_CATEGORIES);
-                  setVisibleCount(24);
+                  setVisibleCount(initialVisible);
                 }}
                 className="px-6 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-sans text-sm"
               >

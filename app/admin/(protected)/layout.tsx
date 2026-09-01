@@ -11,5 +11,9 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
     redirect('/admin/login');
   }
 
-  return <AdminShell>{children}</AdminShell>;
+  return (
+    <AdminShell adminName={session.name} adminEmail={session.email}>
+      {children}
+    </AdminShell>
+  );
 }

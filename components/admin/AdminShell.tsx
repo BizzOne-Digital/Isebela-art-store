@@ -6,13 +6,19 @@ import MobileDrawer from './MobileDrawer';
 import Topbar from './Topbar';
 import { ToastProvider } from './ui/Toast';
 
-export default function AdminShell({ children }: { children: ReactNode }) {
+interface AdminShellProps {
+  children: ReactNode;
+  adminName?: string;
+  adminEmail?: string;
+}
+
+export default function AdminShell({ children, adminName, adminEmail }: AdminShellProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <ToastProvider>
-      <div className="min-h-screen bg-admin-bg lg:flex">
-        <aside className="hidden w-72 flex-shrink-0 border-r border-admin-border lg:block">
+      <div className="admin-root min-h-screen bg-admin-bg lg:flex">
+        <aside className="hidden w-[264px] flex-shrink-0 border-r border-admin-border lg:block">
           <div className="sticky top-0 h-screen">
             <Sidebar />
           </div>
@@ -20,9 +26,11 @@ export default function AdminShell({ children }: { children: ReactNode }) {
 
         <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
 
-        <div className="min-w-0 flex-1">
-          <Topbar onMenuClick={() => setDrawerOpen(true)} />
-          <main className="p-4 sm:p-6 lg:p-10">{children}</main>
+        <div className="flex min-w-0 flex-1 flex-col">
+          <Topbar onMenuClick={() => setDrawerOpen(true)} adminName={adminName} adminEmail={adminEmail} />
+          <main className="flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+            <div className="mx-auto w-full max-w-[1180px]">{children}</div>
+          </main>
         </div>
       </div>
     </ToastProvider>

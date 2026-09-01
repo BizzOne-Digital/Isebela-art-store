@@ -88,7 +88,11 @@
     "pageHeadingAccent": "Unique Pieces",
     "pageDescription": "Every creation is born from imagination and shaped with handcrafted dedication. Discover {count} models in dolls, cards, stationery, and recycled pieces.",
     "customIdeaText": "Looking for something unique and fully personalized?",
-    "customOrderWhatsapp": "Custom Order via WhatsApp"
+    "customOrderWhatsapp": "Custom Order via WhatsApp",
+    "carouselHeading": "Pieces Worth a Closer Look",
+    "carouselHint": "Swipe through a selection from the current collection.",
+    "carouselPrev": "Previous pieces",
+    "carouselNext": "Next pieces"
   },
   "productDetail": {
     "photoOf": "Photo",
@@ -586,6 +590,26 @@
     "testimonials": {
       "title": "Testimonials",
       "description": "What people who already trusted our handmade creations have to say."
+    },
+    "videos": {
+      "title": "Videos",
+      "description": "Watch the handcrafted process up close: molding, painting, finishing, and the 360° detail behind every piece."
+    },
+    "philosophy": {
+      "title": "Our Philosophy",
+      "description": "The thinking behind the work: why every piece is shaped by hand, and what that means for the person who receives it."
+    },
+    "process": {
+      "title": "Creative Process",
+      "description": "How a piece goes from a first conversation to a finished, packed creation ready to gift."
+    },
+    "offers": {
+      "title": "Special Offers",
+      "description": "New arrivals and seasonal pieces from the current collection."
+    },
+    "customOrders": {
+      "title": "Custom Orders",
+      "description": "Commission a one-off piece: your colors, your sizes, your theme, made by hand from scratch."
     }
   },
   "admin": {
@@ -626,10 +650,14 @@
       "videos": "Videos",
       "settings": "Settings",
       "logout": "Log out",
-      "language": "Language"
+      "language": "Language",
+      "groupOverview": "Overview",
+      "groupCatalog": "Catalog",
+      "groupAccount": "Account",
+      "viewSite": "View live site",
+      "openMenu": "Open menu"
     },
     "login": {
-      "eyebrow": "Admin Access",
       "title": "Sign in",
       "email": "Email",
       "password": "Password",
@@ -638,7 +666,6 @@
       "error": "Unable to sign in"
     },
     "dashboard": {
-      "eyebrow": "Admin Dashboard",
       "title": "Admin dashboard",
       "totalProducts": "Total Products",
       "publishedProducts": "Published",
@@ -653,10 +680,13 @@
       "mongoNotConfiguredTitle": "MongoDB is not configured",
       "mongoNotConfiguredText": "Add your MONGODB_URI to the environment and run the seed command before using the dashboard.",
       "totalVideos": "Videos",
-      "manageVideos": "Manage videos"
+      "manageVideos": "Manage videos",
+      "greeting": "Welcome back, {name}",
+      "subtitle": "Everything on the public site is managed from here.",
+      "noRecentTitle": "Nothing changed yet",
+      "noRecentText": "Product edits will show up here as you make them."
     },
     "products": {
-      "eyebrow": "Products",
       "title": "Product management",
       "newProduct": "New product",
       "searchPlaceholder": "Search by name or category",
@@ -676,10 +706,14 @@
       "errorTitle": "Couldn't load products",
       "deleteConfirmTitle": "Delete this product?",
       "deleteConfirmText": "This action cannot be undone. The piece will be permanently removed from the catalog.",
-      "deleteError": "Couldn't delete the product."
+      "deleteError": "Couldn't delete the product.",
+      "subtitle": "Add, edit, and publish the pieces shown in your catalog.",
+      "errorText": "The product list could not be loaded. Check your connection and try again.",
+      "noMatchesTitle": "No products match these filters",
+      "noMatchesText": "Try a different search term, or clear the filters to see everything.",
+      "clearFilters": "Clear filters"
     },
     "categories": {
-      "eyebrow": "Categories",
       "title": "Category management",
       "newCategory": "New category",
       "columnImage": "Image",
@@ -694,7 +728,9 @@
       "deleteConfirmTitle": "Delete this category?",
       "deleteConfirmText": "This action cannot be undone.",
       "deleteBlockedError": "You can't delete a category that has products assigned.",
-      "deleteError": "Couldn't delete the category."
+      "deleteError": "Couldn't delete the category.",
+      "subtitle": "Group your pieces so visitors can browse the catalog.",
+      "emptyText": "Categories organize your catalog. Add one to get started."
     },
     "productForm": {
       "titleNew": "New product",
@@ -781,10 +817,10 @@
       "moveLeft": "Move left",
       "moveRight": "Move right",
       "remove": "Remove image",
-      "errorGeneric": "Error uploading the image"
+      "errorGeneric": "Error uploading the image",
+      "coverImage": "Cover"
     },
     "videos": {
-      "eyebrow": "Videos",
       "title": "Video management",
       "newVideo": "Upload video",
       "preview": "Preview",
@@ -799,7 +835,8 @@
       "emptyAction": "Upload your first video",
       "deleteConfirmTitle": "Delete this video?",
       "deleteConfirmText": "This action cannot be undone. The video will be removed from the website and from storage.",
-      "deleteError": "Couldn't delete the video."
+      "deleteError": "Couldn't delete the video.",
+      "subtitle": "Upload and order the clips shown in the site video section."
     },
     "videoForm": {
       "titleNew": "Upload video",
@@ -835,6 +872,18 @@
       "maxSize": "The video must be under 100MB.",
       "remove": "Remove video",
       "errorGeneric": "Error uploading the video"
+    },
+    "settings": {
+      "subtitle": "Your account details and the services this dashboard depends on.",
+      "account": "Account",
+      "name": "Name",
+      "email": "Email",
+      "services": "Services",
+      "database": "Database",
+      "mediaStorage": "Media storage",
+      "connected": "Connected",
+      "notConfigured": "Not configured",
+      "languageHint": "Sets the language of this dashboard only. The public site language is chosen by each visitor."
     }
   }
 }

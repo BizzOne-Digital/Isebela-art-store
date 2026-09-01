@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Search, ChevronRight, X, Sparkles, Filter, Eye } from 'lucide-react';
+import ProductCarousel from '@/components/ProductCarousel';
 import type { Product } from '@/lib/products';
 import type { CategoryView } from '@/lib/storefront-data';
 import { ALL_CATEGORIES } from '@/components/CatalogFilterContext';
@@ -12,13 +13,24 @@ import { ALL_CATEGORIES } from '@/components/CatalogFilterContext';
 interface ProductsCatalogClientProps {
   artworks: Product[];
   categories: CategoryView[];
+  /** Category from `?category=`, resolved on the server. Lets a category tile
+      elsewhere on the site deep-link into its filtered view. */
+  initialCategory?: string;
 }
 
-export default function ProductsCatalogClient({ artworks, categories }: ProductsCatalogClientProps) {
+export default function ProductsCatalogClient({
+  artworks,
+  categories,
+  initialCategory,
+}: ProductsCatalogClientProps) {
   const t = useTranslations('products');
   const tCommon = useTranslations('common');
   const tCategories = useTranslations('categories');
-  const [activeTab, setActiveTab] = useState(ALL_CATEGORIES);
+  const [activeTab, setActiveTab] = useState(
+    initialCategory && categories.some((category) => category.canonicalName === initialCategory)
+      ? initialCategory
+      : ALL_CATEGORIES,
+  );
   const [searchQuery, setSearchQuery] = useState('');
 
   const categoryTabs = useMemo(
@@ -87,6 +99,8 @@ export default function ProductsCatalogClient({ artworks, categories }: Products
           </motion.div>
         ) : (
           <>
+            <ProductCarousel artworks={artworks} />
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

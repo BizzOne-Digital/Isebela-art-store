@@ -35,7 +35,11 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
-      <div className="fixed bottom-6 right-6 z-[200] flex flex-col gap-3">
+      <div
+        className="pointer-events-none fixed inset-x-4 bottom-4 z-[200] flex flex-col items-end gap-2 sm:inset-x-auto sm:bottom-6 sm:right-6"
+        role="status"
+        aria-live="polite"
+      >
         <AnimatePresence>
           {toasts.map((toast) => (
             <motion.div
@@ -44,10 +48,8 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.18 }}
-              className={`flex items-center gap-3 rounded-xl border px-4 py-3 shadow-admin-pop min-w-[260px] max-w-sm ${
-                toast.variant === 'success'
-                  ? 'bg-admin-surface border-admin-success/25 text-admin-ink'
-                  : 'bg-admin-surface border-admin-danger/25 text-admin-ink'
+              className={`pointer-events-auto flex w-full items-center gap-3 rounded-2xl border bg-admin-surface px-4 py-3 shadow-admin-pop sm:w-auto sm:min-w-[280px] sm:max-w-sm ${
+                toast.variant === 'success' ? 'border-admin-success/30' : 'border-admin-danger/30'
               }`}
             >
               {toast.variant === 'success' ? (
@@ -55,8 +57,8 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               ) : (
                 <AlertCircle className="h-5 w-5 flex-shrink-0 text-admin-danger" />
               )}
-              <p className="text-sm flex-1">{toast.message}</p>
-              <button onClick={() => dismiss(toast.id)} className="text-admin-muted hover:text-admin-ink" aria-label="Close">
+              <p className="flex-1 text-sm text-admin-ink">{toast.message}</p>
+              <button onClick={() => dismiss(toast.id)} className="-mr-1 rounded-lg p-1 text-admin-muted transition-colors hover:text-admin-ink" aria-label="Close">
                 <X className="h-4 w-4" />
               </button>
             </motion.div>

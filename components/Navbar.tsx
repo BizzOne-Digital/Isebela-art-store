@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 import Image from 'next/image';
+import { Link, usePathname } from '@/i18n/navigation';
 import LocaleSwitcher from '@/components/LocaleSwitcher';
 
 const InstagramIcon = () => (
@@ -24,24 +24,13 @@ const FacebookIcon = () => (
 
 const Navbar = () => {
   const t = useTranslations('navigation');
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('#inicio');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
-      const sections = ['#inicio', '#videos', '#productos', '#precios', '#testimonios', '#contacto'];
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.querySelector(sections[i]) as HTMLElement | null;
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -50,21 +39,16 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '#inicio', label: t('home') },
-    { href: '#videos', label: t('videos') },
-    { href: '#productos', label: t('products') },
-    { href: '#precios', label: t('pricing') },
-    { href: '#testimonios', label: t('testimonials') },
-    { href: '#contacto', label: t('contact') },
+    { href: '/', label: t('home') },
+    { href: '/videos', label: t('videos') },
+    { href: '/products', label: t('products') },
+    { href: '/pricing', label: t('pricing') },
+    { href: '/testimonials', label: t('testimonials') },
+    { href: '/contact', label: t('contact') },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setMobileMenuOpen(false);
-  };
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header
@@ -81,7 +65,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <Link href="#inicio" className="flex items-center gap-3 group" onClick={(e) => { e.preventDefault(); scrollToSection('#inicio'); }}>
+            <Link href="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-sm relative overflow-hidden transition-transform group-hover:scale-105">
                 <Image src="/images/logo/logo.jpeg" alt="Isabel Creando Logo" width={40} height={40} className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -99,34 +83,41 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-6 md:gap-8">
             {navLinks.map((link, index) => (
-              <motion.button
+              <motion.div
                 key={link.href}
-                onClick={() => scrollToSection(link.href)}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + index * 0.05 }}
-                className="text-xs uppercase tracking-widest font-sans font-medium text-textBase/70 hover:text-primary transition-colors relative group bg-transparent p-0"
               >
-                {link.label}
-                <span
-                  className="absolute -bottom-1 left-0 h-[1px] bg-primary transition-all duration-300"
-                  style={{ width: activeSection === link.href ? '100%' : '0' }}
-                />
-              </motion.button>
+                <Link
+                  href={link.href}
+                  aria-current={isActive(link.href) ? 'page' : undefined}
+                  className="text-xs uppercase tracking-widest font-sans font-medium text-textBase/70 hover:text-primary transition-colors relative group bg-transparent p-0"
+                >
+                  {link.label}
+                  <span
+                    className="absolute -bottom-1 left-0 h-[1px] bg-primary transition-all duration-300"
+                    style={{ width: isActive(link.href) ? '100%' : '0' }}
+                  />
+                </Link>
+              </motion.div>
             ))}
           </div>
 
           <div className="hidden md:flex items-center gap-3">
             <LocaleSwitcher />
-            <motion.button
-              onClick={() => scrollToSection('#contacto')}
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="px-6 py-2.5 bg-primary text-white text-[10px] uppercase tracking-widest font-sans font-semibold rounded-sm hover:bg-primary-dark transition-colors"
             >
-              {t('consult')}
-            </motion.button>
+              <Link
+                href="/contact"
+                className="inline-block px-6 py-2.5 bg-primary text-white text-[10px] uppercase tracking-widest font-sans font-semibold rounded-sm hover:bg-primary-dark transition-colors"
+              >
+                {t('consult')}
+              </Link>
+            </motion.div>
             <a
               href="https://instagram.com"
               target="_blank"
@@ -178,30 +169,39 @@ const Navbar = () => {
             >
               <div className="flex flex-col py-6 px-6 gap-4">
                 {navLinks.map((link, index) => (
-                  <motion.button
+                  <motion.div
                     key={link.href}
-                    onClick={() => scrollToSection(link.href)}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="text-sm uppercase tracking-widest font-sans font-medium text-left p-2 transition-colors relative"
-                    style={{ color: activeSection === link.href ? 'var(--color-primary)' : 'var(--color-neutral-700)' }}
                   >
-                    {link.label}
-                    {activeSection === link.href && (
-                      <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r" />
-                    )}
-                  </motion.button>
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      aria-current={isActive(link.href) ? 'page' : undefined}
+                      className="block text-sm uppercase tracking-widest font-sans font-medium text-left p-2 transition-colors relative"
+                      style={{ color: isActive(link.href) ? 'var(--color-primary)' : 'var(--color-neutral-700)' }}
+                    >
+                      {link.label}
+                      {isActive(link.href) && (
+                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r" />
+                      )}
+                    </Link>
+                  </motion.div>
                 ))}
-                <motion.button
-                  onClick={() => scrollToSection('#contacto')}
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="w-full py-4 bg-primary text-white text-center text-xs uppercase tracking-widest font-sans font-semibold rounded-sm"
                 >
-                  {t('consult')}
-                </motion.button>
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full py-4 bg-primary text-white text-center text-xs uppercase tracking-widest font-sans font-semibold rounded-sm"
+                  >
+                    {t('consult')}
+                  </Link>
+                </motion.div>
                 <div className="flex items-center justify-center gap-4 pt-4 border-t border-neutral-200">
                   <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 text-textBase/60 hover:text-accent transition-colors" aria-label={t('instagram')}>
                     <InstagramIcon />

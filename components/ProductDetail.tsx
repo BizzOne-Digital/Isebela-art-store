@@ -253,7 +253,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
           >
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl md:text-3xl font-serif text-textBase font-bold">{t('otherCreations')}</h2>
-              <Link href="/#productos" className="text-primary text-sm font-sans flex items-center gap-1 hover:underline">
+              <Link href="/products" className="text-primary text-sm font-sans flex items-center gap-1 hover:underline">
                 {t('viewAll')}
                 <ChevronRight className="w-4 h-4" />
               </Link>

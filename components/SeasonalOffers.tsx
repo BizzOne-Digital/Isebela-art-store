@@ -125,7 +125,7 @@ const SeasonalOffers = ({ artworks }: SeasonalOffersProps) => {
         className="mt-12 text-center relative z-10"
       >
         <Link
-          href="/#productos"
+          href="/products"
           className="inline-flex items-center gap-2 px-8 py-3.5 bg-secondary text-white rounded-xl hover:bg-secondary/90 transition-all font-sans shadow-md"
         >
           {t('discoverFullCollection')}

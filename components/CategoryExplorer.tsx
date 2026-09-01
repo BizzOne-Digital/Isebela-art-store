@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ChevronRight, Sparkles } from 'lucide-react';
-import { useCatalogFilter, ALL_CATEGORIES } from '@/components/CatalogFilterContext';
 import type { CategoryView } from '@/lib/storefront-data';
 import type { Product } from '@/lib/products';
 
@@ -16,7 +15,6 @@ interface CategoryExplorerProps {
 
 const CategoryExplorer = ({ categories, artworks }: CategoryExplorerProps) => {
   const t = useTranslations('categories');
-  const { setActiveCategory } = useCatalogFilter();
 
   if (categories.length === 0) {
     return null;
@@ -59,15 +57,7 @@ const CategoryExplorer = ({ categories, artworks }: CategoryExplorerProps) => {
               className="group relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow"
             >
               <Link
-                href="/#productos"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveCategory(category.canonicalName);
-                  const el = document.getElementById('productos');
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+                href={{ pathname: '/products', query: { category: category.canonicalName } }}
                 className="block relative aspect-[4/5] overflow-hidden bg-surfaceAlt/50 border border-accent/15 hover:border-primary/50 transition-all duration-300 rounded-lg"
               >
                 <div className="absolute inset-0">
@@ -110,15 +100,7 @@ const CategoryExplorer = ({ categories, artworks }: CategoryExplorerProps) => {
         className="mt-12 text-center relative z-10"
       >
         <Link
-          href="/#productos"
-          onClick={(e) => {
-            e.preventDefault();
-            setActiveCategory(ALL_CATEGORIES);
-            const el = document.getElementById('productos');
-            if (el) {
-              el.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}
+          href="/products"
           className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-sm hover:bg-primary/90 transition-colors font-sans"
         >
           <Sparkles className="w-4 h-4" />
