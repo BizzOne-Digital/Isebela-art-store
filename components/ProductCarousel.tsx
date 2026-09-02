@@ -137,7 +137,7 @@ export default function ProductCarousel({ artworks, max = 12 }: ProductCarouselP
           onClick={() => scrollByPage(-1)}
           disabled={atStart}
           aria-label={t('carouselPrev')}
-          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-accent/25 bg-surfaceAlt/90 backdrop-blur-sm text-textBase shadow-md items-center justify-center transition-colors hover:border-primary/50 hover:text-primary disabled:opacity-0 disabled:pointer-events-none"
+          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-accent/25 bg-white text-textBase shadow-md items-center justify-center transition-colors hover:border-primary/50 hover:text-primary disabled:opacity-0 disabled:pointer-events-none"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -146,7 +146,7 @@ export default function ProductCarousel({ artworks, max = 12 }: ProductCarouselP
           onClick={() => scrollByPage(1)}
           disabled={atEnd}
           aria-label={t('carouselNext')}
-          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-accent/25 bg-surfaceAlt/90 backdrop-blur-sm text-textBase shadow-md items-center justify-center transition-colors hover:border-primary/50 hover:text-primary disabled:opacity-0 disabled:pointer-events-none"
+          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-accent/25 bg-white text-textBase shadow-md items-center justify-center transition-colors hover:border-primary/50 hover:text-primary disabled:opacity-0 disabled:pointer-events-none"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -163,12 +163,12 @@ export default function ProductCarousel({ artworks, max = 12 }: ProductCarouselP
           {slides.map((product) => (
             <article
               key={product.id}
-              className="group snap-start flex-shrink-0 w-[240px] sm:w-[264px] border border-accent/15 bg-surfaceAlt/60 hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
+              className="group snap-start flex-shrink-0 w-[240px] sm:w-[264px] border border-accent/15 bg-white hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
             >
               <div>
                 <Link
                   href={`/products/${product.slug}`}
-                  className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden"
+                  className="block relative aspect-[4/5] bg-white overflow-hidden"
                 >
                   <Image
                     src={product.image}

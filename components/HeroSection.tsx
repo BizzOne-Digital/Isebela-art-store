@@ -96,7 +96,7 @@ export default function HeroSection({ artworks }: HeroSectionProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + index * 0.08 }}
-                  className="p-3 bg-surfaceAlt/60 backdrop-blur-sm border border-accent/15 rounded-xl text-left"
+                  className="p-3 bg-white border border-accent/15 rounded-xl text-left"
                 >
                   <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
                     <item.icon className="w-4 h-4 text-primary" />
@@ -116,7 +116,7 @@ export default function HeroSection({ artworks }: HeroSectionProps) {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="relative lg:col-span-5"
           >
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-accent/20 bg-surfaceAlt/80 shadow-2xl flex items-center justify-center">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-accent/20 bg-white shadow-2xl flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCraft.id}
@@ -146,7 +146,7 @@ export default function HeroSection({ artworks }: HeroSectionProps) {
               </div>
 
               {/* Bottom Info Overlay */}
-              <div className="absolute bottom-4 inset-x-4 p-4 bg-surface/95 backdrop-blur-md border border-accent/20 rounded-2xl shadow-xl z-20">
+              <div className="absolute bottom-4 inset-x-4 p-4 bg-white border border-accent/20 rounded-2xl shadow-xl z-20">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <h3 className="font-serif text-textBase text-base sm:text-lg font-medium">
@@ -173,7 +173,7 @@ export default function HeroSection({ artworks }: HeroSectionProps) {
                 <button
                   key={craft.id}
                   onClick={() => setSelectedCraftIndex(idx)}
-                  className={`relative w-16 h-16 rounded-xl overflow-hidden border-2 transition-all bg-surfaceAlt/90 ${
+                  className={`relative w-16 h-16 rounded-xl overflow-hidden border-2 transition-all bg-white ${
                     idx === selectedCraftIndex
                       ? 'border-primary ring-2 ring-primary/30 scale-105 shadow-md'
                       : 'border-accent/20 opacity-70 hover:opacity-100'

@@ -50,10 +50,10 @@ const FeaturedCreations = ({ artworks }: FeaturedCreationsProps) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 + index * 0.08 }}
-              className="relative group border border-accent/15 bg-surfaceAlt/60 hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
+              className="relative group border border-accent/15 bg-white hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
             >
               <div>
-                <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden">
+                <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-white overflow-hidden">
                   <Image
                     src={product.image}
                     alt={product.name}

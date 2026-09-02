@@ -5,6 +5,11 @@ import { Star, Heart, Sparkles, Shield, Crown } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import PageHeroImage from '@/components/PageHeroImage';
+
+/** Two hands passing a cut-paper heart — handmade work changing hands. */
+const TESTIMONIALS_HERO_IMAGE =
+  'https://images.unsplash.com/photo-1579208570378-8c970854bc23?auto=format&fit=crop&w=2000&q=80';
 
 const testimonialKeys = ['t1', 't2', 't3', 't4', 't5', 't6'] as const;
 const testimonialAvatars: Record<(typeof testimonialKeys)[number], string> = {
@@ -25,21 +30,17 @@ const TestimonialsSection = () => {
     <section id="testimonios" className="px-6 max-w-7xl mx-auto py-20 md:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/5 to-transparent" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        className="text-center mb-16 relative z-10"
-      >
+      <PageHeroImage src={TESTIMONIALS_HERO_IMAGE} priority className="mb-16">
         <span className="text-accent text-sm font-sans tracking-widest uppercase mb-4 block">{t('eyebrow')}</span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-textBase mb-6">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6">
           {t('titleStart')}
           <br />
-          <span className="text-secondary">{t('titleAccent')}</span>
+          <span className="text-secondary-soft">{t('titleAccent')}</span>
         </h2>
-        <p className="text-textBase/60 text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-white/75 text-lg max-w-2xl mx-auto leading-relaxed">
           {t('description')}
         </p>
-      </motion.div>
+      </PageHeroImage>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}

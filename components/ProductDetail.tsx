@@ -77,7 +77,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
       >
         <button
           onClick={handleGoBack}
-          className="inline-flex items-center gap-2 text-textBase/70 hover:text-primary transition-colors text-sm font-sans mb-8 px-4 py-2 bg-surfaceAlt/60 rounded-lg border border-accent/15 hover:border-primary/40 shadow-sm"
+          className="inline-flex items-center gap-2 text-textBase/70 hover:text-primary transition-colors text-sm font-sans mb-8 px-4 py-2 bg-white rounded-lg border border-accent/15 hover:border-primary/40 shadow-sm"
         >
           <ChevronLeft className="w-4 h-4" />
           {tCommon('back')}
@@ -86,7 +86,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Product Image Gallery */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="relative aspect-[4/5] sm:aspect-square rounded-3xl overflow-hidden border border-accent/20 bg-surfaceAlt/90 shadow-xl flex items-center justify-center p-4">
+            <div className="relative aspect-[4/5] sm:aspect-square rounded-3xl overflow-hidden border border-accent/20 bg-white shadow-xl flex items-center justify-center p-4">
               <Image
                 src={images[currentImageIndex]}
                 alt={`${product.name} - ${currentImageIndex + 1}`}
@@ -98,14 +98,14 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
 
               <button
                 onClick={() => setIsLightboxOpen(true)}
-                className="absolute top-4 right-4 p-3 rounded-full bg-surface/90 backdrop-blur-md border border-accent/20 text-textBase hover:text-primary hover:bg-surface transition-all shadow-md"
+                className="absolute top-4 right-4 p-3 rounded-full bg-white border border-accent/20 text-textBase hover:text-primary transition-all shadow-md"
                 aria-label={t('enlargeImage')}
               >
                 <ZoomIn className="w-5 h-5" />
               </button>
 
               <div className="absolute bottom-4 left-4">
-                <span className="px-3 py-1 bg-surface/90 backdrop-blur-md text-textBase/80 text-xs font-sans rounded-full border border-accent/20">
+                <span className="px-3 py-1 bg-white text-textBase/80 text-xs font-sans rounded-full border border-accent/20">
                   {t('photoOf')} {currentImageIndex + 1} {t('ofText')} {images.length}
                 </span>
               </div>
@@ -118,7 +118,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 transition-all bg-surfaceAlt/90 flex-shrink-0 ${
+                    className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 transition-all bg-white flex-shrink-0 ${
                       index === currentImageIndex
                         ? 'border-primary ring-2 ring-primary/30 scale-105 shadow-md'
                         : 'border-accent/20 opacity-70 hover:opacity-100'
@@ -165,7 +165,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
               </p>
             </div>
 
-            <div className="p-6 bg-surfaceAlt/60 border border-accent/15 rounded-2xl space-y-4">
+            <div className="p-6 bg-white border border-accent/15 rounded-2xl space-y-4">
               <div className="flex items-baseline justify-between gap-4">
                 <div>
                   <span className="text-3xl md:text-4xl font-serif text-primary font-bold">{product.price}</span>
@@ -201,7 +201,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                 <h3 className="text-lg font-serif text-textBase font-semibold">{t('detailsAndFeatures')}</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {product.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2.5 p-3 bg-surfaceAlt/40 border border-accent/10 rounded-xl">
+                    <li key={index} className="flex items-start gap-2.5 p-3 bg-white border border-accent/10 rounded-xl">
                       <Sparkles className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-textBase/80 text-xs sm:text-sm">{feature}</span>
                     </li>
@@ -216,7 +216,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                 <h3 className="text-lg font-serif text-textBase font-semibold">{t('nobleMaterials')}</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {product.materials.map((material, index) => (
-                    <li key={index} className="flex items-center gap-2.5 p-3 bg-surfaceAlt/40 border border-accent/10 rounded-xl">
+                    <li key={index} className="flex items-center gap-2.5 p-3 bg-white border border-accent/10 rounded-xl">
                       <Leaf className="w-4 h-4 text-secondary flex-shrink-0" />
                       <span className="text-textBase/80 text-xs sm:text-sm">{material}</span>
                     </li>
@@ -230,7 +230,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
               <h3 className="text-lg font-serif text-textBase font-semibold">{t('craftProcess')}</h3>
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
                 {processSteps.map((step, index) => (
-                  <div key={index} className="p-3 bg-surfaceAlt/40 border border-accent/10 rounded-xl text-center">
+                  <div key={index} className="p-3 bg-white border border-accent/10 rounded-xl text-center">
                     <div className="w-8 h-8 mx-auto mb-2 rounded-lg bg-primary/10 flex items-center justify-center">
                       <step.icon className="w-4 h-4 text-primary" />
                     </div>
@@ -263,10 +263,10 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
               {relatedProducts.map((relatedProduct) => (
                 <motion.article
                   key={relatedProduct.id}
-                  className="group border border-accent/15 bg-surfaceAlt/50 hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between"
+                  className="group border border-accent/15 bg-white hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between"
                 >
                   <div>
-                    <Link href={`/products/${relatedProduct.slug}`} className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden">
+                    <Link href={`/products/${relatedProduct.slug}`} className="block relative aspect-[4/5] bg-white overflow-hidden">
                       <Image
                         src={relatedProduct.image}
                         alt={relatedProduct.name}

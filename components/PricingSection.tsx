@@ -4,6 +4,11 @@ import { motion } from 'framer-motion';
 import { Check, Sparkles, Heart, Shield, Star, Crown, Gift } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import PageHeroImage from '@/components/PageHeroImage';
+
+/** Hand-wrapped gifts and twine — what every tier is ultimately paying for. */
+const PRICING_HERO_IMAGE =
+  'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=2000&q=80';
 
 const tierIcons = { catalog: Sparkles, custom: Heart, wholesale: Crown } as const;
 const tierLinks = { catalog: '/products', custom: '/contact', wholesale: '/contact' } as const;
@@ -19,21 +24,17 @@ const PricingSection = () => {
     <section id="precios" className="px-6 max-w-7xl mx-auto py-20 md:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        className="text-center mb-16 relative z-10"
-      >
+      <PageHeroImage src={PRICING_HERO_IMAGE} priority className="mb-16">
         <span className="text-accent text-sm font-sans tracking-widest uppercase mb-4 block">{t('eyebrow')}</span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-textBase mb-6">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6">
           {t('titleStart')}
           <br />
-          <span className="text-primary">{t('titleAccent')}</span>
+          <span className="text-primary-soft">{t('titleAccent')}</span>
         </h2>
-        <p className="text-textBase/60 text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-white/75 text-lg max-w-2xl mx-auto leading-relaxed">
           {t('description')}
         </p>
-      </motion.div>
+      </PageHeroImage>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}

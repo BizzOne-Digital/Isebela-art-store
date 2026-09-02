@@ -6,9 +6,14 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Search, ChevronRight, X, Sparkles, Filter, Eye } from 'lucide-react';
 import ProductCarousel from '@/components/ProductCarousel';
+import PageHeroImage from '@/components/PageHeroImage';
 import type { Product } from '@/lib/products';
 import type { CategoryView } from '@/lib/storefront-data';
 import { ALL_CATEGORIES } from '@/components/CatalogFilterContext';
+
+/** Craft tools and cut paper on a workshop mat — the making behind the catalog. */
+const CATALOG_HERO_IMAGE =
+  'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=2000&q=80';
 
 interface ProductsCatalogClientProps {
   artworks: Product[];
@@ -70,22 +75,18 @@ export default function ProductsCatalogClient({
       <section className="px-6 max-w-7xl mx-auto py-16 md:py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="mb-12 text-center relative z-10"
-        >
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary/10 text-primary text-xs font-sans uppercase tracking-widest rounded-full mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
+        <PageHeroImage src={CATALOG_HERO_IMAGE} priority>
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white/15 border border-white/25 text-white text-xs font-sans uppercase tracking-widest rounded-full mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
             {t('pageTitle')} • {t('piecesCount', { count: artworks.length })}
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-textBase mb-4 font-normal">
-            {t('pageHeading')} <span className="text-primary">{t('pageHeadingAccent')}</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4 font-normal">
+            {t('pageHeading')} <span className="text-primary-soft">{t('pageHeadingAccent')}</span>
           </h1>
-          <p className="text-textBase/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             {t('pageDescription', { count: artworks.length })}
           </p>
-        </motion.div>
+        </PageHeroImage>
 
         {artworks.length === 0 ? (
           <motion.div
@@ -186,10 +187,10 @@ export default function ProductsCatalogClient({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: (index % 12) * 0.04 }}
-                    className="group border border-accent/15 bg-surfaceAlt/60 hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
+                    className="group border border-accent/15 bg-white hover:border-primary/50 transition-all duration-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg flex flex-col justify-between"
                   >
                     <div>
-                      <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-surfaceAlt/80 overflow-hidden">
+                      <Link href={`/products/${product.slug}`} className="block relative aspect-[4/5] bg-white overflow-hidden">
                         <Image
                           src={product.image}
                           alt={product.name}
