@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 // Accepts either an absolute URL (e.g. a Cloudinary upload) or a root-relative
-// local path (e.g. the static "/images/img/is1.jpg" assets used by legacy
+// local path (e.g. the static "/images/img/is1.png" assets used by legacy
 // migrated catalog data) — both are valid, renderable image sources in this app.
 const imagePathSchema = z.string().refine(
   (value) => /^https?:\/\//.test(value) || value.startsWith('/'),

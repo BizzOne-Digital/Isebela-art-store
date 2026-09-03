@@ -72,7 +72,7 @@ export const categorySeeds: CategorySeed[] = [
       'Fofuchas y muñecos modelados a mano en goma eva: personajes, profesiones, personalizados y ediciones de temporada.',
     descriptionEn:
       'Hand-modelled EVA foam fofuchas and dolls: characters, professions, custom commissions and seasonal editions.',
-    image: '/images/img/is8.jpg',
+    image: '/images/img/is8.png',
     displayOrder: 1,
     isActive: true,
   },
@@ -84,7 +84,7 @@ export const categorySeeds: CategorySeed[] = [
       'Tarjetas artesanales con relieves, dorados, gemas y plegados especiales para cada ocasión.',
     descriptionEn:
       'Handmade cards with embossing, gold foil, applied gems and special folds for every occasion.',
-    image: '/images/img/is7.jpg',
+    image: '/images/img/is7.png',
     displayOrder: 2,
     isActive: true,
   },
@@ -96,7 +96,7 @@ export const categorySeeds: CategorySeed[] = [
       'Libretas decoradas, toppers para lápices y llaveros artesanales para el día a día.',
     descriptionEn:
       'Decorated notebooks, pencil toppers and handmade keychains for everyday use.',
-    image: '/images/img/is9.jpg',
+    image: '/images/img/is9.png',
     displayOrder: 3,
     isActive: true,
   },
@@ -108,7 +108,7 @@ export const categorySeeds: CategorySeed[] = [
       'Cajas vitrina, bolsas y sobres decorados a mano, listos para regalar y personalizables con nombre.',
     descriptionEn:
       'Hand-decorated display boxes, gift bags and envelopes, ready to give and personalisable with a name.',
-    image: '/images/img/is33.jpg',
+    image: '/images/img/is33.png',
     displayOrder: 4,
     isActive: true,
   },
@@ -120,7 +120,7 @@ export const categorySeeds: CategorySeed[] = [
       'Cestas, organizadores y adornos creados a partir de materiales reutilizados con acabados premium.',
     descriptionEn:
       'Baskets, organizers and ornaments built from reused materials with premium finishes.',
-    image: '/images/img/is16.jpg',
+    image: '/images/img/is16.png',
     displayOrder: 5,
     isActive: true,
   },
@@ -139,7 +139,7 @@ export const categorySeeds: CategorySeed[] = [
       'Piezas creadas desde cero según tu idea: personajes, profesiones, mascotas y fechas especiales.',
     descriptionEn:
       'Pieces created from scratch around your idea: characters, professions, pets and special dates.',
-    image: '/images/img/is18.jpg',
+    image: '/images/img/is18.png',
     displayOrder: 6,
     isActive: false,
   },

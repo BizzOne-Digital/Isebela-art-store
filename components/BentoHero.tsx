@@ -133,7 +133,7 @@ const BentoHero = () => {
           className="md:col-span-2 relative overflow-hidden border border-accent/20 bg-surfaceAlt/30"
         >
           <Image
-            src="/images/img/is7.jpg"
+            src="/images/img/is7.png"
             alt="Detalle de creaciones en goma eva"
             fill
             className="object-cover opacity-60"

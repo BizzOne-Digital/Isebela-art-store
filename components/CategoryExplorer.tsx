@@ -47,7 +47,7 @@ const CategoryExplorer = ({ categories, artworks }: CategoryExplorerProps) => {
       >
         {categories.map((category, index) => {
           const categoryArtworks = artworks.filter((product) => product.category === category.canonicalName);
-          const image = category.image || categoryArtworks[0]?.image || '/images/img/is1.jpg';
+          const image = category.image || categoryArtworks[0]?.image || '/images/img/is1.png';
 
           return (
             <motion.article

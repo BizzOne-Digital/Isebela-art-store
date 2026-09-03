@@ -51,7 +51,7 @@ function imagePathsOf(product: Product): string[] {
   return [product.image, ...(product.secondaryImages ?? [])];
 }
 
-/** `/images/img/is12.jpg` -> absolute path on disk. */
+/** `/images/img/is12.png` -> absolute path on disk. */
 function toDiskPath(mediaUrl: string): string {
   return path.join(process.cwd(), 'public', ...mediaUrl.replace(/^\//, '').split('/'));
 }

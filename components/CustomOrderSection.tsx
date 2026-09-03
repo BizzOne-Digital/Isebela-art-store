@@ -113,7 +113,7 @@ const CustomOrderSection = () => {
         >
           <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-accent/20 bg-surfaceAlt relative shadow-xl">
             <Image
-              src="/images/img/is18.jpg"
+              src="/images/img/is18.png"
               alt={t('imageAlt')}
               fill
               className="object-cover"

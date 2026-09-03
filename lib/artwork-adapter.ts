@@ -46,7 +46,7 @@ export function toProductView(doc: ArtworkLean, locale: AppLocale = 'es'): Produ
     category: doc.category,
     description: localize(locale, doc.description, doc.descriptionEn),
     shortDescription: localize(locale, doc.shortDescription || '', doc.shortDescriptionEn),
-    image: images[0] || '/images/img/is1.jpg',
+    image: images[0] || '/images/img/is1.png',
     secondaryImages: images.slice(1),
     price: doc.price || '',
     priceLabel: doc.priceLabel || '',
