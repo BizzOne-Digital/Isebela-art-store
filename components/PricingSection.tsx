@@ -71,10 +71,6 @@ const PricingSection = () => {
                 <h3 className="text-xl font-serif text-textBase mb-2">{t(`tiers.${key}.name`)}</h3>
                 <p className="text-textBase/60 text-sm">{t(`tiers.${key}.description`)}</p>
               </div>
-              <div className="text-center mb-6">
-                <span className="text-4xl md:text-5xl font-serif text-primary">{t(`tiers.${key}.price`)}</span>
-                <p className="text-textBase/50 text-sm mt-1">{t(`tiers.${key}.period`)}</p>
-              </div>
               <ul className="space-y-4 mb-8">
                 {features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-textBase/70 text-sm">
