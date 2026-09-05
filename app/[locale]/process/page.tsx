@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import Navbar from '@/components/Navbar';
 import ProcessSection from '@/components/ProcessSection';
-import Footer from '@/components/Footer';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -20,11 +18,9 @@ export default async function ProcessPage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
       <main className="min-h-screen bg-surface pt-8">
         <ProcessSection />
       </main>
-      <Footer />
     </>
   );
 }

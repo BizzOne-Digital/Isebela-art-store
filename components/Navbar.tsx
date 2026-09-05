@@ -1,11 +1,11 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { Link, usePathname } from '@/i18n/navigation';
+import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import LocaleSwitcher from '@/components/LocaleSwitcher';
 
 const InstagramIcon = () => (
@@ -25,6 +25,7 @@ const FacebookIcon = () => (
 const Navbar = () => {
   const t = useTranslations('navigation');
   const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -38,15 +39,28 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: '/', label: t('home') },
-    // The videos section lives on the home page now, so this is an anchor.
-    // { href: '/#videos', label: t('videos') },
-    { href: '/products', label: t('products') },
-    { href: '/pricing', label: t('pricing') },
-    { href: '/testimonials', label: t('testimonials') },
-    { href: '/contact', label: t('contact') },
-  ];
+  const navLinks = useMemo(
+    () => [
+      { href: '/', label: t('home') },
+      // The videos section lives on the home page now, so this is an anchor.
+      // { href: '/#videos', label: t('videos') },
+      { href: '/products', label: t('products') },
+      { href: '/pricing', label: t('pricing') },
+      { href: '/testimonials', label: t('testimonials') },
+      { href: '/contact', label: t('contact') },
+    ],
+    [t],
+  );
+
+  // The mobile links only mount once the menu is open, so viewport-based
+  // prefetching starts too late to help someone who opens the menu and taps
+  // straight away. Warming the five routes up front means the tap has the
+  // payload already in the client cache.
+  useEffect(() => {
+    for (const link of navLinks) {
+      router.prefetch(link.href);
+    }
+  }, [navLinks, router]);
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);

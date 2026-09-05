@@ -5,8 +5,6 @@ import { connectMongo, hasMongoConfig } from '@/lib/db';
 import { Artwork } from '@/lib/models/Artwork';
 import { toProductView, toPlain, type ArtworkLean } from '@/lib/artwork-adapter';
 import ProductDetail from '@/components/ProductDetail';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import type { AppLocale } from '@/i18n/routing';
 
 interface Props {
@@ -82,8 +80,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [imageUrl],
     },
     other: {
-      'product:price:amount': product.price?.replace(/[^\d]/g, '') || '0',
-      'product:price:currency': 'ARS',
       'product:availability': product.availability === 'available' ? 'in_stock' :
                                product.availability === 'made-to-order' ? 'available_for_order' :
                                product.availability === 'limited' ? 'limited_availability' : 'out_of_stock',
@@ -104,9 +100,7 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
       <ProductDetail product={product} relatedProducts={relatedProducts} />
-      <Footer />
     </>
   );
 }

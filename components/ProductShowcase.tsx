@@ -224,8 +224,7 @@ const ProductShowcase = ({ artworks, categories, initialVisible = 24 }: ProductS
                   </div>
 
                   <div className="p-4 sm:p-5 pt-0">
-                    <div className="flex items-center justify-between pt-3 border-t border-accent/10">
-                      <span className="text-primary font-serif text-base font-bold">{product.price}</span>
+                    <div className="flex items-center justify-end pt-3 border-t border-accent/10">
                       <Link
                         href={`/products/${product.slug}`}
                         className="inline-flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary text-xs font-sans font-medium rounded-lg hover:bg-primary hover:text-white transition-colors"

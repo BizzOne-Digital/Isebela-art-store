@@ -4,6 +4,8 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Providers from "./providers";
 import "../globals.css";
 
@@ -105,7 +107,15 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <NextIntlClientProvider>
-          <Providers>{children}</Providers>
+          <Providers>
+            {/* Chrome lives in the layout, not in each page: the router then
+                reuses this segment across navigations and only fetches the
+                page that actually changed, instead of re-rendering and
+                remounting the whole header/footer on every route click. */}
+            <Navbar />
+            {children}
+            <Footer />
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

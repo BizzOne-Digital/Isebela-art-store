@@ -1,4 +1,3 @@
-import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FeaturedCreations from '@/components/FeaturedCreations';
 import PhilosophySection from '@/components/PhilosophySection';
@@ -6,7 +5,6 @@ import ProcessSection from '@/components/ProcessSection';
 import VideoShowcase from '@/components/VideoShowcase';
 import CustomOrderSection from '@/components/CustomOrderSection';
 import ArtDecoDivider from '@/components/ArtDecoDivider';
-import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { getPublishedCatalog, getPublishedVideos } from '@/lib/storefront-data';
 import { setRequestLocale } from 'next-intl/server';
@@ -28,7 +26,6 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
       <main className="min-h-screen bg-surface">
         <HeroSection artworks={products} />
         <ArtDecoDivider />
@@ -41,7 +38,6 @@ export default async function HomePage({ params }: Props) {
         <VideoShowcase videos={videos} />
         <ArtDecoDivider />
         <CustomOrderSection />
-        <Footer />
       </main>
       <WhatsAppButton />
     </>

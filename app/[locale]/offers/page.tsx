@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import Navbar from '@/components/Navbar';
 import SeasonalOffers from '@/components/SeasonalOffers';
-import Footer from '@/components/Footer';
 import { getPublishedCatalog } from '@/lib/storefront-data';
 import type { AppLocale } from '@/i18n/routing';
 
@@ -25,11 +23,9 @@ export default async function OffersPage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
       <main className="min-h-screen bg-surface pt-8">
         <SeasonalOffers artworks={products} />
       </main>
-      <Footer />
     </>
   );
 }

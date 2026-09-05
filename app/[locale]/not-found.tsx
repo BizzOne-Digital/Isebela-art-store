@@ -3,8 +3,6 @@
 import { useTranslations } from 'next-intl';
 import { SearchX } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import EmptyState from '@/components/ui/EmptyState';
 
 /**
@@ -16,7 +14,6 @@ export default function LocaleNotFound() {
 
   return (
     <>
-      <Navbar />
       <main className="min-h-screen bg-surface pt-32 pb-24 px-6">
         <div className="max-w-3xl mx-auto">
           <EmptyState
@@ -42,7 +39,6 @@ export default function LocaleNotFound() {
           />
         </div>
       </main>
-      <Footer />
     </>
   );
 }

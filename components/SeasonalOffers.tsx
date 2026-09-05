@@ -120,8 +120,7 @@ const SeasonalOffers = ({ artworks }: SeasonalOffersProps) => {
               </div>
 
               <div className="p-4 sm:p-5 pt-0">
-                <div className="flex items-center justify-between pt-3 border-t border-secondary/15">
-                  <span className="text-secondary font-serif text-base font-bold">{product.price}</span>
+                <div className="flex items-center justify-end pt-3 border-t border-secondary/15">
                   <Link
                     href={`/products/${product.slug}`}
                     className="inline-flex items-center gap-1 px-3 py-1.5 bg-secondary/15 text-secondary text-xs font-sans font-medium rounded-lg hover:bg-secondary hover:text-white transition-colors"

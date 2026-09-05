@@ -4,6 +4,13 @@ import createNextIntlPlugin from "next-intl/plugin";
 const nextConfig: NextConfig = {
   experimental: {
     globalNotFound: true,
+    // Keep prefetched payloads reusable for a while instead of refetching a
+    // route the visitor just came from. `dynamic` defaults to 0, which meant
+    // the catalog's prefetch was thrown away the moment it was used.
+    staleTimes: {
+      dynamic: 30,
+      static: 300,
+    },
   },
   images: {
     remotePatterns: [

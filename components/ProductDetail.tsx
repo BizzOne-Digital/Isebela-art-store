@@ -62,9 +62,9 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
     { icon: Package, title: t('securePackaging'), desc: t('securePackagingDesc') },
   ];
 
-  const whatsappMessage = `Hola Isabel! Me interesa "${product.name}" (${product.price}). Quisiera consultar disponibilidad y detalles de entrega.`;
+  const whatsappMessage = `Hola Isabel! Me interesa "${product.name}". Quisiera consultar disponibilidad y detalles de entrega.`;
   const emailSubject = `Consulta sobre: ${product.name}`;
-  const emailBody = `Hola Isabel,\n\nMe interesa la pieza "${product.name}" (${product.price}).\n\nQuisiera saber:\n- Disponibilidad actual\n- Tiempo de entrega\n- Opciones de personalización\n- Costos de envío a mi ciudad\n\nMuchas gracias!`;
+  const emailBody = `Hola Isabel,\n\nMe interesa la pieza "${product.name}".\n\nQuisiera saber:\n- Disponibilidad actual\n- Tiempo de entrega\n- Opciones de personalización\n- Costos de envío a mi ciudad\n\nMuchas gracias!`;
 
   return (
     <article className="min-h-screen bg-surface">
@@ -166,16 +166,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
             </div>
 
             <div className="p-6 bg-white border border-accent/15 rounded-2xl space-y-4">
-              <div className="flex items-baseline justify-between gap-4">
-                <div>
-                  <span className="text-3xl md:text-4xl font-serif text-primary font-bold">{product.price}</span>
-                  {product.priceLabel && (
-                    <p className="text-textBase/50 text-xs font-sans mt-0.5">{product.priceLabel}</p>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href={`https://wa.me/5491186371242?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
@@ -286,8 +277,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                     </div>
                   </div>
                   <div className="p-4 pt-0">
-                    <div className="flex items-center justify-between pt-2 border-t border-accent/10">
-                      <span className="text-primary font-serif text-base font-bold">{relatedProduct.price}</span>
+                    <div className="flex items-center justify-end pt-2 border-t border-accent/10">
                       <Link
                         href={`/products/${relatedProduct.slug}`}
                         className="text-accent text-xs font-sans hover:underline font-medium"

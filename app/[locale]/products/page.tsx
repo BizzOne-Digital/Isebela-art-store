@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import ProductsCatalogClient from '@/components/ProductsCatalogClient';
 import { getPublishedCatalog } from '@/lib/storefront-data';
 import type { AppLocale } from '@/i18n/routing';
@@ -28,13 +26,11 @@ export default async function ProductsPage({ params, searchParams }: Props) {
 
   return (
     <>
-      <Navbar />
       <ProductsCatalogClient
         artworks={products}
         categories={categories}
         initialCategory={category}
       />
-      <Footer />
     </>
   );
 }

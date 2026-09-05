@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import Navbar from '@/components/Navbar';
 import PhilosophySection from '@/components/PhilosophySection';
-import Footer from '@/components/Footer';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -20,11 +18,9 @@ export default async function PhilosophyPage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
       <main className="min-h-screen bg-surface pt-8">
         <PhilosophySection />
       </main>
-      <Footer />
     </>
   );
 }
